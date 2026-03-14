@@ -1,0 +1,9 @@
+{
+  "imports": {
+    "@supabase/supabase-js": "https://esm.sh/@supabase/supabase-js@2",
+    "openrouter": "./_shared/openrouter.ts"
+  },
+  "compilerOptions": {
+    "strict": true
+  }
+}

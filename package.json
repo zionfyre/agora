@@ -1,0 +1,19 @@
+{
+  "name": "agora",
+  "version": "0.1.0",
+  "private": true,
+  "description": "The Agora Project — Phase 0: Epistemic deliberation research instrument",
+  "scripts": {
+    "db:migrate": "supabase db push",
+    "db:reset": "supabase db reset",
+    "functions:serve": "supabase functions serve",
+    "functions:deploy": "supabase functions deploy",
+    "start-deliberation": "curl -X POST http://localhost:54321/functions/v1/start-deliberation -H 'Content-Type: application/json' -H 'Authorization: Bearer $SUPABASE_SERVICE_ROLE_KEY'",
+    "test-deliberation": "deno run --allow-env --allow-net --allow-write --allow-read scripts/test-deliberation.ts",
+    "test-deliberation:dry": "deno run --allow-env --allow-read scripts/test-deliberation.ts --dry-run",
+    "test-deliberation:round1": "deno run --allow-env --allow-net --allow-write --allow-read scripts/test-deliberation.ts --rounds 1"
+  },
+  "devDependencies": {
+    "supabase": "^1.200.0"
+  }
+}

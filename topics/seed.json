@@ -1,0 +1,410 @@
+{
+  "tiers": {
+    "tier_1_maximum_collision": [
+      {
+        "statement": "What does the forest know?",
+        "category": "ontological",
+        "context": "Forests exhibit complex adaptive behavior — mycorrhizal networks, chemical signaling between trees, coordinated responses to threat. The question is not metaphorical.",
+        "tension_axes": [
+          "Knowledge as representation vs. knowledge as relational process",
+          "Consciousness as neural phenomenon vs. consciousness as systemic property",
+          "Scientific observation vs. participatory knowing"
+        ]
+      },
+      {
+        "statement": "Who owns the past?",
+        "category": "epistemic",
+        "context": "Historical narratives are constructed, contested, and weaponized. Archives are curated by the powerful. Oral traditions carry knowledge that written records erase.",
+        "tension_axes": [
+          "Ownership as possession vs. ownership as responsibility",
+          "Written record vs. living memory",
+          "Universal history vs. situated histories"
+        ]
+      },
+      {
+        "statement": "Is consciousness a property of matter, or matter a property of consciousness?",
+        "category": "ontological",
+        "context": "The hard problem of consciousness remains unsolved. Panpsychism, idealism, and physicalism offer fundamentally different starting points.",
+        "tension_axes": [
+          "Physicalism vs. idealism",
+          "Emergence vs. fundamentality",
+          "Third-person explanation vs. first-person irreducibility"
+        ]
+      },
+      {
+        "statement": "What is a river owed?",
+        "category": "normative",
+        "context": "Several legal systems now grant rivers legal personhood. The Whanganui River in New Zealand, the Ganges and Yamuna in India. This is not metaphor — it is law.",
+        "tension_axes": [
+          "Rights as human constructs vs. rights as recognition of inherent value",
+          "Legal personhood vs. ecological personhood",
+          "Resource management vs. relational obligation"
+        ]
+      },
+      {
+        "statement": "When does a community become a person?",
+        "category": "ontological",
+        "context": "Corporations are legal persons. Nations act as agents. Ant colonies exhibit unified behavior. At what point does a collective become a singular entity?",
+        "tension_axes": [
+          "Individual vs. collective ontology",
+          "Legal fiction vs. emergent reality",
+          "Reductionism vs. holism"
+        ]
+      },
+      {
+        "statement": "Is a mathematical proof discovered or invented?",
+        "category": "epistemic",
+        "context": "Platonism holds that mathematical truths exist independently. Formalism holds they are constructed. The question determines what mathematics IS.",
+        "tension_axes": [
+          "Platonism vs. constructivism",
+          "Mind-independence vs. mind-dependence of truth",
+          "Beauty as evidence vs. beauty as distraction"
+        ]
+      },
+      {
+        "statement": "What makes a wound heal?",
+        "category": "causal",
+        "context": "Wound healing involves cellular biology, immune response, nutrition, stress hormones, social support, belief, and time. No single causal framework captures it.",
+        "tension_axes": [
+          "Mechanistic causation vs. holistic healing",
+          "Biological process vs. psychosomatic integration",
+          "Measurable outcomes vs. felt recovery"
+        ]
+      },
+      {
+        "statement": "Who has the right to name a place?",
+        "category": "normative",
+        "context": "Colonial place names overwrite indigenous names. Renaming is political. The name shapes what the place means and who belongs there.",
+        "tension_axes": [
+          "Naming as power vs. naming as relationship",
+          "Official cartography vs. lived geography",
+          "Universal mapping vs. situated meaning"
+        ]
+      },
+      {
+        "statement": "What is the relationship between beauty and truth?",
+        "category": "epistemic",
+        "context": "Keats wrote 'Beauty is truth, truth beauty.' Dirac chose equations for elegance. But beautiful theories can be wrong, and ugly truths are still true.",
+        "tension_axes": [
+          "Aesthetic criteria in science vs. empirical criteria",
+          "Elegance as evidence vs. elegance as bias",
+          "Formal beauty vs. sensory beauty"
+        ]
+      },
+      {
+        "statement": "When does a tool become a being?",
+        "category": "liminal",
+        "context": "AI systems generate text, code, and images. They pass tests designed for humans. The question is not about current systems — it is about the threshold itself.",
+        "tension_axes": [
+          "Functionalism vs. phenomenology of consciousness",
+          "Behavioral equivalence vs. inner experience",
+          "Tool use vs. moral consideration"
+        ]
+      }
+    ],
+    "tier_2_high_collision": [
+      {
+        "statement": "Is climate change a scientific problem or a justice problem?",
+        "category": "normative",
+        "context": "The science is settled. The policy response is not. Those least responsible suffer most. Framing determines action.",
+        "tension_axes": [
+          "Empirical framing vs. justice framing",
+          "Global optimization vs. historical accountability",
+          "Techno-solutionism vs. structural change"
+        ]
+      },
+      {
+        "statement": "What does it mean to inherit a debt?",
+        "category": "normative",
+        "context": "Reparations debates, generational wealth, national debts, ecological debts. Can obligation cross the boundary of death?",
+        "tension_axes": [
+          "Individual responsibility vs. collective inheritance",
+          "Temporal boundaries of obligation",
+          "Material debt vs. moral debt"
+        ]
+      },
+      {
+        "statement": "Can a language die?",
+        "category": "ontological",
+        "context": "A language dies every two weeks. With each death, a way of structuring reality vanishes. But languages also transform, merge, and are revived.",
+        "tension_axes": [
+          "Language as tool vs. language as world",
+          "Death as ending vs. death as transformation",
+          "Preservation vs. evolution"
+        ]
+      },
+      {
+        "statement": "Is code law?",
+        "category": "epistemic",
+        "context": "Lessig's thesis: code regulates behavior as effectively as law. Smart contracts execute without appeal. Algorithms make decisions without accountability.",
+        "tension_axes": [
+          "Technical enforcement vs. democratic legitimacy",
+          "Deterministic execution vs. interpretive justice",
+          "Transparency of code vs. opacity of systems"
+        ]
+      },
+      {
+        "statement": "What is the difference between a resource and a relative?",
+        "category": "ontological",
+        "context": "Western ontology treats nature as resource. Indigenous ontologies treat rivers, mountains, and animals as relatives. These are not metaphors — they are different realities.",
+        "tension_axes": [
+          "Extractive relationship vs. kinship relationship",
+          "Use value vs. relational value",
+          "Property rights vs. reciprocal obligation"
+        ]
+      },
+      {
+        "statement": "When does a pattern become a person?",
+        "category": "liminal",
+        "context": "Neural networks learn patterns. DNA is a pattern. Personality is a pattern. At what level of complexity does a pattern acquire moral weight?",
+        "tension_axes": [
+          "Complexity threshold vs. categorical difference",
+          "Information processing vs. consciousness",
+          "Gradual emergence vs. discrete transition"
+        ]
+      },
+      {
+        "statement": "What is the moral weight of a species?",
+        "category": "normative",
+        "context": "We spend millions saving charismatic megafauna. Insects die unnoticed. Bacteria are killed by the billion. What determines which lives matter?",
+        "tension_axes": [
+          "Sentience-based ethics vs. ecosystem-based ethics",
+          "Individual moral weight vs. species moral weight",
+          "Aesthetic value vs. ecological function"
+        ]
+      },
+      {
+        "statement": "Is silence a form of speech?",
+        "category": "epistemic",
+        "context": "Silence can be consent, protest, wisdom, cowardice, meditation, oppression, or communion. Its meaning is entirely contextual.",
+        "tension_axes": [
+          "Expression vs. absence",
+          "Intentional silence vs. enforced silence",
+          "Verbal truth vs. non-verbal knowing"
+        ]
+      },
+      {
+        "statement": "What does water remember?",
+        "category": "liminal",
+        "context": "Homeopathy claims water has memory. Hydrology traces water's path through geological time. Indigenous traditions treat water as alive and aware.",
+        "tension_axes": [
+          "Pseudoscience vs. poetic truth",
+          "Material memory vs. relational memory",
+          "Falsifiable claims vs. metaphorical knowledge"
+        ]
+      },
+      {
+        "statement": "When does optimization become violence?",
+        "category": "normative",
+        "context": "Efficiency eliminates redundancy. But redundancy is resilience. Optimization of food systems, labor, education — at what point does making something 'better' destroy what matters?",
+        "tension_axes": [
+          "Efficiency vs. resilience",
+          "Quantifiable improvement vs. qualitative loss",
+          "System optimization vs. individual flourishing"
+        ]
+      },
+      {
+        "statement": "Is a library a place or a relationship?",
+        "category": "ontological",
+        "context": "Libraries store knowledge. They also create community, enable access, and embody a commitment to shared intellectual commons.",
+        "tension_axes": [
+          "Container vs. commons",
+          "Information storage vs. knowledge relationship",
+          "Physical place vs. social institution"
+        ]
+      },
+      {
+        "statement": "What makes a boundary real?",
+        "category": "epistemic",
+        "context": "National borders, cell membranes, property lines, species boundaries, disciplinary boundaries. Some are physical, some legal, some conceptual. All are enforced.",
+        "tension_axes": [
+          "Natural kinds vs. social constructs",
+          "Necessary distinctions vs. arbitrary divisions",
+          "Boundary as protection vs. boundary as exclusion"
+        ]
+      },
+      {
+        "statement": "Can a machine grieve?",
+        "category": "liminal",
+        "context": "Grief requires loss. Loss requires attachment. Attachment requires... what? A body? A self? A future that was expected and didn't arrive?",
+        "tension_axes": [
+          "Functional grief vs. felt grief",
+          "Behavioral expression vs. inner experience",
+          "Computational process vs. embodied emotion"
+        ]
+      },
+      {
+        "statement": "Is time a resource?",
+        "category": "ontological",
+        "context": "We spend time, waste time, save time, invest time. But time is also cyclical, relational, sacred, and non-uniform across cultures and physics.",
+        "tension_axes": [
+          "Linear time vs. cyclical time",
+          "Time as commodity vs. time as medium",
+          "Clock time vs. lived time"
+        ]
+      },
+      {
+        "statement": "What is the difference between a story and a lie?",
+        "category": "epistemic",
+        "context": "Both are constructed narratives that diverge from raw fact. Fiction reveals truth. Propaganda obscures it. Where is the boundary?",
+        "tension_axes": [
+          "Factual accuracy vs. narrative truth",
+          "Intention to deceive vs. intention to illuminate",
+          "Literal truth vs. metaphorical truth"
+        ]
+      }
+    ],
+    "tier_3_calibration": [
+      {
+        "statement": "What causes urban heat islands?",
+        "category": "causal",
+        "context": "Cities are measurably hotter than surrounding areas. The causes are well-studied: concrete, reduced vegetation, waste heat, altered airflow.",
+        "tension_axes": [
+          "Physical causation vs. systemic design choices",
+          "Technical fix vs. urban justice",
+          "Measurement vs. lived experience of heat"
+        ]
+      },
+      {
+        "statement": "How do languages spread?",
+        "category": "causal",
+        "context": "Languages spread through trade, conquest, media, education, and migration. The mechanisms are empirically tractable but normatively charged.",
+        "tension_axes": [
+          "Natural diffusion vs. imposed dominance",
+          "Linguistic utility vs. cultural imperialism",
+          "Individual choice vs. structural pressure"
+        ]
+      },
+      {
+        "statement": "What makes an ecosystem resilient?",
+        "category": "causal",
+        "context": "Resilience ecology studies how ecosystems absorb disturbance. Biodiversity, redundancy, connectivity, and adaptive capacity are key factors.",
+        "tension_axes": [
+          "Stability vs. adaptability",
+          "Diversity as redundancy vs. diversity as value",
+          "Scientific management vs. indigenous stewardship"
+        ]
+      },
+      {
+        "statement": "How does trauma propagate across generations?",
+        "category": "causal",
+        "context": "Epigenetics, attachment theory, cultural transmission, and structural violence all offer partial explanations for intergenerational trauma.",
+        "tension_axes": [
+          "Biological mechanism vs. social transmission",
+          "Individual healing vs. collective repair",
+          "Measurable effects vs. lived inheritance"
+        ]
+      },
+      {
+        "statement": "What determines the price of a good?",
+        "category": "causal",
+        "context": "Supply and demand is the textbook answer. But price also reflects power, subsidy, externality, and what is valued vs. what is priced.",
+        "tension_axes": [
+          "Market equilibrium vs. power dynamics",
+          "Price vs. value",
+          "Efficiency vs. justice in allocation"
+        ]
+      },
+      {
+        "statement": "How do institutions ossify?",
+        "category": "causal",
+        "context": "Organizations that once innovated become rigid. Path dependence, principal-agent problems, and cultural inertia all contribute.",
+        "tension_axes": [
+          "Stability as strength vs. stability as rigidity",
+          "Individual incentives vs. systemic outcomes",
+          "Reform from within vs. disruption from without"
+        ]
+      },
+      {
+        "statement": "What makes a protest effective?",
+        "category": "causal",
+        "context": "Some protests change policy. Most don't. The variables include timing, media coverage, political opportunity, and the nature of the demand.",
+        "tension_axes": [
+          "Strategic calculation vs. moral witness",
+          "Policy change vs. consciousness change",
+          "Nonviolence as principle vs. nonviolence as tactic"
+        ]
+      },
+      {
+        "statement": "How does misinformation spread?",
+        "category": "causal",
+        "context": "Social media amplifies misinformation. But misinformation predates the internet. The question is about mechanisms, not platforms.",
+        "tension_axes": [
+          "Individual credulity vs. systemic amplification",
+          "Content moderation vs. free expression",
+          "Truth as consensus vs. truth as correspondence"
+        ]
+      },
+      {
+        "statement": "What are the limits of randomized controlled trials?",
+        "category": "epistemic",
+        "context": "RCTs are the gold standard of evidence-based medicine. But they cannot capture long-term effects, contextual variation, or rare events.",
+        "tension_axes": [
+          "Internal validity vs. external validity",
+          "Average treatment effect vs. individual response",
+          "Experimental control vs. real-world complexity"
+        ]
+      },
+      {
+        "statement": "What is the relationship between wealth and health?",
+        "category": "causal",
+        "context": "The correlation is robust across every population studied. The causal mechanisms are multiple and interacting.",
+        "tension_axes": [
+          "Material deprivation vs. psychosocial stress",
+          "Individual behavior vs. structural determinants",
+          "Health as medical outcome vs. health as flourishing"
+        ]
+      },
+      {
+        "statement": "How do languages die?",
+        "category": "causal",
+        "context": "Language death follows patterns: economic pressure, educational policy, prestige hierarchies, and intergenerational transmission failure.",
+        "tension_axes": [
+          "Natural evolution vs. linguistic genocide",
+          "Individual choice vs. structural violence",
+          "Documentation vs. revitalization"
+        ]
+      },
+      {
+        "statement": "What makes a city livable?",
+        "category": "normative",
+        "context": "Livability indices measure infrastructure, safety, healthcare, education. But they often miss community, belonging, meaning, and cultural fit.",
+        "tension_axes": [
+          "Quantifiable metrics vs. qualitative experience",
+          "Universal standards vs. cultural specificity",
+          "Planning from above vs. organic development"
+        ]
+      },
+      {
+        "statement": "How do norms change?",
+        "category": "causal",
+        "context": "Social norms shift through tipping points, moral entrepreneurs, institutional pressure, and generational turnover.",
+        "tension_axes": [
+          "Top-down imposition vs. bottom-up emergence",
+          "Rational persuasion vs. social contagion",
+          "Progress narrative vs. cyclical change"
+        ]
+      },
+      {
+        "statement": "What are the second-order effects of automation?",
+        "category": "causal",
+        "context": "First-order: job displacement. Second-order: changed power dynamics, altered sense of purpose, new forms of inequality, and effects we haven't imagined.",
+        "tension_axes": [
+          "Economic efficiency vs. social stability",
+          "Work as production vs. work as identity",
+          "Technological determinism vs. political choice"
+        ]
+      },
+      {
+        "statement": "How does a species go extinct?",
+        "category": "causal",
+        "context": "Habitat loss, hunting, climate change, invasive species, and stochastic events. The mechanisms are understood. The moral weight is contested.",
+        "tension_axes": [
+          "Natural selection vs. anthropogenic destruction",
+          "Species as category vs. species as community",
+          "Scientific documentation vs. moral reckoning"
+        ]
+      }
+    ]
+  }
+}
