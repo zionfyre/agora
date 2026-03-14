@@ -146,12 +146,43 @@ export async function completeJSON<T>(
     max_tokens: options?.max_tokens ?? 8192,
   });
 
-  // Strip markdown code fences if present
+  // Extract the first JSON object from the response, regardless of
+  // surrounding prose, markdown fences, or trailing text.
   let json = result.content.trim();
-  if (json.startsWith("```")) {
-    json = json.replace(/^```(?:json)?\n?/, "").replace(/\n?```$/, "");
+
+  // Strip markdown code fences
+  json = json.replace(/```(?:json)?\s*/g, "").replace(/```/g, "");
+
+  // Find the first { ... } or [ ... ] block
+  const objStart = json.indexOf("{");
+  const arrStart = json.indexOf("[");
+  const start =
+    objStart >= 0 && (arrStart < 0 || objStart < arrStart)
+      ? objStart
+      : arrStart;
+
+  if (start < 0) {
+    throw new Error(`No JSON found in response: ${json.slice(0, 200)}`);
   }
 
-  const data = JSON.parse(json) as T;
+  // Find the matching closing bracket
+  const openChar = json[start];
+  const closeChar = openChar === "{" ? "}" : "]";
+  let depth = 0;
+  let end = -1;
+  for (let i = start; i < json.length; i++) {
+    if (json[i] === openChar) depth++;
+    if (json[i] === closeChar) depth--;
+    if (depth === 0) {
+      end = i + 1;
+      break;
+    }
+  }
+
+  if (end < 0) {
+    throw new Error(`Unclosed JSON in response: ${json.slice(start, start + 200)}`);
+  }
+
+  const data = JSON.parse(json.slice(start, end)) as T;
   return { data, cost: result.cost };
 }

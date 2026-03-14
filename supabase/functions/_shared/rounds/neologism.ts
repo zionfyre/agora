@@ -18,11 +18,13 @@ import type {
 
 const NEOLOGISM_INSTRUCTIONS = `You are participating in Round 5 — Neologism Forging.
 
-The Cartographer has identified genuinely incommensurable disagreements in this
-deliberation — places where positions cannot be reconciled without epistemic loss.
+The Cartographer has identified deep epistemic, ontological, or incommensurable
+tensions in this deliberation — places where positions cannot be reconciled
+without epistemic loss, or where the frameworks disagree about what counts
+as valid evidence or what is real.
 
-Your task: for each irreconcilable tension presented, propose a NEW TERM that
-names the space between the positions WITHOUT collapsing them.
+Your task: for each tension presented, propose a NEW TERM that names the
+space between the positions WITHOUT collapsing them.
 
 The goal is NOT to resolve the tension. It is to give it a name that makes it
 available for future deliberation.
@@ -63,11 +65,12 @@ export async function runNeologism(
   deliberation: DeliberationRow,
   costTracker: CostTracker
 ): Promise<Partial<DeliberationGraph>> {
+  // Neologism forging triggers on epistemic, ontological, and incommensurable
+  // tensions — all three are territory where existing vocabulary fails
   const tensions = deliberation.graph.residue.irreconcilable_tensions;
 
-  // Skip if no incommensurable tensions found
   if (!tensions.length) {
-    console.log("No incommensurable tensions — skipping neologism round");
+    console.log("No epistemic/ontological/incommensurable tensions — skipping neologism round");
     return {
       rounds: [
         {

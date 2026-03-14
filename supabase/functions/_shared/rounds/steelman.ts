@@ -39,7 +39,10 @@ For each steelman attempt below, rate it 1-5:
   2 = Weak — understands the surface but not the epistemic foundations
   1 = Failed — this is a caricature, not a steelman
 
-Respond as JSON: { "scores": [{ "steelman_by": "<voice>", "score": <1-5>, "reason": "<brief>" }] }`;
+Respond with ONLY a JSON object. No explanation before or after. No markdown.
+First character must be {, last character must be }.
+
+{"scores": [{"steelman_by": "<voice_name>", "score": <1-5>, "reason": "<one sentence>"}]}`;
 
 export async function runSteelman(
   deliberation: DeliberationRow,
@@ -112,11 +115,17 @@ export async function runSteelman(
       costTracker.addCall(cost);
 
       // Apply scores to nodes
+      // Normalize steelman_by: models return display names, uppercase,
+      // or system names — match case-insensitively and flexibly
       for (const score of data.scores) {
+        const byNorm = score.steelman_by
+          .toLowerCase()
+          .replace(/^the\s+/, "")
+          .replace(/\s+/g, "_");
         const matchingNode = steelmanNodes.find(
           (n) =>
             n.target_voice === targetVoice.name &&
-            n.voice === score.steelman_by
+            n.voice.toLowerCase().includes(byNorm.slice(0, 6))
         );
         if (matchingNode) {
           matchingNode.steelman_score = Math.max(

@@ -14,10 +14,11 @@
 import type { ModelTier, VoiceName } from "./types.ts";
 
 // Pin exact model versions (per concern #6 — pin at launch, don't drift)
+// OpenRouter uses short IDs, not date-suffixed versions
 export const MODEL_VERSIONS: Record<ModelTier, string> = {
-  opus: "anthropic/claude-opus-4-20250514",
-  sonnet: "anthropic/claude-sonnet-4-20250514",
-  lightweight: "anthropic/claude-haiku-4-20250414",
+  opus: "anthropic/claude-opus-4.5",
+  sonnet: "anthropic/claude-sonnet-4.5",
+  lightweight: "anthropic/claude-haiku-4.5",
 };
 
 // Voice-to-model overrides for training lineage diversity
@@ -30,15 +31,15 @@ export const VOICE_MODEL_OVERRIDES: Partial<Record<VoiceName, string>> = {
   // Falsificationist uses the default Sonnet — strong causal reasoning
 };
 
-// Cost per 1M tokens (USD) — used for estimation, updated manually
+// Cost per 1M tokens (USD) — from OpenRouter pricing, updated manually
 export const COST_PER_MILLION_TOKENS: Record<
   string,
   { prompt: number; completion: number }
 > = {
-  "anthropic/claude-opus-4-20250514": { prompt: 15.0, completion: 75.0 },
-  "anthropic/claude-sonnet-4-20250514": { prompt: 3.0, completion: 15.0 },
-  "anthropic/claude-haiku-4-20250414": { prompt: 0.8, completion: 4.0 },
-  "deepseek/deepseek-r1": { prompt: 0.55, completion: 2.19 },
+  "anthropic/claude-opus-4.5": { prompt: 5.0, completion: 25.0 },
+  "anthropic/claude-sonnet-4.5": { prompt: 3.0, completion: 15.0 },
+  "anthropic/claude-haiku-4.5": { prompt: 1.0, completion: 5.0 },
+  "deepseek/deepseek-r1": { prompt: 0.7, completion: 2.5 },
   "openai/gpt-4o-2024-11-20": { prompt: 2.5, completion: 10.0 },
 };
 

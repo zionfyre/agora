@@ -16,6 +16,7 @@
 import { CostTracker } from "../supabase/functions/_shared/cost-tracker.ts";
 import { computeEntropy } from "../supabase/functions/_shared/entropy.ts";
 import { ACTIVE_VOICES } from "../supabase/functions/_shared/voices.ts";
+import { resolveModel, VOICE_MODEL_OVERRIDES } from "../supabase/functions/_shared/models.ts";
 import { runFormation } from "../supabase/functions/_shared/rounds/formation.ts";
 import { runSteelman } from "../supabase/functions/_shared/rounds/steelman.ts";
 import { runCritique } from "../supabase/functions/_shared/rounds/critique.ts";
@@ -65,13 +66,25 @@ console.log(`Mode: ${dryRun ? "DRY RUN (no API calls)" : "LIVE"}`);
 console.log(`${"═".repeat(70)}\n`);
 
 if (dryRun) {
-  console.log("Dry run mode — printing voice prompts and exiting.\n");
+  console.log("Dry run mode — printing voice config and exiting.\n");
   for (const voice of ACTIVE_VOICES) {
+    const model = resolveModel(voice.name, "sonnet");
+    const override = VOICE_MODEL_OVERRIDES[voice.name];
     console.log(`--- ${voice.displayName} ---`);
-    console.log(`Model tier: sonnet`);
-    console.log(`Epistemic tilt: ${voice.epistemicTilt}`);
-    console.log(`Prompt length: ${voice.systemPrompt.length} chars\n`);
+    console.log(`  Epistemic tilt: ${voice.epistemicTilt}`);
+    console.log(`  Model (sonnet tier): ${model}${override ? " (override)" : " (default)"}`);
+    console.log(`  Prompt length: ${voice.systemPrompt.length} chars`);
+    console.log(`  Layers: Ontological grounding, Standards of evidence, Reasoning patterns, Explicit blind spots`);
+    console.log();
   }
+
+  console.log("--- DEFERRED VOICES ---");
+  console.log("  Relational Ontologist:  STATUS: PENDING_PARTNER (requires epistemic partner, target week 3-4)");
+  console.log("  Phenomenologist:        STATUS: DEFERRED (add after protocol validation)");
+  console.log("  Systems Dynamicist:     STATUS: DEFERRED (add after protocol validation)");
+  console.log("  Power Analyst:          STATUS: DEFERRED (add after protocol validation)");
+  console.log();
+
   Deno.exit(0);
 }
 
