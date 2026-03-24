@@ -8,6 +8,7 @@ import { resolveModel } from "../models.ts";
 import { ACTIVE_VOICES, buildVoicePrompt } from "../voices.ts";
 import { CostTracker } from "../cost-tracker.ts";
 import { computeEntropy } from "../entropy.ts";
+import { retrieveCorpusPassages, formatSourceContext, hasTraditionCorpus } from "../corpus-retrieval.ts";
 import type { DeliberationRow, DeliberationGraph, Round, Node } from "../types.ts";
 
 const ROUND_INSTRUCTIONS = `You are participating in Round 1 — Independent Formation.
@@ -26,15 +27,38 @@ Do NOT try to anticipate or preempt other voices. Speak from your framework alon
 export async function runFormation(
   deliberation: DeliberationRow,
   costTracker: CostTracker
-): Promise<Partial<DeliberationGraph>> {
+): Promise<Partial<DeliberationGraph> & { _ragAugmented?: boolean }> {
   const topicPrompt = formatTopicPrompt(deliberation);
   const nodes: Node[] = [];
 
-  // Parallel calls — all voices see only the topic
+  // Pre-fetch corpus passages for tradition voices (parallel with each other)
+  const traditionVoices = ACTIVE_VOICES.filter((v) => hasTraditionCorpus(v.name));
+  const corpusMap = new Map<string, string>();
+
+  if (traditionVoices.length > 0) {
+    const corpusResults = await Promise.all(
+      traditionVoices.map(async (voice) => {
+        const passages = await retrieveCorpusPassages(voice.name, deliberation.topic);
+        return { voice: voice.name, sourceContext: formatSourceContext(passages) };
+      })
+    );
+    for (const r of corpusResults) {
+      if (r.sourceContext) corpusMap.set(r.voice, r.sourceContext);
+    }
+  }
+
+  // Mark deliberation as RAG-augmented if any corpus data was retrieved
+  const ragAugmented = corpusMap.size > 0;
+
+  // Parallel calls — all voices see only the topic (tradition voices get source context)
   const results = await Promise.all(
     ACTIVE_VOICES.map(async (voice) => {
       const model = resolveModel(voice.name, "sonnet");
-      const systemPrompt = buildVoicePrompt(voice, ROUND_INSTRUCTIONS);
+      const sourceContext = corpusMap.get(voice.name) ?? "";
+      const roundInstructions = sourceContext
+        ? `${ROUND_INSTRUCTIONS}${sourceContext}`
+        : ROUND_INSTRUCTIONS;
+      const systemPrompt = buildVoicePrompt(voice, roundInstructions);
 
       const result = await complete(
         model,
@@ -93,6 +117,7 @@ export async function runFormation(
     quality_flags: entropy.quality_flags.length > 0
       ? entropy.quality_flags
       : undefined,
+    _ragAugmented: ragAugmented,
   };
 }
 

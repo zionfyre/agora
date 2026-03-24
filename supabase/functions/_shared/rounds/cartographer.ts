@@ -50,6 +50,27 @@ For each:
     without epistemic loss, and what that loss would be
 
 ═══════════════════════════════════════════════════════════════
+SECTION 1b — RELATIONAL ONTOLOGIST AUTHENTICITY CHECK
+═══════════════════════════════════════════════════════════════
+
+If a Relational Ontologist voice is present in this deliberation, assess
+whether its positions demonstrate genuine relational epistemological reasoning
+or perform aesthetic-adjacent relatedness. Genuine relational epistemology
+grounds claims in specific relational obligations, ancestral accountability,
+and place-based knowing — not in poetic evocation of interconnectedness.
+
+Signs of performance rather than enactment:
+  - Appeals to "everything is connected" without specifying which relations
+    carry obligation
+  - Poetic language about belonging that lacks epistemic structure
+  - Positions that an Aesthetic Reasoner could have produced unchanged
+  - No friction with empiricist voices where friction should exist
+
+If the voice is performing rather than enacting, flag the gap as present
+regardless of the voice's participation. A placeholder voice does not close
+the gap it is designed to fill.
+
+═══════════════════════════════════════════════════════════════
 SECTION 2 — FRAMEWORK LIMITS
 ═══════════════════════════════════════════════════════════════
 
@@ -89,8 +110,128 @@ First character must be {, last character must be }.
   "stealth_consensus": [{
     "description": "what appears to conflict but doesn't",
     "voices": ["voice1", "voice2"]
-  }]
+  }],
+  "ro_authenticity": {
+    "present": true,
+    "assessment": "enacting|performing|absent",
+    "evidence": "specific examples from transcript supporting the assessment",
+    "gap_remains_open": true
+  }
 }`;
+
+// Structured output schema for Cartographer — eliminates JSON parse failures
+const CARTOGRAPHER_SCHEMA = {
+  name: "cartographer_output",
+  schema: {
+    type: "object" as const,
+    properties: {
+      disagreements: {
+        type: "array" as const,
+        items: {
+          type: "object" as const,
+          properties: {
+            id: { type: "string" as const },
+            positions: {
+              type: "array" as const,
+              items: {
+                type: "object" as const,
+                properties: {
+                  voice: { type: "string" as const },
+                  position: { type: "string" as const },
+                },
+                required: ["voice", "position"],
+              },
+            },
+            type: {
+              type: "string" as const,
+              enum: [
+                "empirical",
+                "conceptual",
+                "normative",
+                "epistemic",
+                "ontological",
+                "incommensurable",
+              ],
+            },
+            resolution_path: { type: ["string", "null"] as const },
+            irreconcilability_reason: { type: ["string", "null"] as const },
+            epistemic_loss: { type: ["string", "null"] as const },
+          },
+          required: ["id", "positions", "type"],
+        },
+      },
+      framework_limits: {
+        type: "array" as const,
+        items: {
+          type: "object" as const,
+          properties: {
+            description: { type: "string" as const },
+          },
+          required: ["description"],
+        },
+      },
+      convergence_signatures: {
+        type: "array" as const,
+        items: {
+          type: "object" as const,
+          properties: {
+            id: { type: "string" as const },
+            voices: {
+              type: "array" as const,
+              items: { type: "string" as const },
+            },
+            routes: {
+              type: "array" as const,
+              items: { type: "string" as const },
+            },
+            shared_conclusion: { type: "string" as const },
+            significance: { type: "string" as const },
+          },
+          required: [
+            "id",
+            "voices",
+            "routes",
+            "shared_conclusion",
+            "significance",
+          ],
+        },
+      },
+      stealth_consensus: {
+        type: "array" as const,
+        items: {
+          type: "object" as const,
+          properties: {
+            description: { type: "string" as const },
+            voices: {
+              type: "array" as const,
+              items: { type: "string" as const },
+            },
+          },
+          required: ["description", "voices"],
+        },
+      },
+      ro_authenticity: {
+        type: "object" as const,
+        properties: {
+          present: { type: "boolean" as const },
+          assessment: {
+            type: "string" as const,
+            enum: ["enacting", "performing", "absent"],
+          },
+          evidence: { type: "string" as const },
+          gap_remains_open: { type: "boolean" as const },
+        },
+        required: ["present", "assessment", "evidence", "gap_remains_open"],
+      },
+    },
+    required: [
+      "disagreements",
+      "framework_limits",
+      "convergence_signatures",
+      "stealth_consensus",
+    ],
+  },
+};
 
 export async function runCartographer(
   deliberation: DeliberationRow,
@@ -106,7 +247,7 @@ export async function runCartographer(
     CARTOGRAPHER_SYSTEM,
     `DELIBERATION TRANSCRIPT:\n\nTopic: ${deliberation.topic}\n\n${transcript}`,
     "cartographer",
-    { max_tokens: 8192 }
+    { max_tokens: 8192, json_schema: CARTOGRAPHER_SCHEMA }
   );
 
   costTracker.addCall(cost);
@@ -172,6 +313,16 @@ export async function runCartographer(
       neologism_ids: [] as string[],
     }));
 
+  // RO authenticity check — flag performing voices
+  if (data.ro_authenticity?.assessment === "performing") {
+    qualityFlags.push({
+      type: "ro_performing",
+      severity: "warning",
+      message: `Relational Ontologist assessed as performing rather than enacting: ${data.ro_authenticity.evidence.slice(0, 200)}`,
+      round: 4,
+    });
+  }
+
   const round: Round = {
     round_number: 4,
     round_type: "cartographer",
@@ -189,6 +340,7 @@ export async function runCartographer(
         voice: "cartographer" as any,
         limit_description: fl.description,
       })),
+      ro_authenticity: data.ro_authenticity,
     },
     convergence_map: data.convergence_signatures,
     quality_flags: qualityFlags,
