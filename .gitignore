@@ -4,3 +4,5 @@ node_modules/
 .DS_Store
 supabase/.temp/
 deliberation-*.json
+corpus-run-*.json
+partner-export-*.json
