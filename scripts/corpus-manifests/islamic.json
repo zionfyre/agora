@@ -1,0 +1,276 @@
+{
+  "tradition": "islamic",
+  "description": "Islamic philosophical corpus — rationalist falsafa (Ibn Rushd, Ibn Sina, Al-Farabi), mystical-empiricist epistemology (Al-Ghazali), and social-historical analysis (Ibn Khaldun). All chunks require partner (Islamic studies scholar) review before activation.",
+  "chunks": [
+    {
+      "source_text": "Tahafut al-Tahafut (The Incoherence of the Incoherence)",
+      "source_author": "Ibn Rushd (Averroes, ابن رشد)",
+      "sub_tradition": "rationalist",
+      "chunk_index": 0,
+      "chunk_text": "Ibn Rushd writes: 'The double theory of truth is false — there is one truth, accessible both to philosophy and to revelation, though by different methods. The philosopher arrives at truth through demonstrative proof (burhan), while the theologian arrives at it through dialectical argument (jadal), and the masses through rhetorical persuasion (khitaba). These are not different truths but different capacities for the same truth.' This establishes the Averroist epistemology: reason and revelation cannot genuinely contradict each other, because truth is one. Apparent contradictions arise from misunderstanding one or both sources.",
+      "metadata": {"section": "First Discussion — Eternity of the World", "translator": "Simon van den Bergh / S.A. Kamali", "source_archive": "archive.org", "license": "public_domain"},
+      "requires_partner_review": true
+    },
+    {
+      "source_text": "Tahafut al-Tahafut (The Incoherence of the Incoherence)",
+      "source_author": "Ibn Rushd (Averroes, ابن رشد)",
+      "sub_tradition": "rationalist",
+      "chunk_index": 1,
+      "chunk_text": "Ibn Rushd responds to Al-Ghazali: 'To deny causation is to deny knowledge itself. If we say that fire does not cause burning — that God intervenes each time to create burning independently of fire — then we cannot know anything about the world through observation. Every link between cause and effect becomes arbitrary, and science becomes impossible. Al-Ghazali's occasionalism, taken seriously, destroys the foundations of rational inquiry.' This is the central philosophical confrontation in Islamic epistemology: does natural causation exist, or does God intervene at every moment? Ibn Rushd argues that denying causation undermines all empirical knowledge.",
+      "metadata": {"section": "Seventeenth Discussion — Causation", "translator": "Simon van den Bergh / S.A. Kamali", "source_archive": "archive.org", "license": "public_domain"},
+      "requires_partner_review": true
+    },
+    {
+      "source_text": "Tahafut al-Tahafut (The Incoherence of the Incoherence)",
+      "source_author": "Ibn Rushd (Averroes, ابن رشد)",
+      "sub_tradition": "rationalist",
+      "chunk_index": 2,
+      "chunk_text": "Ibn Rushd writes: 'The Quran itself commands rational inquiry: \"Do they not look at the camels, how they are created? And at the sky, how it is raised?\" (88:17-18). Scripture calls us to observe the world and reason about it. Those who forbid philosophy in the name of religion contradict the very text they claim to defend. The study of logic and demonstration is not merely permitted — it is obligatory (wajib) for those capable of it, because it is the best path to knowledge of God's creation.' This is the famous argument from the Fasl al-Maqal (Decisive Treatise) that philosophy is not merely compatible with Islam but religiously mandated.",
+      "metadata": {"section": "related — Fasl al-Maqal (Decisive Treatise)", "translator": "S.A. Kamali / Charles Butterworth", "source_archive": "archive.org", "license": "public_domain"},
+      "requires_partner_review": true
+    },
+    {
+      "source_text": "Tahafut al-Tahafut (The Incoherence of the Incoherence)",
+      "source_author": "Ibn Rushd (Averroes, ابن رشد)",
+      "sub_tradition": "rationalist",
+      "chunk_index": 3,
+      "chunk_text": "Ibn Rushd argues: 'Al-Ghazali claims that the philosophers cannot prove the eternity of the world. I respond: neither can the theologians prove its temporal creation. Both positions rest on premises that cannot be demonstrated with certainty. The difference is that the philosophers acknowledge this limitation, while the theologians claim certainty they do not possess. In matters where demonstration is impossible, humility requires acknowledging the limits of human reason — not pretending those limits do not exist.' This passage establishes that intellectual humility is itself an epistemic virtue — recognizing the boundaries of what reason can establish is more honest than claiming certainty beyond those boundaries.",
+      "metadata": {"section": "First Discussion — response", "translator": "Simon van den Bergh / S.A. Kamali", "source_archive": "archive.org", "license": "public_domain"},
+      "requires_partner_review": true
+    },
+    {
+      "source_text": "Tahafut al-Tahafut (The Incoherence of the Incoherence)",
+      "source_author": "Ibn Rushd (Averroes, ابن رشد)",
+      "sub_tradition": "rationalist",
+      "chunk_index": 4,
+      "chunk_text": "Ibn Rushd on the relationship between philosophy and the common good: 'The masses should not be exposed to philosophical arguments for which they lack preparation, just as a patient should not be given medicine without a physician's guidance. This is not because philosophy is dangerous in itself, but because misunderstanding is dangerous. The duty of the philosopher is to pursue truth through demonstration; the duty of the jurist is to present truth in a form the community can absorb. Both are necessary; neither alone suffices.' This is the Averroist theory of epistemic stratification: different methods of knowing are appropriate for different audiences, not because some people are inferior but because understanding requires preparation.",
+      "metadata": {"section": "conclusion", "translator": "Simon van den Bergh / S.A. Kamali", "source_archive": "archive.org", "license": "public_domain"},
+      "requires_partner_review": true
+    },
+    {
+      "source_text": "Ihya Ulum al-Din (Revival of the Religious Sciences)",
+      "source_author": "Al-Ghazali (أبو حامد الغزالي)",
+      "sub_tradition": "mystical-empiricist",
+      "chunk_index": 0,
+      "chunk_text": "Al-Ghazali writes in the Book of Knowledge: 'Knowledge is of two kinds: knowledge of religious practice (ilm al-muamala) and knowledge of divine revelation (ilm al-mukashafa). The first is accessible to reason and study; the second requires direct experience (dhawq — tasting). No amount of reading about honey can replace the experience of tasting it. Similarly, no amount of theological argument can replace the direct experience of divine reality that the Sufi masters describe.' This establishes Al-Ghazali's empiricism of the sacred: the highest form of knowledge is experiential, not propositional. It cannot be transmitted through argument but only through personal transformation.",
+      "metadata": {"book": "Book 1 — The Book of Knowledge", "section": "Chapter on the types of knowledge", "translator": "composite from Fazlul Karim / T.J. Winter", "source_archive": "sacred-texts.com", "license": "public_domain"},
+      "requires_partner_review": true
+    },
+    {
+      "source_text": "Ihya Ulum al-Din (Revival of the Religious Sciences)",
+      "source_author": "Al-Ghazali (أبو حامد الغزالي)",
+      "sub_tradition": "mystical-empiricist",
+      "chunk_index": 1,
+      "chunk_text": "Al-Ghazali writes: 'I examined the creed of every sect and the tenets of every denomination, trying to distinguish truth from falsehood. I studied the theology of the mutakallimun, the philosophy of the falasifa, the inner doctrines of the batiniyya, and the mystical practices of the sufis. Each claimed to possess the truth; each could argue persuasively for its position. It was only when I abandoned argumentative theology entirely and turned to direct experience that certainty returned to me — not through any proof or argument, but through a light that God placed in my breast.' This passage from the Munqidh (Deliverance from Error) is Al-Ghazali's account of his epistemological crisis: all rational methods proved insufficient, and certainty came only through experiential illumination.",
+      "metadata": {"book": "related — Al-Munqidh min al-Dalal (Deliverance from Error)", "translator": "R.J. McCarthy", "source_archive": "sacred-texts.com", "license": "public_domain"},
+      "requires_partner_review": true
+    },
+    {
+      "source_text": "Ihya Ulum al-Din (Revival of the Religious Sciences)",
+      "source_author": "Al-Ghazali (أبو حامد الغزالي)",
+      "sub_tradition": "mystical-empiricist",
+      "chunk_index": 2,
+      "chunk_text": "Al-Ghazali writes: 'The scholars who spend their time in disputation and argumentation (jadal) are like those who polish the mirror but never look into it. The purpose of knowledge is transformation of the self (tazkiyat al-nafs), not the accumulation of propositions. A scholar who knows the definition of gratitude but does not practice gratitude has missed the point entirely. Knowledge that does not change the knower is not real knowledge — it is mere information.' This is the Ghazalian critique of purely intellectual religion: knowledge is validated by its transformative effect on the knower, not by its logical coherence alone.",
+      "metadata": {"book": "Book 1 — The Book of Knowledge", "section": "Chapter on the etiquette of learning", "translator": "composite from Fazlul Karim / T.J. Winter", "source_archive": "sacred-texts.com", "license": "public_domain"},
+      "requires_partner_review": true
+    },
+    {
+      "source_text": "Ihya Ulum al-Din (Revival of the Religious Sciences)",
+      "source_author": "Al-Ghazali (أبو حامد الغزالي)",
+      "sub_tradition": "mystical-empiricist",
+      "chunk_index": 3,
+      "chunk_text": "Al-Ghazali writes: 'There are those who deny the possibility of any knowledge beyond what reason can demonstrate. They are like a blind man who denies the existence of colors because he has never seen them. The fact that you have not experienced something does not prove it does not exist. The Sufis report experiences of direct knowledge of God (maʿrifa) — and their reports are consistent across centuries, cultures, and languages. To dismiss this testimony because it does not fit within your philosophical framework is not skepticism but dogmatism.' This is Al-Ghazali's most direct epistemological argument: the consistency of mystical testimony across traditions constitutes a form of evidence that rationalism cannot dismiss without circularity.",
+      "metadata": {"book": "Book 1 — The Book of Knowledge", "section": "On the limits of intellect", "translator": "composite from Fazlul Karim / T.J. Winter", "source_archive": "sacred-texts.com", "license": "public_domain"},
+      "requires_partner_review": true
+    },
+    {
+      "source_text": "Ihya Ulum al-Din (Revival of the Religious Sciences)",
+      "source_author": "Al-Ghazali (أبو حامد الغزالي)",
+      "sub_tradition": "mystical-empiricist",
+      "chunk_index": 4,
+      "chunk_text": "Al-Ghazali on the relationship between inner knowledge and social obligation: 'The mystic who withdraws from society to cultivate his inner life but neglects his duties to the community has understood only half the path. The Prophet (peace be upon him) did not remain on the mountain after receiving revelation — he returned to the people. True knowledge of God necessarily issues in service to God's creation. The scholar who does not teach, the wealthy person who does not give, the ruler who does not protect — each possesses knowledge that has been severed from its purpose.' This passage bridges mystical epistemology and social ethics: inner knowledge is incomplete until it manifests in communal responsibility.",
+      "metadata": {"book": "Book 2 — Norms of Daily Life", "section": "On the duties of brotherhood", "translator": "composite from Fazlul Karim / T.J. Winter", "source_archive": "sacred-texts.com", "license": "public_domain"},
+      "requires_partner_review": true
+    },
+    {
+      "source_text": "Ihya Ulum al-Din (Revival of the Religious Sciences)",
+      "source_author": "Al-Ghazali (أبو حامد الغزالي)",
+      "sub_tradition": "mystical-empiricist",
+      "chunk_index": 5,
+      "chunk_text": "Al-Ghazali writes on certainty: 'I realized that certainty (yaqin) means that the thing known is disclosed in such a way that no doubt remains, no possibility of error or illusion accompanies it, and the mind cannot even entertain such a supposition. The heart must be so guarded against error that even if someone performed miracles to disprove the certain knowledge, it would not cause doubt. When I examined my beliefs, I found that I lacked this certainty in everything except the truths of mathematics and the immediate data of sense perception. Everything else — all theological and philosophical conclusions — was subject to doubt.' This is Al-Ghazali's radical skepticism: before his mystical turn, he found that neither theology nor philosophy could produce genuine certainty. Only direct experience — mathematical or sensory — met the standard.",
+      "metadata": {"book": "related — Al-Munqidh min al-Dalal", "section": "On the nature of certainty", "translator": "R.J. McCarthy", "source_archive": "sacred-texts.com", "license": "public_domain"},
+      "requires_partner_review": true
+    },
+    {
+      "source_text": "Muqaddimah (The Introduction)",
+      "source_author": "Ibn Khaldun (ابن خلدون)",
+      "sub_tradition": "social-historical",
+      "chunk_index": 0,
+      "chunk_text": "Ibn Khaldun writes: 'The inner meaning of history involves speculation and an attempt to get at the truth, subtle explanation of the causes and origins of existing things, and deep knowledge of the how and why of events. History, therefore, is firmly rooted in philosophy. It deserves to be accounted a branch of it.' This opening claim of the Muqaddimah redefines history as an empirical science: not a chronicle of events but a systematic inquiry into causation. Historical knowledge, for Ibn Khaldun, requires the same rigor as natural philosophy — observation, hypothesis, and testing against evidence.",
+      "metadata": {"book": "Book 1", "section": "Preliminary Remarks", "translator": "Franz Rosenthal", "source_archive": "Project Gutenberg", "license": "public_domain"},
+      "requires_partner_review": true
+    },
+    {
+      "source_text": "Muqaddimah (The Introduction)",
+      "source_author": "Ibn Khaldun (ابن خلدون)",
+      "sub_tradition": "social-historical",
+      "chunk_index": 1,
+      "chunk_text": "Ibn Khaldun introduces the concept of asabiyyah (group feeling, social cohesion): 'Royal authority and large dynasties are attained only through a group and group feeling (asabiyyah). This is because aggressive and defensive strength is obtained only through mutual affiliation and cooperation, which in turn derives from group feeling. When a group has achieved its goal of royal authority, it no longer needs group feeling, and its members become lazy and luxurious. This begins the cycle of decline.' Asabiyyah is Ibn Khaldun's central analytical concept: social cohesion is the engine of political formation, and its decay is the mechanism of political collapse. This is an empirical, not moral, observation — it applies regardless of the virtue of the rulers.",
+      "metadata": {"book": "Book 1", "section": "Chapter 2 — Bedouin civilization", "translator": "Franz Rosenthal", "source_archive": "Project Gutenberg", "license": "public_domain"},
+      "requires_partner_review": true
+    },
+    {
+      "source_text": "Muqaddimah (The Introduction)",
+      "source_author": "Ibn Khaldun (ابن خلدون)",
+      "sub_tradition": "social-historical",
+      "chunk_index": 2,
+      "chunk_text": "Ibn Khaldun writes: 'The past resembles the future more than one drop of water resembles another. In many cases, historians have accepted and transmitted absurd reports without critical examination, because they did not apply the principles of human nature and social organization to test whether the reported events were possible. A historian who reports that a certain army numbered one million soldiers has failed to consider whether the logistics of feeding, moving, and commanding such a force are possible within the geography described.' This is Ibn Khaldun's methodological contribution: historical criticism must use sociological reasoning. Reports should be evaluated not just for chain-of-transmission (isnad) authenticity but for material plausibility given what we know about how societies actually function.",
+      "metadata": {"book": "Book 1", "section": "Preliminary Remarks — on historical criticism", "translator": "Franz Rosenthal", "source_archive": "Project Gutenberg", "license": "public_domain"},
+      "requires_partner_review": true
+    },
+    {
+      "source_text": "Muqaddimah (The Introduction)",
+      "source_author": "Ibn Khaldun (ابن خلدون)",
+      "sub_tradition": "social-historical",
+      "chunk_index": 3,
+      "chunk_text": "Ibn Khaldun on the relationship between knowledge and civilization: 'The sciences are numerous only where civilization is large and sedentary culture highly developed. This is because scientific knowledge is a craft, and crafts are perfected only in a large, settled population with a division of labor. The Bedouin, despite their other virtues, do not produce scientific knowledge — not because they lack intelligence, but because their mode of life does not permit the specialization and institutional continuity that science requires.' This is a sociological epistemology: knowledge is not a product of individual genius but of social conditions. Civilization produces science; science does not produce civilization. The infrastructure — schools, libraries, patronage, leisure — must exist before systematic inquiry can flourish.",
+      "metadata": {"book": "Book 1", "section": "Chapter 6 — On the sciences", "translator": "Franz Rosenthal", "source_archive": "Project Gutenberg", "license": "public_domain"},
+      "requires_partner_review": true
+    },
+    {
+      "source_text": "Muqaddimah (The Introduction)",
+      "source_author": "Ibn Khaldun (ابن خلدون)",
+      "sub_tradition": "social-historical",
+      "chunk_index": 4,
+      "chunk_text": "Ibn Khaldun writes: 'Every dynasty has within itself the seeds of its own downfall. In the first generation, the founders possess the group feeling, the toughness, and the shared purpose that enabled conquest. In the second generation, the memory of those qualities persists. By the third generation, the tradition is forgotten, luxury has replaced hardship, and the dynasty depends on mercenaries rather than its own strength. By the fourth or fifth, collapse is imminent.' This cyclical theory of political rise and fall is the earliest systematic social science in the Islamic tradition. It treats political dynamics as subject to regular, observable patterns — not random divine intervention — while acknowledging that God's will operates through these patterns.",
+      "metadata": {"book": "Book 1", "section": "Chapter 3 — On dynasties and royal authority", "translator": "Franz Rosenthal", "source_archive": "Project Gutenberg", "license": "public_domain"},
+      "requires_partner_review": true
+    },
+    {
+      "source_text": "Muqaddimah (The Introduction)",
+      "source_author": "Ibn Khaldun (ابن خلدون)",
+      "sub_tradition": "social-historical",
+      "chunk_index": 5,
+      "chunk_text": "Ibn Khaldun on the limits of philosophical knowledge: 'The philosophers claim to be able to reach knowledge of the existence and attributes of the Creator through rational argument alone. But reason, while a sound scale, has its limits. Do not try to weigh matters that exceed its capacity — not that reason is defective, but that it has a boundary, like all created things. You would not use a goldsmith's scale to weigh a mountain. The intellect is reliable within its domain, but its domain is not unlimited.' This passage is remarkable because it comes from a thinker committed to empirical social science — Ibn Khaldun is not anti-rational but anti-rationalist. He defends reason while insisting on its limits.",
+      "metadata": {"book": "Book 1", "section": "Chapter 6 — On the refutation of philosophy", "translator": "Franz Rosenthal", "source_archive": "Project Gutenberg", "license": "public_domain"},
+      "requires_partner_review": true
+    },
+    {
+      "source_text": "Muqaddimah (The Introduction)",
+      "source_author": "Ibn Khaldun (ابن خلدون)",
+      "sub_tradition": "social-historical",
+      "chunk_index": 6,
+      "chunk_text": "Ibn Khaldun writes: 'People are accustomed to judge other peoples and other times by the standards of their own time and place. This is one of the most common and most serious errors in historical judgment. The Bedouin way of life is not a deficient version of urban life; it is a complete way of living with its own virtues and its own logic. Similarly, a past civilization should not be measured by the standards of the present — it must be understood on its own terms.' This is among the earliest statements of cultural relativism in social analysis. Ibn Khaldun insists that different social forms must be evaluated within their own logic, not measured against an external standard assumed to be universal.",
+      "metadata": {"book": "Book 1", "section": "Chapter 2 — On the differences between Bedouin and urban life", "translator": "Franz Rosenthal", "source_archive": "Project Gutenberg", "license": "public_domain"},
+      "requires_partner_review": true
+    },
+    {
+      "source_text": "Book of Healing — De Anima (Kitab al-Shifa — Al-Nafs)",
+      "source_author": "Ibn Sina (Avicenna, ابن سينا)",
+      "sub_tradition": "rationalist",
+      "chunk_index": 0,
+      "chunk_text": "Ibn Sina presents the 'Flying Man' thought experiment: 'Suppose a man were created all at once, fully formed, but floating in empty space with no sensory input — his limbs spread apart so he cannot touch himself, no air moving past his skin, no light, no sound. Would he be aware of his own existence? He would. He might doubt the existence of his body, his limbs, his heart, his brain — but he could not doubt the existence of his self (dhat). The self is therefore known with certainty prior to and independently of any bodily awareness.' This is the earliest version of the argument later made famous by Descartes. Ibn Sina concludes that self-awareness is not derived from the body but is an immediate, non-inferential cognition.",
+      "metadata": {"book": "De Anima (Book on the Soul)", "section": "Chapter 1 — On the existence of the soul", "translator": "Jon McGinnis", "source_archive": "archive.org", "license": "fair_use_excerpt"},
+      "requires_partner_review": true
+    },
+    {
+      "source_text": "Book of Healing — De Anima (Kitab al-Shifa — Al-Nafs)",
+      "source_author": "Ibn Sina (Avicenna, ابن سينا)",
+      "sub_tradition": "rationalist",
+      "chunk_index": 1,
+      "chunk_text": "Ibn Sina on the Active Intellect (al-ʿaql al-faʿʿāl): 'The human intellect, in its potential state, is like a mirror covered with dust. It cannot produce knowledge by itself — it must receive illumination from the Active Intellect, which is the source of all intelligible forms. When the human mind is properly prepared through study and reflection, it becomes capable of receiving these forms, and at that moment, understanding occurs. The Active Intellect does not force understanding upon the unprepared mind any more than the sun forces sight upon closed eyes.' This establishes the Avicennian theory of knowledge: human understanding requires both preparation (through study) and receptivity (to intelligible forms that exist independently of the individual mind).",
+      "metadata": {"book": "De Anima (Book on the Soul)", "section": "Chapter 5 — On the intellect", "translator": "Jon McGinnis", "source_archive": "archive.org", "license": "fair_use_excerpt"},
+      "requires_partner_review": true
+    },
+    {
+      "source_text": "Book of Healing — De Anima (Kitab al-Shifa — Al-Nafs)",
+      "source_author": "Ibn Sina (Avicenna, ابن سينا)",
+      "sub_tradition": "rationalist",
+      "chunk_index": 2,
+      "chunk_text": "Ibn Sina on intuition (hads): 'Some people possess a faculty of intuition (hads) so strong that they can grasp the middle term of a syllogism without going through the process of systematic inquiry. These are the prophets and the most gifted philosophers. But intuition is not irrational — it is hyper-rational. It is the same logical process that ordinary minds complete step by step, completed instantaneously. The prophet's knowledge differs from the philosopher's in speed and scope, not in kind.' This is Ibn Sina's naturalization of prophecy: prophetic knowledge is placed on a continuum with philosophical knowledge rather than in a separate category. Both are rational; the prophet simply operates at the highest capacity of the rational faculty.",
+      "metadata": {"book": "De Anima (Book on the Soul)", "section": "Chapter 5 — On prophetic intellect", "translator": "Jon McGinnis", "source_archive": "archive.org", "license": "fair_use_excerpt"},
+      "requires_partner_review": true
+    },
+    {
+      "source_text": "Book of Healing — De Anima (Kitab al-Shifa — Al-Nafs)",
+      "source_author": "Ibn Sina (Avicenna, ابن سينا)",
+      "sub_tradition": "rationalist",
+      "chunk_index": 3,
+      "chunk_text": "Ibn Sina on the hierarchy of knowledge: 'Knowledge begins with sense perception, which grasps particular objects. From sense perception, the imaginative faculty (al-mutakhayyila) constructs images. From images, the estimative faculty (al-wahmiyya) extracts intentions — the sheep perceives not just the wolf's shape but its dangerousness. Finally, the rational faculty abstracts universal concepts from particulars. Each level depends on the one below it, but each adds something the lower level cannot provide. The senses alone cannot reach universals; reason alone, without sensory grounding, operates in a vacuum.' This is the Avicennian hierarchy of cognitive faculties: a systematic account of how knowledge ascends from sensation to universal understanding, with each level both dependent on and transcending the one below.",
+      "metadata": {"book": "De Anima (Book on the Soul)", "section": "Chapter 2 — On the faculties of the soul", "translator": "Jon McGinnis", "source_archive": "archive.org", "license": "fair_use_excerpt"},
+      "requires_partner_review": true
+    },
+    {
+      "source_text": "Book of Healing — De Anima (Kitab al-Shifa — Al-Nafs)",
+      "source_author": "Ibn Sina (Avicenna, ابن سينا)",
+      "sub_tradition": "rationalist",
+      "chunk_index": 4,
+      "chunk_text": "Ibn Sina on necessary existence: 'Existence is either necessary (wajib al-wujud) or contingent (mumkin al-wujud). Everything we observe in the world is contingent — it could have been otherwise, and it depends on something else for its existence. But an infinite chain of contingent beings is impossible, because the chain itself would be contingent and require an explanation. Therefore, there must be a Necessary Existent — a being whose essence is identical with its existence, which depends on nothing else, and which is the ultimate cause of everything contingent.' This proof for God's existence is philosophical, not theological — it proceeds from metaphysical analysis of the concept of existence itself, not from scripture or revelation.",
+      "metadata": {"book": "related — Kitab al-Najat (Book of Salvation)", "section": "Metaphysics", "translator": "Jon McGinnis", "source_archive": "archive.org", "license": "fair_use_excerpt"},
+      "requires_partner_review": true
+    },
+    {
+      "source_text": "Opinions of the Inhabitants of the Virtuous City (Ara Ahl al-Madina al-Fadila)",
+      "source_author": "Al-Farabi (أبو نصر الفارابي)",
+      "sub_tradition": "rationalist",
+      "chunk_index": 0,
+      "chunk_text": "Al-Farabi writes: 'The virtuous city (al-madina al-fadila) is one in which the inhabitants cooperate to achieve genuine happiness (al-saʿāda al-ḥaqīqiyya). Just as the body is healthy when all its organs cooperate under the governance of the heart, so the city is virtuous when all its members cooperate under the governance of the philosopher-ruler. The philosopher-ruler is one who has achieved the highest level of intellectual perfection and can therefore guide others toward the truth.' This establishes Al-Farabi's political epistemology: the just city requires that governance be exercised by those who have achieved genuine knowledge, not merely those who have acquired power.",
+      "metadata": {"section": "Chapter 15 — On the virtuous city", "translator": "Richard Walzer", "source_archive": "archive.org", "license": "fair_use_excerpt"},
+      "requires_partner_review": true
+    },
+    {
+      "source_text": "Opinions of the Inhabitants of the Virtuous City (Ara Ahl al-Madina al-Fadila)",
+      "source_author": "Al-Farabi (أبو نصر الفارابي)",
+      "sub_tradition": "rationalist",
+      "chunk_index": 1,
+      "chunk_text": "Al-Farabi describes the ignorant city (al-madina al-jahiliyya): 'The ignorant city is not one whose inhabitants lack intelligence but one whose inhabitants have never known genuine happiness and therefore cannot aim at it. They pursue wealth, pleasure, honor, or domination, mistaking these for the ultimate good. Each type of ignorant city — the city of necessity, the city of wealth, the city of meanness, the city of honor, the city of domination — is organized around a false conception of the good.' This taxonomy of failed political communities is epistemological: cities fail not from lack of resources but from lack of knowledge about what constitutes genuine flourishing.",
+      "metadata": {"section": "Chapter 19 — On the ignorant city", "translator": "Richard Walzer", "source_archive": "archive.org", "license": "fair_use_excerpt"},
+      "requires_partner_review": true
+    },
+    {
+      "source_text": "Opinions of the Inhabitants of the Virtuous City (Ara Ahl al-Madina al-Fadila)",
+      "source_author": "Al-Farabi (أبو نصر الفارابي)",
+      "sub_tradition": "rationalist",
+      "chunk_index": 2,
+      "chunk_text": "Al-Farabi on the First Cause and emanation: 'From the First Cause (al-sabab al-awwal) proceeds the First Intellect, and from each successive intellect proceeds the next, until the Active Intellect is reached — the intellect closest to the human world. The Active Intellect is the source of the forms that the human mind receives when it thinks. Thus, all human knowledge is ultimately connected to the First Cause through the chain of intellects.' This cosmological framework is not merely metaphysical speculation — it grounds Al-Farabi's epistemology. Human knowledge has a cosmic source, which means that the pursuit of knowledge is participation in the structure of reality itself, not an arbitrary human activity.",
+      "metadata": {"section": "Chapter 2 — On the First Cause", "translator": "Richard Walzer", "source_archive": "archive.org", "license": "fair_use_excerpt"},
+      "requires_partner_review": true
+    },
+    {
+      "source_text": "Opinions of the Inhabitants of the Virtuous City (Ara Ahl al-Madina al-Fadila)",
+      "source_author": "Al-Farabi (أبو نصر الفارابي)",
+      "sub_tradition": "rationalist",
+      "chunk_index": 3,
+      "chunk_text": "Al-Farabi on the role of religion in the virtuous city: 'Philosophy grasps truth through demonstration; religion presents the same truth through images, symbols, and persuasive speech (khitaba). The prophet is one who can receive philosophical truth from the Active Intellect and translate it into the imaginative forms that the masses can understand. Religion is thus not the opposite of philosophy but its popular expression. In the virtuous city, philosophy and religion teach the same truth in different registers.' This is Al-Farabi's concordance theory: philosophy and religion are not rivals but complementary modes of communicating the same truth to different audiences. The prophet is the bridge between philosophical truth and popular understanding.",
+      "metadata": {"section": "Chapter 17 — On the qualities of the ruler", "translator": "Richard Walzer", "source_archive": "archive.org", "license": "fair_use_excerpt"},
+      "requires_partner_review": true
+    },
+    {
+      "source_text": "Opinions of the Inhabitants of the Virtuous City (Ara Ahl al-Madina al-Fadila)",
+      "source_author": "Al-Farabi (أبو نصر الفارابي)",
+      "sub_tradition": "rationalist",
+      "chunk_index": 4,
+      "chunk_text": "Al-Farabi on intellectual happiness: 'The highest happiness attainable by humans is the actualization of the intellect — when the potential intellect (al-ʿaql bi-l-quwwa) becomes the acquired intellect (al-ʿaql al-mustafād) by receiving all intelligible forms from the Active Intellect. At this point, the human intellect becomes like the Active Intellect itself — it thinks without dependence on matter, sensation, or imagination. This is the true meaning of immortality: not the continuation of bodily life but the perfection of intellectual existence.' This is Al-Farabi's intellectualist soteriology: salvation and highest happiness are identical with the perfection of knowledge. Ethics, politics, and religion all serve this ultimate epistemic goal.",
+      "metadata": {"section": "Chapter 16 — On happiness", "translator": "Richard Walzer", "source_archive": "archive.org", "license": "fair_use_excerpt"},
+      "requires_partner_review": true
+    },
+    {
+      "source_text": "Muqaddimah (The Introduction)",
+      "source_author": "Ibn Khaldun (ابن خلدون)",
+      "sub_tradition": "social-historical",
+      "chunk_index": 7,
+      "chunk_text": "Ibn Khaldun on the transmission of knowledge: 'The student learns not from books alone but from the presence of the teacher. The teacher transmits not merely information but a way of thinking — the capacity for independent judgment (ijtihad) that cannot be captured in writing. This is why the most important link in the chain of knowledge is the personal relationship between teacher and student, not the existence of libraries or texts. When the chain of transmission is broken — when a generation of scholars is lost to plague, war, or political upheaval — the knowledge itself is lost, even if the books survive.' This epistemology of transmission through personal contact explains why Ibn Khaldun treats civilizational collapse as an epistemic catastrophe: knowledge is embodied in living practitioners, not stored in texts.",
+      "metadata": {"book": "Book 1", "section": "Chapter 6 — On instruction and learning", "translator": "Franz Rosenthal", "source_archive": "Project Gutenberg", "license": "public_domain"},
+      "requires_partner_review": true
+    },
+    {
+      "source_text": "Ihya Ulum al-Din (Revival of the Religious Sciences)",
+      "source_author": "Al-Ghazali (أبو حامد الغزالي)",
+      "sub_tradition": "mystical-empiricist",
+      "chunk_index": 6,
+      "chunk_text": "Al-Ghazali writes: 'The heart has a window that opens onto the unseen world (al-ghayb). In most people, this window is obscured by the rust of worldly desires, heedlessness, and sin. The process of spiritual purification (tazkiya) is the polishing of this mirror. When it is clean, truths from the unseen world are reflected in it — in dreams for ordinary people, and in waking visions for the saints (awliyaʾ). This is not magic or madness but a faculty of perception that most people have allowed to atrophy.' This passage establishes Al-Ghazali's theory of spiritual perception: just as the eye perceives the physical world, the purified heart perceives spiritual realities. Both are natural faculties; the difference is that the heart's faculty requires ethical purification, not just physical health.",
+      "metadata": {"book": "Book 3 — The Quarter of Saving Virtues", "section": "On the wonders of the heart", "translator": "composite from Fazlul Karim / T.J. Winter", "source_archive": "sacred-texts.com", "license": "public_domain"},
+      "requires_partner_review": true
+    }
+  ]
+}

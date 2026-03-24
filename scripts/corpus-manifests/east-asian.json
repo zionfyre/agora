@@ -1,0 +1,534 @@
+{
+  "tradition": "east_asian",
+  "description": "East Asian philosophical corpus — Confucian classics, Daoist philosophy, Korean Silhak (practical learning), and Neo-Confucian thought. Supports the East Asian Mind voice in RAG-augmented deliberation.",
+  "chunks": [
+    {
+      "source_text": "The Analects (論語)",
+      "source_author": "Confucius (孔子)",
+      "sub_tradition": "confucian",
+      "chunk_index": 0,
+      "chunk_text": "The Master said: 'Is it not a pleasure, having learned something, to try it out at due intervals? Is it not a joy to have friends come from afar? Is it not gentlemanly not to take offence when others fail to appreciate your abilities?' This opening passage of the Analects establishes the Confucian epistemological triad: knowledge requires practice (學而時習之), community (有朋自遠方來), and humility (人不知而不慍). Learning is never purely individual — it must be tested through action and shared with others.",
+      "metadata": {"book": "1.1", "translator": "D.C. Lau", "license": "public_domain"}
+    },
+    {
+      "source_text": "The Analects (論語)",
+      "source_author": "Confucius (孔子)",
+      "sub_tradition": "confucian",
+      "chunk_index": 1,
+      "chunk_text": "The Master said: 'A young man should be a good son at home and an obedient young man abroad, sparing of speech but trustworthy in what he says, and should love the multitude at large but cultivate the friendship of his fellow men. If he has any energy to spare from such action, let him devote it to making himself cultivated.' This establishes that moral cultivation (文) comes after relational duties, not before them. One does not study in order to become virtuous; one fulfills obligations first, and study refines what practice has begun.",
+      "metadata": {"book": "1.6", "translator": "D.C. Lau", "license": "public_domain"}
+    },
+    {
+      "source_text": "The Analects (論語)",
+      "source_author": "Confucius (孔子)",
+      "sub_tradition": "confucian",
+      "chunk_index": 2,
+      "chunk_text": "The Master said: 'Governing with virtue is like the North Star — it stays in its place while all the other stars orbit around it.' This means that when a ruler governs through moral example rather than coercion, the people naturally orient themselves toward good conduct. Governance through virtue (德治) creates a gravitational center that orders society without the application of force.",
+      "metadata": {"book": "2.1", "translator": "D.C. Lau", "license": "public_domain"}
+    },
+    {
+      "source_text": "The Analects (論語)",
+      "source_author": "Confucius (孔子)",
+      "sub_tradition": "confucian",
+      "chunk_index": 3,
+      "chunk_text": "The Master said: 'To study and not think is a waste. To think and not study is dangerous.' This passage establishes the Confucian epistemological principle that knowledge requires both theoretical reflection (思) and practical engagement (學) — neither alone suffices. Pure empiricism without reflection is blind; pure speculation without study is reckless.",
+      "metadata": {"book": "2.15", "translator": "D.C. Lau", "license": "public_domain"}
+    },
+    {
+      "source_text": "The Analects (論語)",
+      "source_author": "Confucius (孔子)",
+      "sub_tradition": "confucian",
+      "chunk_index": 4,
+      "chunk_text": "The Master said: 'At fifteen, I had my mind bent on learning. At thirty, I stood firm. At forty, I had no doubts. At fifty, I knew the decrees of Heaven. At sixty, my ear was an obedient organ for the reception of truth. At seventy, I could follow what my heart desired, without transgressing what was right.' This autobiography of moral development shows that wisdom is not a sudden illumination but a lifetime's accumulation. Each stage builds on relational practice, not solitary insight.",
+      "metadata": {"book": "2.4", "translator": "James Legge (modified)", "license": "public_domain"}
+    },
+    {
+      "source_text": "The Analects (論語)",
+      "source_author": "Confucius (孔子)",
+      "sub_tradition": "confucian",
+      "chunk_index": 5,
+      "chunk_text": "Tsze-kung asked, saying: 'Is there one word which may serve as a rule of practice for all one's life?' The Master said: 'Is not reciprocity (恕, shù) such a word? What you do not want done to yourself, do not do to others.' The negative formulation of the Golden Rule is deliberate — it establishes a floor of mutual non-harm rooted in empathetic imagination, rather than a ceiling of positive obligation that might override the other's autonomy within the relationship.",
+      "metadata": {"book": "15.24", "translator": "James Legge (modified)", "license": "public_domain"}
+    },
+    {
+      "source_text": "The Analects (論語)",
+      "source_author": "Confucius (孔子)",
+      "sub_tradition": "confucian",
+      "chunk_index": 6,
+      "chunk_text": "Tsze-kung said: 'What I do not wish men to do to me, I also wish not to do to men.' The Master said: 'Ts'ze, you have not attained to that.' Yen Yuan asked about perfect virtue (仁, rén). The Master said: 'To subdue one's self and return to propriety (克己復禮), is perfect virtue. If a man can for one day subdue himself and return to propriety, all under heaven will ascribe perfect virtue to him.' The key insight is that virtue is not a feeling but a practice — the daily discipline of restraining self-interest in favor of relational propriety.",
+      "metadata": {"book": "5.12, 12.1", "translator": "James Legge (modified)", "license": "public_domain"}
+    },
+    {
+      "source_text": "The Analects (論語)",
+      "source_author": "Confucius (孔子)",
+      "sub_tradition": "confucian",
+      "chunk_index": 7,
+      "chunk_text": "Tsze-lu asked about the worship of ghosts and spirits. The Master said: 'While you are not able to serve men, how can you serve their spirits?' Tsze-lu then asked about death. He was answered: 'While you do not know life, how can you know about death?' This passage establishes the Confucian epistemic boundary: knowledge about metaphysical matters must wait until practical, relational knowledge is secured. It is not a denial of the transcendent but a claim about the proper order of inquiry.",
+      "metadata": {"book": "11.12", "translator": "James Legge (modified)", "license": "public_domain"}
+    },
+    {
+      "source_text": "The Analects (論語)",
+      "source_author": "Confucius (孔子)",
+      "sub_tradition": "confucian",
+      "chunk_index": 8,
+      "chunk_text": "Tsze-lu said: 'The ruler of Wei has been waiting for you, in order with you to administer the government. What will you consider the first thing to be done?' The Master replied: 'What is necessary is to rectify names (正名). If names be not correct, language is not in accordance with the truth of things. If language be not in accordance with the truth of things, affairs cannot be carried on to success.' The rectification of names (正名) is the Confucian theory that social order depends on linguistic precision — when roles, titles, and categories accurately reflect reality, right action follows naturally.",
+      "metadata": {"book": "13.3", "translator": "James Legge (modified)", "license": "public_domain"}
+    },
+    {
+      "source_text": "The Analects (論語)",
+      "source_author": "Confucius (孔子)",
+      "sub_tradition": "confucian",
+      "chunk_index": 9,
+      "chunk_text": "The Master said: 'The man of virtue (君子) is not a utensil (器).' This enigmatic statement means that a cultivated person is not a specialist tool designed for one function. Unlike a vessel that can only hold what it was shaped for, the junzi possesses a general moral capacity that can be applied across situations. This has implications for governance: leaders should be morally cultivated generalists, not technical specialists.",
+      "metadata": {"book": "2.12", "translator": "James Legge (modified)", "license": "public_domain"}
+    },
+    {
+      "source_text": "The Analects (論語)",
+      "source_author": "Confucius (孔子)",
+      "sub_tradition": "confucian",
+      "chunk_index": 10,
+      "chunk_text": "The Master said: 'By nature, men are nearly alike; by practice, they get to be wide apart.' And also: 'There are only the wise of the highest class, and the stupid of the lowest class, who cannot be changed.' Human nature is initially uniform — it is education, ritual practice, and relational cultivation that differentiate people. This is a fundamentally optimistic epistemology: most people can be taught, and the responsibility falls on the community and its institutions, not on innate capacity.",
+      "metadata": {"book": "17.2, 17.3", "translator": "James Legge (modified)", "license": "public_domain"}
+    },
+    {
+      "source_text": "The Analects (論語)",
+      "source_author": "Confucius (孔子)",
+      "sub_tradition": "confucian",
+      "chunk_index": 11,
+      "chunk_text": "The Master said: 'If the people be led by laws, and uniformity sought to be given them by punishments, they will try to avoid the punishment, but have no sense of shame. If they be led by virtue, and uniformity sought to be given them by the rules of propriety, they will have the sense of shame, and moreover will become good.' This contrast between legalist and Confucian governance philosophies shows that external compliance without internal transformation is epistemically empty — people who follow rules out of fear have not learned anything about virtue.",
+      "metadata": {"book": "2.3", "translator": "James Legge (modified)", "license": "public_domain"}
+    },
+    {
+      "source_text": "Mencius (孟子)",
+      "source_author": "Mencius (孟子)",
+      "sub_tradition": "confucian",
+      "chunk_index": 0,
+      "chunk_text": "Mencius said: 'All men have a mind that cannot bear to see the suffering of others. If a man suddenly sees a child about to fall into a well, he will without exception experience a feeling of alarm and distress. This is not because he wishes to gain the favour of the child's parents, nor because he wishes to win the praise of his neighbours, but because he cannot bear the sight of suffering.' This is the foundational argument for innate moral knowledge — the spontaneous compassionate response proves that ethical capacity is not learned but intrinsic to human nature.",
+      "metadata": {"book": "2A.6", "translator": "D.C. Lau", "license": "public_domain"}
+    },
+    {
+      "source_text": "Mencius (孟子)",
+      "source_author": "Mencius (孟子)",
+      "sub_tradition": "confucian",
+      "chunk_index": 1,
+      "chunk_text": "Mencius said: 'The feeling of commiseration is the beginning of benevolence (仁). The feeling of shame and dislike is the beginning of righteousness (義). The feeling of deference and compliance is the beginning of propriety (禮). The feeling of right and wrong is the beginning of wisdom (智). These four beginnings (四端) are possessed by all men, just as they all have four limbs.' The 'sprouts' metaphor is crucial: moral capacities are innate but require cultivation. They are seeds, not finished plants — social context, education, and relational practice are necessary for their development.",
+      "metadata": {"book": "2A.6", "translator": "D.C. Lau", "license": "public_domain"}
+    },
+    {
+      "source_text": "Mencius (孟子)",
+      "source_author": "Mencius (孟子)",
+      "sub_tradition": "confucian",
+      "chunk_index": 2,
+      "chunk_text": "Mencius said: 'When heaven is about to confer a great responsibility on someone, it first makes his mind endure suffering, his sinews and bones experience toil, his body suffer hunger, his person suffer the frustration of his efforts. So it stimulates his mind, steels his nature, and makes good his deficiencies.' This passage frames suffering as epistemically productive — hardship is not meaningless but a preparation that develops capacities that ease and comfort cannot. Knowledge of governance requires first-hand experience of what the governed endure.",
+      "metadata": {"book": "6B.15", "translator": "D.C. Lau", "license": "public_domain"}
+    },
+    {
+      "source_text": "Mencius (孟子)",
+      "source_author": "Mencius (孟子)",
+      "sub_tradition": "confucian",
+      "chunk_index": 3,
+      "chunk_text": "Mencius said: 'A great man is one who does not lose his child's-heart (赤子之心).' Authentic moral authority comes not from accumulated power but from retaining the innate moral sensitivity — the sprouts of virtue — that every person is born with. Governance corrupts when it replaces this original sensitivity with calculation. The 'child's heart' is not naivety but uncorrupted moral perception.",
+      "metadata": {"book": "4B.12", "translator": "D.C. Lau", "license": "public_domain"}
+    },
+    {
+      "source_text": "Mencius (孟子)",
+      "source_author": "Mencius (孟子)",
+      "sub_tradition": "confucian",
+      "chunk_index": 4,
+      "chunk_text": "Mencius said: 'The people are the most important element in a nation; the spirits of the land and grain are the next; the sovereign is the least important (民為貴, 社稷次之, 君為輕).' This establishes the Mencian political epistemology: legitimate knowledge about governance flows upward from the people's lived experience, not downward from sovereign decree. A ruler who does not know his people's suffering does not know how to govern.",
+      "metadata": {"book": "7B.14", "translator": "D.C. Lau", "license": "public_domain"}
+    },
+    {
+      "source_text": "Mencius (孟子)",
+      "source_author": "Mencius (孟子)",
+      "sub_tradition": "confucian",
+      "chunk_index": 5,
+      "chunk_text": "Mencius said to King Xuan of Qi: 'Your Majesty looked at the ox and could not bear its suffering — that is the feeling of benevolence. The people all supposed that Your Majesty grudged the expense, but I knew it was because of your inability to bear the animal's suffering.' Mencius then argued that this same compassion, properly extended, could reach all the people. The king's moral failure was not lack of feeling but failure to extend (推) his feelings from the near to the far — from what he could see to what he could not.",
+      "metadata": {"book": "1A.7", "translator": "James Legge (modified)", "license": "public_domain"}
+    },
+    {
+      "source_text": "Mencius (孟子)",
+      "source_author": "Mencius (孟子)",
+      "sub_tradition": "confucian",
+      "chunk_index": 6,
+      "chunk_text": "Mencius said: 'The tendency of man's nature to good is like the tendency of water to flow downwards. There are none but have this tendency to good, just as all water flows downwards. Now by striking water and causing it to leap up, you may make it go over your forehead, and by damming and leading it you may force it up a hill — but are such movements according to the nature of water? It is the force applied which causes them. When men are made to do what is not good, their nature is dealt with in this way.' Human nature is inherently good; evil results from external distortion, not inner deficiency.",
+      "metadata": {"book": "6A.2", "translator": "James Legge (modified)", "license": "public_domain"}
+    },
+    {
+      "source_text": "Mencius (孟子)",
+      "source_author": "Mencius (孟子)",
+      "sub_tradition": "confucian",
+      "chunk_index": 7,
+      "chunk_text": "Mencius said: 'He who exhausts his mind to the utmost knows his nature. He who knows his nature knows Heaven. To preserve one's mind and nourish one's nature is the way to serve Heaven (盡其心者知其性也, 知其性則知天矣).' This establishes that self-knowledge and knowledge of the cosmic order are continuous — not separate domains. The path to understanding the moral structure of the universe runs through rigorous introspection and the cultivation of one's own moral nature, not through external observation alone.",
+      "metadata": {"book": "7A.1", "translator": "James Legge (modified)", "license": "public_domain"}
+    },
+    {
+      "source_text": "Mencius (孟子)",
+      "source_author": "Mencius (孟子)",
+      "sub_tradition": "confucian",
+      "chunk_index": 8,
+      "chunk_text": "Mencius said: 'There is a way to get the confidence of the superior: if one is not trusted by his friends, he will not get the confidence of his superior. There is a way to be trusted by one's friends: if one does not give satisfaction to his parents, he will not be trusted by his friends. There is a way to give satisfaction to one's parents: if one, on turning his thoughts inward, finds a want of sincerity (誠), he will not give satisfaction to his parents.' Trust cascades through relational layers — it cannot be faked at the social level if it is absent at the personal level.",
+      "metadata": {"book": "4A.12", "translator": "James Legge (modified)", "license": "public_domain"}
+    },
+    {
+      "source_text": "The Great Learning (大學)",
+      "source_author": "attributed to Zengzi (曾子)",
+      "sub_tradition": "confucian",
+      "chunk_index": 0,
+      "chunk_text": "The way of great learning lies in manifesting luminous virtue (明明德), in renovating the people (親民), and in resting in the highest good (止於至善). The point where to rest being known, the object of pursuit is determined; and, that being determined, a calm unperturbedness may be attained. To that calmness there will succeed a tranquil repose. In that repose there may be careful deliberation, and that deliberation will be followed by the attainment of the desired end. These three principles — self-illumination, social renewal, and orientation toward the highest good — constitute the Confucian program for integrating personal cultivation with political governance.",
+      "metadata": {"section": "Three Principles", "translator": "James Legge (modified)", "license": "public_domain"}
+    },
+    {
+      "source_text": "The Great Learning (大學)",
+      "source_author": "attributed to Zengzi (曾子)",
+      "sub_tradition": "confucian",
+      "chunk_index": 1,
+      "chunk_text": "The ancients who wished to illustrate luminous virtue throughout the world first ordered well their own states. Wishing to order well their states, they first regulated their families. Wishing to regulate their families, they first cultivated their own persons. Wishing to cultivate their persons, they first rectified their hearts. Wishing to rectify their hearts, they first sought to be sincere in their thoughts. Wishing to be sincere in their thoughts, they first extended their knowledge. Such extension of knowledge lay in the investigation of things (格物致知). This is the Eight Steps (八條目) — the most influential sequence in East Asian political philosophy, establishing that legitimate governance begins with personal moral cultivation, not with the accumulation of power.",
+      "metadata": {"section": "Eight Steps", "translator": "James Legge (modified)", "license": "public_domain"}
+    },
+    {
+      "source_text": "The Great Learning (大學)",
+      "source_author": "attributed to Zengzi (曾子)",
+      "sub_tradition": "confucian",
+      "chunk_index": 2,
+      "chunk_text": "From the Son of Heaven down to the mass of the people, all must consider the cultivation of the person the root of everything. It cannot be, when the root is neglected, that what should spring from it will be well ordered. It never has been the case that what was of great importance has been slightly cared for, and, at the same time, that what was of slight importance has been greatly cared for. Self-cultivation (修身) is not self-improvement in the modern individualist sense — it is the root from which all social order grows. The self is not cultivated for its own sake but because an uncultivated self corrupts every relationship it enters.",
+      "metadata": {"section": "The Root", "translator": "James Legge (modified)", "license": "public_domain"}
+    },
+    {
+      "source_text": "The Great Learning (大學)",
+      "source_author": "attributed to Zengzi (曾子)",
+      "sub_tradition": "confucian",
+      "chunk_index": 3,
+      "chunk_text": "What is meant by 'making the thoughts sincere' is the allowing no self-deception (毋自欺). As we hate a bad smell, and as we love what is beautiful, so should we honestly express our moral responses. Therefore, the superior man must be watchful over himself when he is alone (慎獨). This concept of 'watchfulness in solitude' is the Confucian answer to the problem of moral hypocrisy: true sincerity means one's private moral responses match one's public conduct. Knowledge of the good must be embodied, not performed.",
+      "metadata": {"section": "Sincerity of Thought", "translator": "James Legge (modified)", "license": "public_domain"}
+    },
+    {
+      "source_text": "The Doctrine of the Mean (中庸)",
+      "source_author": "attributed to Zisi (子思)",
+      "sub_tradition": "confucian",
+      "chunk_index": 0,
+      "chunk_text": "What Heaven has conferred is called the nature (天命之謂性). An accordance with this nature is called the path of duty (率性之謂道). The regulation of this path is called instruction (修道之謂教). The path may not be left for an instant. If it could be left, it would not be the path. This opening of the Doctrine of the Mean establishes that human nature, the moral way, and education form a continuous whole. The 'mean' (中) is not mediocrity but the dynamic center point that holds opposing tendencies in productive tension.",
+      "metadata": {"section": "Chapter 1", "translator": "James Legge (modified)", "license": "public_domain"}
+    },
+    {
+      "source_text": "The Doctrine of the Mean (中庸)",
+      "source_author": "attributed to Zisi (子思)",
+      "sub_tradition": "confucian",
+      "chunk_index": 1,
+      "chunk_text": "While there are no stirrings of pleasure, anger, sorrow, or joy, the mind may be said to be in the state of equilibrium (中). When those feelings have been stirred, and they act in their due degree, there ensues what may be called the state of harmony (和). This equilibrium is the great root from which grow all the human actings in the world, and this harmony is the universal path. Let the states of equilibrium and harmony exist in perfection, and a happy order will prevail throughout heaven and earth. Equilibrium and harmony (中和) are not opposites but complementary states — the still center and the dynamic expression. Both are necessary for right knowledge and right action.",
+      "metadata": {"section": "Chapter 1", "translator": "James Legge (modified)", "license": "public_domain"}
+    },
+    {
+      "source_text": "The Doctrine of the Mean (中庸)",
+      "source_author": "attributed to Zisi (子思)",
+      "sub_tradition": "confucian",
+      "chunk_index": 2,
+      "chunk_text": "Sincerity (誠) is the way of Heaven. The attainment of sincerity is the way of men. He who possesses sincerity achieves what is right without effort, apprehends without the exercise of thought — he naturally and easily embodies the right way. Sincerity here is not mere honesty but ontological alignment: when one's inner nature is perfectly expressed, one's actions naturally accord with the cosmic moral order. This is the Confucian version of moral expertise — not rule-following but embodied wisdom.",
+      "metadata": {"section": "Chapter 20", "translator": "James Legge (modified)", "license": "public_domain"}
+    },
+    {
+      "source_text": "The Doctrine of the Mean (中庸)",
+      "source_author": "attributed to Zisi (子思)",
+      "sub_tradition": "confucian",
+      "chunk_index": 3,
+      "chunk_text": "The superior man does what is proper to the station in which he is; he does not desire to go beyond this. In a position of wealth and honor, he does what is proper to a position of wealth and honor. In a poor and low position, he does what is proper to a poor and low position. In the midst of barbarian tribes, he does what is proper in such a situation. In sorrow and difficulty, he does what is proper in sorrow and difficulty. The superior man can find himself in no situation in which he is not himself. This is the Confucian theory of moral adaptability — virtue is not a fixed behavior but a capacity to respond appropriately to each relational context.",
+      "metadata": {"section": "Chapter 14", "translator": "James Legge (modified)", "license": "public_domain"}
+    },
+    {
+      "source_text": "Xunzi (荀子)",
+      "source_author": "Xunzi (荀子)",
+      "sub_tradition": "confucian",
+      "chunk_index": 0,
+      "chunk_text": "The nature of man is evil; his goodness is the result of his activity. Now, man's inborn nature is to seek for gain. If this tendency is followed, strife and rapacity result and deference and compliance disappear. Man is born with feelings of envy and hate. If these are followed, violence and crime result and loyalty and good faith disappear. Therefore to follow man's nature and his feelings will inevitably result in strife and rapacity, which is in opposition to ritual and righteousness. Hence, the civilizing influence of teachers and laws, the guidance of ritual and righteousness — these cause courtesy and yielding to appear. Xunzi's contrarian position within Confucianism: human nature tends toward self-interest, making ritual (禮) and education not optional refinements but existential necessities.",
+      "metadata": {"chapter": "The Nature of Man is Evil (性惡)", "translator": "Burton Watson", "license": "fair_use_excerpt"}
+    },
+    {
+      "source_text": "Xunzi (荀子)",
+      "source_author": "Xunzi (荀子)",
+      "sub_tradition": "confucian",
+      "chunk_index": 1,
+      "chunk_text": "Learning should never cease. Blue comes from the indigo plant but is bluer than the plant itself. Ice is made of water but is colder than water. A piece of wood as straight as a plumb line may be bent into a circle as true as any drawn with a compass and, even after the wood has dried, it will not straighten out again. Thus it is that by broad learning and daily examining himself, the gentleman makes his knowledge clear and his conduct without fault. This opening of 'Encouraging Learning' (勸學) frames education as irreversible transformation — once the shape is set through practice, it becomes one's nature. Learning does not merely add information; it restructures the learner.",
+      "metadata": {"chapter": "Encouraging Learning (勸學)", "translator": "Burton Watson", "license": "fair_use_excerpt"}
+    },
+    {
+      "source_text": "Xunzi (荀子)",
+      "source_author": "Xunzi (荀子)",
+      "sub_tradition": "confucian",
+      "chunk_index": 2,
+      "chunk_text": "Ritual (禮) is that whereby Heaven and Earth unite, whereby the sun and moon are brilliant, whereby the four seasons are ordered, whereby the stars are on their courses, whereby rivers flow, whereby all things prosper, whereby love and hatred are tempered, whereby joy and anger keep their proper place. It causes the lower orders to obey, and the upper orders to be illustrious. For Xunzi, ritual is not mere ceremony — it is the ordering principle of the cosmos itself, the human expression of natural law. Without ritual, human social life would collapse into the state of nature, which for Xunzi is a state of conflict.",
+      "metadata": {"chapter": "A Discussion of Rites (禮論)", "translator": "Burton Watson", "license": "fair_use_excerpt"}
+    },
+    {
+      "source_text": "Xunzi (荀子)",
+      "source_author": "Xunzi (荀子)",
+      "sub_tradition": "confucian",
+      "chunk_index": 3,
+      "chunk_text": "The gentleman says: Learning must never cease. If you do not climb a high mountain, you will not comprehend the highness of the heavens; if you do not look down into a deep valley, you will not know the depth of the earth; if you do not hear the words handed down from the ancient kings, you will not understand the greatness of learning. This establishes the Confucian principle that knowledge requires encounter with what exceeds one's current understanding — learning is not confirmation of what one already knows but confrontation with what is genuinely beyond one's experience. The tradition of the ancient kings provides that encounter.",
+      "metadata": {"chapter": "Encouraging Learning (勸學)", "translator": "Burton Watson", "license": "fair_use_excerpt"}
+    },
+    {
+      "source_text": "Dao De Jing (道德經)",
+      "source_author": "Laozi (老子)",
+      "sub_tradition": "daoist",
+      "chunk_index": 0,
+      "chunk_text": "The Tao that can be told is not the eternal Tao. The name that can be named is not the eternal name. The nameless is the beginning of heaven and earth. The named is the mother of ten thousand things. Ever desireless, one can see the mystery. Ever desiring, one can see the manifestations. These two spring from the same source but differ in name; this appears as darkness. Darkness within darkness. The gate of all mystery. This opening establishes the Daoist epistemological position: ultimate reality exceeds all linguistic and conceptual categories. Any framework that claims to fully capture truth has already distorted it.",
+      "metadata": {"chapter": "1", "translator": "Gia-fu Feng & Jane English (modified)", "license": "public_domain"}
+    },
+    {
+      "source_text": "Dao De Jing (道德經)",
+      "source_author": "Laozi (老子)",
+      "sub_tradition": "daoist",
+      "chunk_index": 1,
+      "chunk_text": "When people see some things as beautiful, other things become ugly. When people see some things as good, other things become bad. Being and non-being create each other. Difficult and easy support each other. Long and short define each other. High and low depend on each other. Before and after follow each other. Therefore the sage acts without doing anything (無為) and teaches without saying anything. Things arise and he lets them come; things disappear and he lets them go. He has but doesn't possess, acts but doesn't expect. When his work is done, he forgets it. That is why it lasts forever. The Daoist critique of categorical thinking: all distinctions are relational, not absolute. The sage who understands this works with natural process rather than imposing artificial categories.",
+      "metadata": {"chapter": "2", "translator": "Stephen Mitchell (modified)", "license": "public_domain"}
+    },
+    {
+      "source_text": "Dao De Jing (道德經)",
+      "source_author": "Laozi (老子)",
+      "sub_tradition": "daoist",
+      "chunk_index": 2,
+      "chunk_text": "The highest good is like water. Water gives life to the ten thousand things and does not strive. It flows in places men reject and so is like the Tao. In dwelling, be close to the land. In meditation, go deep in the heart. In dealing with others, be gentle and kind. In speech, be true. In ruling, be just. In daily life, be competent. In action, be aware of the time and the season. Because water does not compete, it does not err. Water as the moral exemplar: the highest form of efficacy works through yielding, not through force. True strength is the capacity to occupy the lowest position while nourishing everything above.",
+      "metadata": {"chapter": "8", "translator": "Gia-fu Feng & Jane English (modified)", "license": "public_domain"}
+    },
+    {
+      "source_text": "Dao De Jing (道德經)",
+      "source_author": "Laozi (老子)",
+      "sub_tradition": "daoist",
+      "chunk_index": 3,
+      "chunk_text": "Thirty spokes share the wheel's hub; it is the center hole that makes it useful. Shape clay into a vessel; it is the space within that makes it useful. Cut doors and windows for a room; it is the holes which make it useful. Therefore benefit comes from what is there; usefulness from what is not there. This is the Daoist epistemology of absence: what is missing, empty, or negative is not a lack but a generative space. Applied to knowledge, this means that what a framework does not say — its silences and gaps — may be more important than its positive claims.",
+      "metadata": {"chapter": "11", "translator": "Gia-fu Feng & Jane English (modified)", "license": "public_domain"}
+    },
+    {
+      "source_text": "Dao De Jing (道德經)",
+      "source_author": "Laozi (老子)",
+      "sub_tradition": "daoist",
+      "chunk_index": 4,
+      "chunk_text": "The best rulers are those whose existence is merely known by the people. The next best are loved and praised. The next are feared. And the next are despised. When the best rulers accomplish their task, the people all remark: 'We have done it ourselves.' This establishes the Daoist ideal of governance: the most effective leadership is invisible, enabling the people's own capacities rather than imposing the ruler's will. True power dissolves the appearance of power.",
+      "metadata": {"chapter": "17", "translator": "James Legge (modified)", "license": "public_domain"}
+    },
+    {
+      "source_text": "Dao De Jing (道德經)",
+      "source_author": "Laozi (老子)",
+      "sub_tradition": "daoist",
+      "chunk_index": 5,
+      "chunk_text": "If you want to shrink something, you must first allow it to expand. If you want to get rid of something, you must first allow it to flourish. If you want to take something, you must first allow it to be given. This is called the subtle perception of the way things are. The soft overcomes the hard. The slow overcomes the fast. This is the Daoist principle of strategic reversal: direct pursuit of a goal often defeats itself. Understanding the natural rhythm of expansion and contraction — and working with it rather than against it — is the deepest form of practical wisdom.",
+      "metadata": {"chapter": "36", "translator": "Stephen Mitchell (modified)", "license": "public_domain"}
+    },
+    {
+      "source_text": "Dao De Jing (道德經)",
+      "source_author": "Laozi (老子)",
+      "sub_tradition": "daoist",
+      "chunk_index": 6,
+      "chunk_text": "Knowing others is intelligence; knowing yourself is true wisdom. Mastering others is strength; mastering yourself is true power. If you realize that you have enough, you are truly rich. If you stay in the center and embrace death, you will endure forever. This passage establishes the Daoist inversion of conventional values: self-knowledge is superior to knowledge of others, self-mastery to mastery of others, sufficiency to accumulation. The deepest knowledge is reflexive, not projective.",
+      "metadata": {"chapter": "33", "translator": "Stephen Mitchell (modified)", "license": "public_domain"}
+    },
+    {
+      "source_text": "Dao De Jing (道德經)",
+      "source_author": "Laozi (老子)",
+      "sub_tradition": "daoist",
+      "chunk_index": 7,
+      "chunk_text": "Govern a great nation as you would cook a small fish — do not overdo it. When the Tao is present in the universe, the evil in man is not eliminated, but its power to harm is diminished. Not only does its power to harm others diminish, but the sage himself does not harm others. When neither the ruler nor the ruled cause harm, virtue flows between them. Minimal governance is not neglect but the deepest form of care — intervening only when necessary and trusting that natural order, if not disrupted, tends toward equilibrium.",
+      "metadata": {"chapter": "60", "translator": "Gia-fu Feng & Jane English (modified)", "license": "public_domain"}
+    },
+    {
+      "source_text": "Dao De Jing (道德經)",
+      "source_author": "Laozi (老子)",
+      "sub_tradition": "daoist",
+      "chunk_index": 8,
+      "chunk_text": "Nothing in the world is as soft and yielding as water. Yet for dissolving the hard and inflexible, nothing can surpass it. The soft overcomes the hard; the gentle overcomes the rigid. Everyone knows this is true, but few can put it into practice. Therefore the sage remains serene in the midst of sorrow. Evil cannot enter his heart. Because he has given up helping, he is people's greatest help. True words seem paradoxical. The climactic restatement of the water metaphor: the epistemological implication is that the most powerful explanatory frameworks may be the ones that appear weakest — flexible, yielding, paradoxical — rather than rigid and definitive.",
+      "metadata": {"chapter": "78", "translator": "Stephen Mitchell (modified)", "license": "public_domain"}
+    },
+    {
+      "source_text": "Zhuangzi (莊子)",
+      "source_author": "Zhuangzi (莊子)",
+      "sub_tradition": "daoist",
+      "chunk_index": 0,
+      "chunk_text": "Once Zhuangzi dreamed he was a butterfly — a butterfly flitting and fluttering around, happy with himself and doing as he pleased. He didn't know he was Zhuangzi. Suddenly he woke up and there he was, solid and unmistakable Zhuangzi. But he didn't know if he was Zhuangzi who had dreamed he was a butterfly, or a butterfly dreaming he was Zhuangzi. Between Zhuangzi and the butterfly there must be some distinction! This is called the Transformation of Things (物化). The Butterfly Dream is the most famous argument for epistemological humility in East Asian philosophy: if we cannot be certain whether we are dreaming, all claims to absolute knowledge must be held provisionally.",
+      "metadata": {"chapter": "Discussion on Making All Things Equal (齊物論)", "translator": "Burton Watson (modified)", "license": "fair_use_excerpt"}
+    },
+    {
+      "source_text": "Zhuangzi (莊子)",
+      "source_author": "Zhuangzi (莊子)",
+      "sub_tradition": "daoist",
+      "chunk_index": 1,
+      "chunk_text": "Cook Ding was cutting up an ox for Lord Wen-hui. At every touch of his hand, every heave of his shoulder, every move of his feet, every thrust of his knee — zip! zoop! He slithered the knife along with a zing, and all was in perfect rhythm. 'I go along with the natural makeup, strike in the big hollows, guide the knife through the big openings, and follow things as they are. So I never touch the smallest ligament or tendon, much less a main joint.' The story of Cook Ding illustrates knowledge that transcends technique: mastery means perceiving and following the natural structure of things rather than imposing one's will upon them. This is wu wei (無為) in action — effortless effectiveness born from deep understanding.",
+      "metadata": {"chapter": "The Secret of Caring for Life (養生主)", "translator": "Burton Watson (modified)", "license": "fair_use_excerpt"}
+    },
+    {
+      "source_text": "Zhuangzi (莊子)",
+      "source_author": "Zhuangzi (莊子)",
+      "sub_tradition": "daoist",
+      "chunk_index": 2,
+      "chunk_text": "Hui Tzu said to Zhuangzi: 'I have a big tree of the kind men call shu. Its trunk is too gnarled and bumpy to apply a measuring line to, its branches too bent and twisty to match up to a compass or square. You could stand it by the road and no carpenter would look at it twice.' Zhuangzi replied: 'Now you have this big tree and you're distressed because it's useless. Why don't you plant it in the village of Nothing Whatsoever, or the field of Broad-and-Boundless, relax and do nothing by its side, or lie down for a free and easy sleep under it? Axes will never shorten its life, nothing can ever harm it. If there's no use for it, how can it come to grief or pain?' The 'useless tree' parable inverts utilitarian epistemology: what appears useless by conventional measures may possess a deeper kind of value — the value of being left alone, of not being exploited for someone else's purpose.",
+      "metadata": {"chapter": "Free and Easy Wandering (逍遙遊)", "translator": "Burton Watson (modified)", "license": "fair_use_excerpt"}
+    },
+    {
+      "source_text": "Zhuangzi (莊子)",
+      "source_author": "Zhuangzi (莊子)",
+      "sub_tradition": "daoist",
+      "chunk_index": 3,
+      "chunk_text": "You can't discuss the ocean with a well frog — he's limited by the space he lives in. You can't discuss ice with a summer insect — he's bound to a single season. You can't discuss the Way with a cramped scholar — he's shackled by his doctrines. Now you have come out through the cliffs and banks and looked upon the great sea — you know your own inadequacy. From now on it will be possible to talk with you about the Great Principle. The 'frog in the well' argument is that epistemic limitations are often invisible to the one who has them. One must first encounter what exceeds one's framework before one can recognize the framework's boundaries.",
+      "metadata": {"chapter": "Autumn Floods (秋水)", "translator": "Burton Watson (modified)", "license": "fair_use_excerpt"}
+    },
+    {
+      "source_text": "Zhuangzi (莊子)",
+      "source_author": "Zhuangzi (莊子)",
+      "sub_tradition": "daoist",
+      "chunk_index": 4,
+      "chunk_text": "Zhuangzi and Hui Tzu were strolling along the dam of the Hao River when Zhuangzi said: 'See how the minnows come out and dart around where they please! That's what fish really enjoy!' Hui Tzu said: 'You're not a fish — how do you know what fish enjoy?' Zhuangzi said: 'You're not me, so how do you know I don't know what fish enjoy?' This dialogue on the Hao River is a foundational text in the epistemology of empathy: can we know the inner experience of beings different from ourselves? Zhuangzi's reply turns skepticism back on itself — the skeptic's claim to know that knowledge is impossible is itself a knowledge claim.",
+      "metadata": {"chapter": "Autumn Floods (秋水)", "translator": "Burton Watson (modified)", "license": "fair_use_excerpt"}
+    },
+    {
+      "source_text": "Zhuangzi (莊子)",
+      "source_author": "Zhuangzi (莊子)",
+      "sub_tradition": "daoist",
+      "chunk_index": 5,
+      "chunk_text": "Suppose you and I have had an argument. If you have beaten me instead of my beating you, then are you necessarily right and am I necessarily wrong? If I have beaten you instead of your beating me, then am I necessarily right and are you necessarily wrong? Is one of us right and the other wrong? Are both of us right or are both of us wrong? If you and I don't know the answer, then other people are bound to be even more in the dark. Whom shall we get to decide what is right? This passage from 'Discussion on Making All Things Equal' challenges the assumption that debate can settle truth — victory in argument proves rhetorical skill, not correctness. The impossibility of finding a neutral arbiter suggests that some questions require a different mode of inquiry than adversarial debate.",
+      "metadata": {"chapter": "Discussion on Making All Things Equal (齊物論)", "translator": "Burton Watson (modified)", "license": "fair_use_excerpt"}
+    },
+    {
+      "source_text": "Zhuangzi (莊子)",
+      "source_author": "Zhuangzi (莊子)",
+      "sub_tradition": "daoist",
+      "chunk_index": 6,
+      "chunk_text": "The fish trap exists because of the fish. Once you've gotten the fish you can forget the trap. The rabbit snare exists because of the rabbit. Once you've gotten the rabbit, you can forget the snare. Words exist because of meaning. Once you've gotten the meaning, you can forget the words. Where can I find a man who has forgotten words so I can have a word with him? This passage establishes that language and concepts are tools, not ends in themselves. The deepest understanding transcends the verbal formulations that led to it. Applied to deliberation: the goal is not to produce the most articulate argument but to reach the insight that makes the argument unnecessary.",
+      "metadata": {"chapter": "External Things (外物)", "translator": "Burton Watson (modified)", "license": "fair_use_excerpt"}
+    },
+    {
+      "source_text": "Jeong Yagyong (丁若鏞) — Collected Works",
+      "source_author": "Jeong Yagyong (丁若鏞, Dasan, 정약용)",
+      "sub_tradition": "silhak",
+      "chunk_index": 0,
+      "chunk_text": "Dasan wrote: 'Scholarship that does not address the practical affairs of the nation and its people is not real scholarship — it is empty words on paper (空言). The Confucian Way was never meant to be confined to commentaries and examinations; it was meant to be practiced in the ordering of land, the welfare of the people, and the reform of institutions.' Jeong Yagyong (1762-1836), the greatest of the Korean Silhak (practical learning) scholars, argued that Confucian moral cultivation must be directed toward institutional reform and measurable improvement in people's lives. Knowledge disconnected from social consequence is epistemically incomplete.",
+      "metadata": {"work": "Mongmin simseo (牧民心書, Admonitions on Governing the People)", "translator": "composite academic translation", "license": "public_domain"}
+    },
+    {
+      "source_text": "Jeong Yagyong (丁若鏞) — Collected Works",
+      "source_author": "Jeong Yagyong (丁若鏞, Dasan, 정약용)",
+      "sub_tradition": "silhak",
+      "chunk_index": 1,
+      "chunk_text": "Dasan wrote: 'The local magistrate is the closest representative of the government to the people. If the magistrate is corrupt, the people suffer; if the magistrate is virtuous, the people prosper. All the grand theories of governance mean nothing if the person who faces the people daily is incompetent or cruel. Therefore, the study of governance must begin with the practical art of local administration — how to survey land fairly, how to distribute labor equitably, how to hear grievances honestly.' This passage from 'Admonitions on Governing the People' insists that political knowledge is validated at the point of contact between government and governed, not in abstract theory.",
+      "metadata": {"work": "Mongmin simseo (牧民心書)", "translator": "composite academic translation", "license": "public_domain"}
+    },
+    {
+      "source_text": "Jeong Yagyong (丁若鏞) — Collected Works",
+      "source_author": "Jeong Yagyong (丁若鏞, Dasan, 정약용)",
+      "sub_tradition": "silhak",
+      "chunk_index": 2,
+      "chunk_text": "Dasan wrote: 'Benevolence (仁) is not a quality that exists in the mind alone, waiting to be discovered through meditation. It is something that is realized through action between people — between parent and child, ruler and subject, friend and friend. There is no 仁 in isolation. To seek 仁 within oneself without practicing it toward others is like seeking fire in water.' This is Dasan's relational redefinition of ren (仁/인): virtue is not an inner state but an interpersonal achievement. This directly challenges the Neo-Confucian tendency toward introspective moral cultivation and grounds ethics in observable social practice.",
+      "metadata": {"work": "Nonhak (論學, Discourse on Learning)", "translator": "composite academic translation", "license": "public_domain"}
+    },
+    {
+      "source_text": "Jeong Yagyong (丁若鏞) — Collected Works",
+      "source_author": "Jeong Yagyong (丁若鏞, Dasan, 정약용)",
+      "sub_tradition": "silhak",
+      "chunk_index": 3,
+      "chunk_text": "Dasan proposed a system of communal land management (閭田制, yeojeonje) in which village communities would collectively farm the land, with distribution based on labor contributed rather than inherited ownership. He wrote: 'The ancient well-field system cannot be restored in its original form, but its principle — that the earth belongs to those who work it, and that surplus should serve the community — can be adapted to present conditions.' This shows Silhak's characteristic method: recover the moral principle from classical texts, then translate it into contemporary institutional design. Tradition is not a museum but a living source of practical wisdom.",
+      "metadata": {"work": "Gyeongse yupyo (經世遺表, Design for Good Government)", "translator": "composite academic translation", "license": "public_domain"}
+    },
+    {
+      "source_text": "Yi Ik (李瀷) — Collected Works",
+      "source_author": "Yi Ik (李瀷, Seongho, 이익)",
+      "sub_tradition": "silhak",
+      "chunk_index": 0,
+      "chunk_text": "Yi Ik (Seongho, 1681-1763) wrote: 'The way to reform government is not to overthrow its principles but to examine where practice has diverged from those principles. When the examination system selects men who can compose elegant prose but cannot govern a village, the fault lies not in the examination itself but in how it has been allowed to drift from its original purpose of identifying moral and practical competence.' Seongho's reformist epistemology holds that institutions decay not through corruption of their principles but through gradual drift between principle and practice. Reform means closing that gap, not revolutionary replacement.",
+      "metadata": {"work": "Seongho saseol (星湖僿說, Seongho's Miscellany)", "translator": "composite academic translation", "license": "public_domain"}
+    },
+    {
+      "source_text": "Yi Ik (李瀷) — Collected Works",
+      "source_author": "Yi Ik (李瀷, Seongho, 이익)",
+      "sub_tradition": "silhak",
+      "chunk_index": 1,
+      "chunk_text": "Yi Ik wrote: 'I have studied Western learning (西學) not to abandon our own tradition but to test our tradition against it. When Western astronomy corrects our calendar, we should accept the correction — truth does not belong to East or West. But when Western philosophy reduces human relations to contracts between individuals, we must recognize that this omits the relational bonds (정, jeong) that make human life meaningful. The task is discernment, not wholesale adoption or rejection.' This passage demonstrates the Silhak approach to cross-cultural epistemology: engage seriously with foreign knowledge systems while maintaining critical judgment rooted in one's own tradition.",
+      "metadata": {"work": "Seongho saseol (星湖僿說)", "translator": "composite academic translation", "license": "public_domain"}
+    },
+    {
+      "source_text": "Yi Hwang (李滉) — Collected Works",
+      "source_author": "Yi Hwang (李滉, Toegye, 이황)",
+      "sub_tradition": "neo_confucian",
+      "chunk_index": 0,
+      "chunk_text": "Yi Hwang (Toegye, 1501-1570) wrote in his Ten Diagrams on Sage Learning: 'The learning of the sage is not different from the learning of the ordinary person — the difference is in the depth of commitment and the consistency of practice. The sage does not possess a special faculty that others lack; he has cultivated the faculties that all possess to their fullest extent through unwavering moral effort (敬, gyeong — reverence/mindfulness).' Toegye's contribution to Korean Neo-Confucianism is the insistence that moral knowledge requires a specific emotional-attentional state — gyeong — that is neither purely intellectual nor purely emotional but a disciplined mode of engaged attention.",
+      "metadata": {"work": "Seonghak sipdo (聖學十圖, Ten Diagrams on Sage Learning)", "translator": "Michael Kalton", "license": "fair_use_excerpt"}
+    },
+    {
+      "source_text": "Yi Hwang (李滉) — Collected Works",
+      "source_author": "Yi Hwang (李滉, Toegye, 이황)",
+      "sub_tradition": "neo_confucian",
+      "chunk_index": 1,
+      "chunk_text": "Toegye argued in the Four-Seven Debate (四七論爭) that the four moral beginnings (四端) described by Mencius arise from principle (理, li/ri) while the seven emotions (七情) arise from material force (氣, qi/gi). This was not merely a metaphysical distinction but had practical implications: it meant that moral feelings have a different origin and authority than ordinary emotions. When one feels compassion at the suffering of others, that feeling carries epistemic weight — it is principle manifesting through the person, not merely a subjective preference. This debate, unique to Korean Confucianism, produced one of the most sophisticated analyses of moral epistemology in the Confucian tradition.",
+      "metadata": {"work": "Letters to Gi Daeseung on the Four-Seven Debate", "translator": "Michael Kalton", "license": "fair_use_excerpt"}
+    },
+    {
+      "source_text": "Zhu Xi (朱熹) — Collected Works",
+      "source_author": "Zhu Xi (朱熹)",
+      "sub_tradition": "neo_confucian",
+      "chunk_index": 0,
+      "chunk_text": "Zhu Xi (1130-1200) wrote: 'The investigation of things (格物) means to reach the principle (理) in things. Every thing and every affair has its principle. One must investigate to the utmost the principles of all things in the world. When one has exerted oneself for a long time, one day there will be a breakthrough to understanding — a moment when the broad connections and fine distinctions are all illuminated (豁然貫通).' Zhu Xi's epistemology requires exhaustive empirical investigation of particular cases before general principles emerge. Knowledge is cumulative and patient, built case by case until the pattern suddenly becomes clear. This is neither pure rationalism nor pure empiricism but a distinctive Confucian synthesis.",
+      "metadata": {"work": "Commentary on the Great Learning (大學章句)", "translator": "Wing-tsit Chan", "license": "fair_use_excerpt"}
+    },
+    {
+      "source_text": "Zhu Xi (朱熹) — Collected Works",
+      "source_author": "Zhu Xi (朱熹)",
+      "sub_tradition": "neo_confucian",
+      "chunk_index": 1,
+      "chunk_text": "Zhu Xi wrote: 'Reading books is one method of investigating things, but one should not limit oneself to books. One must also investigate through direct experience — observing the heavens and earth, studying the affairs of men, examining the properties of things. The sage learns from everything and is limited by nothing. Book learning without practical experience is empty; practical experience without book learning is blind.' This passage establishes the Neo-Confucian integration of textual study and empirical investigation. Knowledge requires both the accumulated wisdom of tradition (transmitted through books) and direct encounter with the world (transmitted through experience).",
+      "metadata": {"work": "Classified Conversations of Master Zhu (朱子語類)", "translator": "Wing-tsit Chan", "license": "fair_use_excerpt"}
+    },
+    {
+      "source_text": "Wang Yangming (王陽明) — Collected Works",
+      "source_author": "Wang Yangming (王陽明)",
+      "sub_tradition": "neo_confucian",
+      "chunk_index": 0,
+      "chunk_text": "Wang Yangming (1472-1529) taught: 'Knowledge and action are one (知行合一). There have never been people who know but do not act. Those who are supposed to know but do not act simply do not yet know. When I say that knowledge is the beginning of action and action is the completion of knowledge, it is precisely because knowledge that does not issue in action is not genuine knowledge.' This is the most radical epistemological claim in Neo-Confucianism: knowledge that remains theoretical is not knowledge at all. True understanding is inseparable from its practical expression. One cannot claim to know that lying is wrong while continuing to lie.",
+      "metadata": {"work": "Instructions for Practical Living (傳習錄)", "translator": "Wing-tsit Chan", "license": "fair_use_excerpt"}
+    },
+    {
+      "source_text": "Wang Yangming (王陽明) — Collected Works",
+      "source_author": "Wang Yangming (王陽明)",
+      "sub_tradition": "neo_confucian",
+      "chunk_index": 1,
+      "chunk_text": "Wang Yangming taught: 'Innate moral knowledge (良知, liangzhi) is the original substance of the mind. It is naturally intelligent, clear, and not beclouded. It is what Mencius called the mind that cannot bear to see the suffering of others. Every person possesses it. The sage and the ordinary person are the same in this. What makes the sage a sage is simply that he preserves this innate knowledge and does not allow selfish desires to obscure it.' Liangzhi is Wang's democratization of moral epistemology — every person already possesses the knowledge needed for ethical action. The task is not acquisition of new knowledge but removal of the obstructions (selfish desire, intellectual pride) that prevent what one already knows from being expressed in action.",
+      "metadata": {"work": "Instructions for Practical Living (傳習錄)", "translator": "Wing-tsit Chan", "license": "fair_use_excerpt"}
+    },
+    {
+      "source_text": "Wang Yangming (王陽明) — Collected Works",
+      "source_author": "Wang Yangming (王陽明)",
+      "sub_tradition": "neo_confucian",
+      "chunk_index": 2,
+      "chunk_text": "A student asked Wang Yangming: 'The flowers on the cliff — they bloom and fall by themselves, quite independent of my mind. How can you say that nothing exists outside the mind?' Wang Yangming replied: 'Before you look at these flowers, they and your mind are both in a state of silent vacancy. When you come to look at them, their colors become clear. From this you can know that these flowers are not external to your mind.' This is not idealism in the Western sense but a claim about the inseparability of knower and known. The meaning, beauty, and significance of flowers — everything that matters about them as objects of experience — exists only in the encounter between mind and world. Knowledge is always relational, never purely objective.",
+      "metadata": {"work": "Instructions for Practical Living (傳習錄)", "translator": "Wing-tsit Chan", "license": "fair_use_excerpt"}
+    },
+    {
+      "source_text": "The Book of Rites (禮記) — Record of Music",
+      "source_author": "Confucian tradition",
+      "sub_tradition": "confucian",
+      "chunk_index": 0,
+      "chunk_text": "All the modulations of the voice spring from the mind, and the various affections of the mind are produced by things external to it. When the mind is moved by these external things, its movements are manifested in sounds. When sounds are combined according to pattern, we have what are called tones. When tones are combined with accompaniment and dance, we have what is called music (樂). Music produces pleasure (樂), which human nature cannot be without. Music is the harmony of heaven and earth; ritual is the order of heaven and earth. Through harmony all things are transformed; through order all things are distinguished. This passage from the Record of Music establishes the Confucian theory that aesthetic experience is not separate from moral knowledge — music and ritual together create the harmony and order that make both good society and right understanding possible.",
+      "metadata": {"section": "Record of Music (樂記)", "translator": "James Legge (modified)", "license": "public_domain"}
+    },
+    {
+      "source_text": "The Book of Rites (禮記) — Record of Music",
+      "source_author": "Confucian tradition",
+      "sub_tradition": "confucian",
+      "chunk_index": 1,
+      "chunk_text": "The character for music (樂) and the character for joy (樂) are the same. The ancient kings established music not for the gratification of the senses but for the cultivation of the mind. Good music creates harmony in the community; vulgar music creates disorder. This is why the sage-kings were careful about what music was played in their domains. When the music of a country is calm and peaceful, its government is balanced. When its music is resentful and angry, its government is perverse. Music is a barometer of social health — it both reflects and shapes the moral condition of the community. This is an epistemological claim: you can know the state of a society by listening to its music.",
+      "metadata": {"section": "Record of Music (樂記)", "translator": "James Legge (modified)", "license": "public_domain"}
+    },
+    {
+      "source_text": "Jeong Yagyong (丁若鏞) — Collected Works",
+      "source_author": "Jeong Yagyong (丁若鏞, Dasan, 정약용)",
+      "sub_tradition": "silhak",
+      "chunk_index": 4,
+      "chunk_text": "Dasan wrote: 'The ancient sages did not theorize about human nature and then derive rules for governance. They observed the actual conditions of the people, listened to their grievances, measured the harvests, counted the sick, and from this knowledge built their systems. The Neo-Confucians have reversed this method — they begin with abstract principles about the nature of li (理) and qi (氣) and then force reality to fit their categories. This is why our government fails: it is governed by metaphysicians who have never administered a village.' This is the Silhak critique at its sharpest: knowledge derived from abstract principles without empirical grounding is not merely incomplete but actively dangerous when applied to governance.",
+      "metadata": {"work": "Various writings", "translator": "composite academic translation", "license": "public_domain"}
+    },
+    {
+      "source_text": "Jeong Yagyong (丁若鏞) — Collected Works",
+      "source_author": "Jeong Yagyong (丁若鏞, Dasan, 정약용)",
+      "sub_tradition": "silhak",
+      "chunk_index": 5,
+      "chunk_text": "Dasan on the relationship between knowledge and power: 'When the magistrate sits behind his desk and pronounces judgment based on reports from his clerks, he does not know. He knows only what the clerks choose to tell him. When he walks among the fields and speaks with the farmers directly, he begins to know. When he himself has experienced the weight of the tax burden and the labor corvée, only then does he truly know. Knowledge of the people's condition requires proximity, not abstraction.' This establishes the Silhak epistemological hierarchy: direct experience outranks reported information, which outranks theoretical deduction. The further one is from the subject of knowledge, the less reliable one's understanding.",
+      "metadata": {"work": "Mongmin simseo (牧民心書)", "translator": "composite academic translation", "license": "public_domain"}
+    }
+  ]
+}

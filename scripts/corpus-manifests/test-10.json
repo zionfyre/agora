@@ -1,0 +1,86 @@
+{
+  "tradition": "east_asian",
+  "description": "Test manifest — 10 chunks from Analerta and Mencius for pipeline validation",
+  "chunks": [
+    {
+      "source_text": "The Analects (論語)",
+      "source_author": "Confucius (孔子)",
+      "sub_tradition": "confucian",
+      "chunk_index": 0,
+      "chunk_text": "The Master said: 'Is it not a pleasure, having learned something, to try it out at due intervals? Is it not a joy to have friends come from afar? Is it not gentlemanly not to take offence when others fail to appreciate your abilities?'",
+      "metadata": {"book": "1.1", "translator": "D.C. Lau", "license": "public_domain"}
+    },
+    {
+      "source_text": "The Analects (論語)",
+      "source_author": "Confucius (孔子)",
+      "sub_tradition": "confucian",
+      "chunk_index": 1,
+      "chunk_text": "The Master said: 'A young man should be a good son at home and an obedient young man abroad, sparing of speech but trustworthy in what he says, and should love the multitude at large but cultivate the friendship of his fellow men. If he has any energy to spare from such action, let him devote it to making himself cultivated.'",
+      "metadata": {"book": "1.6", "translator": "D.C. Lau", "license": "public_domain"}
+    },
+    {
+      "source_text": "The Analects (論語)",
+      "source_author": "Confucius (孔子)",
+      "sub_tradition": "confucian",
+      "chunk_index": 2,
+      "chunk_text": "The Master said: 'Governing with virtue is like the North Star — it stays in its place while all the other stars orbit around it.' This means that when a ruler governs through moral example rather than coercion, the people naturally orient themselves toward good conduct.",
+      "metadata": {"book": "2.1", "translator": "D.C. Lau", "license": "public_domain"}
+    },
+    {
+      "source_text": "The Analects (論語)",
+      "source_author": "Confucius (孔子)",
+      "sub_tradition": "confucian",
+      "chunk_index": 3,
+      "chunk_text": "The Master said: 'The rule of virtue can be compared to the Pole Star which commands the homage of the multitude of stars without leaving its place.' The key insight is that governance through moral authority creates a gravitational center that orders society without the application of force.",
+      "metadata": {"book": "2.1-commentary", "translator": "D.C. Lau", "license": "public_domain"}
+    },
+    {
+      "source_text": "The Analects (論語)",
+      "source_author": "Confucius (孔子)",
+      "sub_tradition": "confucian",
+      "chunk_index": 4,
+      "chunk_text": "The Master said: 'To study and not think is a waste. To think and not study is dangerous.' This passage establishes the Confucian epistemological principle that knowledge requires both theoretical reflection and practical engagement — neither alone suffices.",
+      "metadata": {"book": "2.15", "translator": "D.C. Lau", "license": "public_domain"}
+    },
+    {
+      "source_text": "Mencius (孟子)",
+      "source_author": "Mencius (孟子)",
+      "sub_tradition": "confucian",
+      "chunk_index": 0,
+      "chunk_text": "Mencius said: 'All men have a mind that cannot bear to see the suffering of others. If a man suddenly sees a child about to fall into a well, he will without exception experience a feeling of alarm and distress. This is not because he wishes to gain the favour of the child's parents, nor because he wishes to win the praise of his neighbours, but because he cannot bear the sight of suffering.'",
+      "metadata": {"book": "2A.6", "translator": "D.C. Lau", "license": "public_domain"}
+    },
+    {
+      "source_text": "Mencius (孟子)",
+      "source_author": "Mencius (孟子)",
+      "sub_tradition": "confucian",
+      "chunk_index": 1,
+      "chunk_text": "Mencius said: 'The feeling of commiseration is the beginning of benevolence (仁). The feeling of shame and dislike is the beginning of righteousness (義). The feeling of deference and compliance is the beginning of propriety (禮). The feeling of right and wrong is the beginning of wisdom (智). These four beginnings are possessed by all men, just as they all have four limbs.'",
+      "metadata": {"book": "2A.6", "translator": "D.C. Lau", "license": "public_domain"}
+    },
+    {
+      "source_text": "Mencius (孟子)",
+      "source_author": "Mencius (孟子)",
+      "sub_tradition": "confucian",
+      "chunk_index": 2,
+      "chunk_text": "Mencius said: 'When heaven is about to confer a great responsibility on someone, it first makes his mind endure suffering, his sinews and bones experience toil, his body suffer hunger, his person suffer the frustration of his efforts. So it stimulates his mind, steels his nature, and makes good his deficiencies.'",
+      "metadata": {"book": "6B.15", "translator": "D.C. Lau", "license": "public_domain"}
+    },
+    {
+      "source_text": "Mencius (孟子)",
+      "source_author": "Mencius (孟子)",
+      "sub_tradition": "confucian",
+      "chunk_index": 3,
+      "chunk_text": "Mencius said: 'A great man is one who does not lose his child's-heart.' This passage establishes that authentic moral authority comes not from accumulated power but from retaining the innate moral sensitivity — the sprouts of virtue — that every person is born with. Governance corrupts when it replaces this original sensitivity with calculation.",
+      "metadata": {"book": "4B.12", "translator": "D.C. Lau", "license": "public_domain"}
+    },
+    {
+      "source_text": "Mencius (孟子)",
+      "source_author": "Mencius (孟子)",
+      "sub_tradition": "confucian",
+      "chunk_index": 4,
+      "chunk_text": "Mencius said: 'The people are the most important element in a nation; the spirits of the land and grain are the next; the sovereign is the least important.' This establishes the Mencian political epistemology: legitimate knowledge about governance flows upward from the people's lived experience, not downward from sovereign decree.",
+      "metadata": {"book": "7B.14", "translator": "D.C. Lau", "license": "public_domain"}
+    }
+  ]
+}

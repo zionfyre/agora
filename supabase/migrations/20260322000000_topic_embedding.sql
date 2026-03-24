@@ -6,17 +6,17 @@ CREATE EXTENSION IF NOT EXISTS vector WITH SCHEMA extensions;
 
 -- Add embedding column to deliberations
 ALTER TABLE deliberations
-  ADD COLUMN IF NOT EXISTS topic_embedding vector(1536);
+  ADD COLUMN IF NOT EXISTS topic_embedding extensions.vector(1536);
 
 -- Index for fast similarity search
 CREATE INDEX IF NOT EXISTS idx_deliberations_topic_embedding
   ON deliberations
-  USING ivfflat (topic_embedding vector_cosine_ops)
+  USING ivfflat (topic_embedding extensions.vector_cosine_ops)
   WITH (lists = 20);
 
 -- RPC function: find semantically similar completed deliberations
 CREATE OR REPLACE FUNCTION match_deliberations(
-  query_embedding vector(1536),
+  query_embedding extensions.vector(1536),
   match_threshold float DEFAULT 0.88,
   match_count int DEFAULT 3
 )
@@ -28,6 +28,7 @@ RETURNS TABLE (
   similarity float
 )
 LANGUAGE sql STABLE
+SET search_path = public, extensions
 AS $$
   SELECT
     d.id,
