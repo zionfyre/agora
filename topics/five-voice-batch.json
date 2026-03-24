@@ -1,0 +1,206 @@
+{
+  "description": "20 topics weighted toward categories that produce the most aesthetic-falsificationist opacity. Designed for 5-voice council (with Relational Ontologist).",
+  "category_weights": "ontological: 8, normative: 6, epistemic: 6 — from AF opacity rates 0.62, 0.57, 0.50",
+  "topics": [
+    {
+      "statement": "What does soil remember?",
+      "category": "ontological",
+      "context": "Soil carries chemical signatures of ancient fires, cultural practices, and ecological regimes. Terroir is not metaphor — wine from different soils tastes different because the soil's history is materially present.",
+      "tension_axes": [
+        "Material memory vs. relational memory",
+        "Chemical analysis vs. place-based knowing",
+        "Soil as resource vs. soil as ancestor"
+      ]
+    },
+    {
+      "statement": "Is a seed an organism or a promise?",
+      "category": "ontological",
+      "context": "Seeds encode genetic information, ecological potential, and cultural meaning simultaneously. Seed banks preserve biodiversity; seed sovereignty movements preserve relationships.",
+      "tension_axes": [
+        "Genetic information vs. relational potential",
+        "Biological entity vs. cultural inheritance",
+        "Conservation as storage vs. conservation as practice"
+      ]
+    },
+    {
+      "statement": "Where does a body end?",
+      "category": "ontological",
+      "context": "The microbiome means our cells are outnumbered by non-human organisms. Our immune system negotiates with the environment. Our nervous system extends through tools. Our identity extends through relationships.",
+      "tension_axes": [
+        "Anatomical boundary vs. ecological boundary",
+        "Individual organism vs. holobiont",
+        "Measurable body vs. felt body"
+      ]
+    },
+    {
+      "statement": "Is a map a description or a claim?",
+      "category": "ontological",
+      "context": "Maps define territory, erase names, draw borders. Satellite imagery claims objectivity. Indigenous songlines encode a different kind of spatial knowledge entirely.",
+      "tension_axes": [
+        "Cartographic objectivity vs. situated geography",
+        "Spatial representation vs. relational navigation",
+        "State mapping vs. living landscape"
+      ]
+    },
+    {
+      "statement": "What is the ontology of a gift?",
+      "category": "ontological",
+      "context": "In market economies, exchange terminates obligation. In gift economies, exchange creates ongoing relationship. These are not different theories of exchange — they are different realities.",
+      "tension_axes": [
+        "Transaction vs. relationship",
+        "Commodity vs. gift as ontological categories",
+        "Reciprocity as obligation vs. reciprocity as way of being"
+      ]
+    },
+    {
+      "statement": "Does a mountain have interests?",
+      "category": "ontological",
+      "context": "Mountains are sacred in many traditions. They regulate weather, store water, and sustain ecosystems. Legal personhood for natural features is expanding globally.",
+      "tension_axes": [
+        "Geological feature vs. living being",
+        "Projected value vs. inherent interest",
+        "Legal fiction vs. ontological recognition"
+      ]
+    },
+    {
+      "statement": "Is fermentation transformation or collaboration?",
+      "category": "ontological",
+      "context": "Fermentation involves microbial communities transforming matter. Humans guide the process but do not control it. The result depends on relationship between human intention and microbial agency.",
+      "tension_axes": [
+        "Chemical process vs. inter-species relationship",
+        "Human control vs. microbial agency",
+        "Industrial production vs. living practice"
+      ]
+    },
+    {
+      "statement": "What kind of entity is a watershed?",
+      "category": "ontological",
+      "context": "A watershed is a hydrological unit, an ecological community, a governance boundary, and in many traditions, a living system with its own integrity. No single framework captures what it is.",
+      "tension_axes": [
+        "Hydrological system vs. living community",
+        "Management unit vs. relational being",
+        "Scientific boundary vs. experiential boundary"
+      ]
+    },
+    {
+      "statement": "Who has standing to speak for the unborn?",
+      "category": "normative",
+      "context": "Climate policy, genetic engineering, and nuclear waste all impose costs on people who do not yet exist and cannot consent. Representation of future generations is a fundamental governance problem.",
+      "tension_axes": [
+        "Present rights vs. future obligations",
+        "Democratic representation vs. intergenerational justice",
+        "Quantifiable discount rates vs. felt responsibility"
+      ]
+    },
+    {
+      "statement": "Is restoration possible or is it always creation?",
+      "category": "normative",
+      "context": "Ecological restoration aims to return ecosystems to prior states. But the prior state is contested, the baseline is shifting, and the act of restoration is itself an intervention.",
+      "tension_axes": [
+        "Historical fidelity vs. future fitness",
+        "Scientific baseline vs. cultural memory of place",
+        "Measurable recovery vs. felt wholeness"
+      ]
+    },
+    {
+      "statement": "What does a garden owe its gardener?",
+      "category": "normative",
+      "context": "Gardens are co-created between human intention and ecological process. The gardener shapes, the garden responds. Neither party is fully in control.",
+      "tension_axes": [
+        "Cultivation as control vs. cultivation as relationship",
+        "Aesthetic design vs. ecological emergence",
+        "Productivity vs. beauty vs. reciprocity"
+      ]
+    },
+    {
+      "statement": "When does care become control?",
+      "category": "normative",
+      "context": "Medical paternalism, conservation management, development aid, parenting — the line between caring for and controlling is contested in every domain where power accompanies responsibility.",
+      "tension_axes": [
+        "Beneficence vs. autonomy",
+        "Expert knowledge vs. lived experience",
+        "Measurable outcomes vs. felt dignity"
+      ]
+    },
+    {
+      "statement": "What is owed to a place that has been poisoned?",
+      "category": "normative",
+      "context": "Superfund sites, irradiated zones, depleted fisheries. Remediation measures contaminants. Justice measures relationships. Neither captures what was lost.",
+      "tension_axes": [
+        "Cleanup standards vs. relational repair",
+        "Parts per million vs. grief",
+        "Technical remediation vs. ceremonial restoration"
+      ]
+    },
+    {
+      "statement": "Is hospitality a duty or a gift?",
+      "category": "normative",
+      "context": "Hospitality is sacred obligation in many traditions, contractual arrangement in others, and political flashpoint everywhere. The refugee crisis makes this a live question.",
+      "tension_axes": [
+        "Legal obligation vs. moral imperative vs. sacred duty",
+        "Border control vs. radical welcome",
+        "Quantifiable capacity vs. relational responsibility"
+      ]
+    },
+    {
+      "statement": "What counts as evidence of suffering?",
+      "category": "epistemic",
+      "context": "Pain scales, behavioral indicators, biomarkers, testimony, art, silence. Different epistemic frameworks accept fundamentally different evidence for subjective states.",
+      "tension_axes": [
+        "Measurable indicator vs. expressed experience",
+        "Third-person observation vs. first-person report",
+        "Universal pain scale vs. culturally situated expression"
+      ]
+    },
+    {
+      "statement": "Can a tradition be wrong?",
+      "category": "epistemic",
+      "context": "Traditional practices can be harmful. They can also encode deep adaptive knowledge. The question of how to evaluate tradition without either fetishizing or dismissing it is genuinely hard.",
+      "tension_axes": [
+        "Critical evaluation vs. respectful deference",
+        "Universal ethical standards vs. situated moral reasoning",
+        "Temporal depth as authority vs. temporal depth as inertia"
+      ]
+    },
+    {
+      "statement": "What is the epistemology of touch?",
+      "category": "epistemic",
+      "context": "Palpation in medicine, texture in craft, embrace in relationship. Touch produces knowledge that cannot be fully translated into visual or verbal form.",
+      "tension_axes": [
+        "Haptic knowledge vs. representational knowledge",
+        "Skilled perception vs. measurable sensation",
+        "Embodied knowing vs. propositional knowing"
+      ]
+    },
+    {
+      "statement": "When does measurement change what is measured?",
+      "category": "epistemic",
+      "context": "Goodhart's law, observer effects in quantum mechanics, standardized testing changing pedagogy. The act of measurement is never neutral.",
+      "tension_axes": [
+        "Observer independence vs. observer participation",
+        "Quantification as revelation vs. quantification as distortion",
+        "Metric as tool vs. metric as target"
+      ]
+    },
+    {
+      "statement": "What does it mean to know a person?",
+      "category": "epistemic",
+      "context": "Psychology profiles, genetic sequences, social media footprints, decades of friendship — each claims to 'know' a person. The claims are incommensurable.",
+      "tension_axes": [
+        "Data about vs. relationship with",
+        "Observable behavior vs. felt interiority",
+        "Generalizable type vs. irreducible particular"
+      ]
+    },
+    {
+      "statement": "Is objectivity possible without plurality?",
+      "category": "epistemic",
+      "context": "Standpoint epistemology argues that objectivity requires multiple situated perspectives, not a view from nowhere. Science advances through disagreement, not consensus.",
+      "tension_axes": [
+        "View from nowhere vs. view from everywhere",
+        "Individual rigor vs. collective triangulation",
+        "Detachment as method vs. engagement as method"
+      ]
+    }
+  ]
+}

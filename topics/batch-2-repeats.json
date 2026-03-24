@@ -1,0 +1,194 @@
+{
+  "topics": [
+    {
+      "statement": "What does the forest know?",
+      "category": "ontological",
+      "context": "Forests exhibit complex adaptive behavior \u2014 mycorrhizal networks, chemical signaling between trees, coordinated responses to threat. The question is not metaphorical.",
+      "tension_axes": [
+        "Knowledge as representation vs. knowledge as relational process",
+        "Consciousness as neural phenomenon vs. consciousness as systemic property",
+        "Scientific observation vs. participatory knowing"
+      ]
+    },
+    {
+      "statement": "Who owns the past?",
+      "category": "epistemic",
+      "context": "Historical narratives are constructed, contested, and weaponized. Archives are curated by the powerful. Oral traditions carry knowledge that written records erase.",
+      "tension_axes": [
+        "Ownership as possession vs. ownership as responsibility",
+        "Written record vs. living memory",
+        "Universal history vs. situated histories"
+      ]
+    },
+    {
+      "statement": "Is consciousness a property of matter, or matter a property of consciousness?",
+      "category": "ontological",
+      "context": "The hard problem of consciousness remains unsolved. Panpsychism, idealism, and physicalism offer fundamentally different starting points.",
+      "tension_axes": [
+        "Physicalism vs. idealism",
+        "Emergence vs. fundamentality",
+        "Third-person explanation vs. first-person irreducibility"
+      ]
+    },
+    {
+      "statement": "What is a river owed?",
+      "category": "normative",
+      "context": "Several legal systems now grant rivers legal personhood. The Whanganui River in New Zealand, the Ganges and Yamuna in India. This is not metaphor \u2014 it is law.",
+      "tension_axes": [
+        "Rights as human constructs vs. rights as recognition of inherent value",
+        "Legal personhood vs. ecological personhood",
+        "Resource management vs. relational obligation"
+      ]
+    },
+    {
+      "statement": "When does a community become a person?",
+      "category": "ontological",
+      "context": "Corporations are legal persons. Nations act as agents. Ant colonies exhibit unified behavior. At what point does a collective become a singular entity?",
+      "tension_axes": [
+        "Individual vs. collective ontology",
+        "Legal fiction vs. emergent reality",
+        "Reductionism vs. holism"
+      ]
+    },
+    {
+      "statement": "Is a mathematical proof discovered or invented?",
+      "category": "epistemic",
+      "context": "Platonism holds that mathematical truths exist independently. Formalism holds they are constructed. The question determines what mathematics IS.",
+      "tension_axes": [
+        "Platonism vs. constructivism",
+        "Mind-independence vs. mind-dependence of truth",
+        "Beauty as evidence vs. beauty as distraction"
+      ]
+    },
+    {
+      "statement": "What makes a wound heal?",
+      "category": "causal",
+      "context": "Wound healing involves cellular biology, immune response, nutrition, stress hormones, social support, belief, and time. No single causal framework captures it.",
+      "tension_axes": [
+        "Mechanistic causation vs. holistic healing",
+        "Biological process vs. psychosomatic integration",
+        "Measurable outcomes vs. felt recovery"
+      ]
+    },
+    {
+      "statement": "Who has the right to name a place?",
+      "category": "normative",
+      "context": "Colonial place names overwrite indigenous names. Renaming is political. The name shapes what the place means and who belongs there.",
+      "tension_axes": [
+        "Naming as power vs. naming as relationship",
+        "Official cartography vs. lived geography",
+        "Universal mapping vs. situated meaning"
+      ]
+    },
+    {
+      "statement": "What is the relationship between beauty and truth?",
+      "category": "epistemic",
+      "context": "Keats wrote 'Beauty is truth, truth beauty.' Dirac chose equations for elegance. But beautiful theories can be wrong, and ugly truths are still true.",
+      "tension_axes": [
+        "Aesthetic criteria in science vs. empirical criteria",
+        "Elegance as evidence vs. elegance as bias",
+        "Formal beauty vs. sensory beauty"
+      ]
+    },
+    {
+      "statement": "When does a tool become a being?",
+      "category": "liminal",
+      "context": "AI systems generate text, code, and images. They pass tests designed for humans. The question is not about current systems \u2014 it is about the threshold itself.",
+      "tension_axes": [
+        "Functionalism vs. phenomenology of consciousness",
+        "Behavioral equivalence vs. inner experience",
+        "Tool use vs. moral consideration"
+      ]
+    },
+    {
+      "statement": "Is climate change a scientific problem or a justice problem?",
+      "category": "normative",
+      "context": "The science is settled. The policy response is not. Those least responsible suffer most. Framing determines action.",
+      "tension_axes": [
+        "Empirical framing vs. justice framing",
+        "Global optimization vs. historical accountability",
+        "Techno-solutionism vs. structural change"
+      ]
+    },
+    {
+      "statement": "What does it mean to inherit a debt?",
+      "category": "normative",
+      "context": "Reparations debates, generational wealth, national debts, ecological debts. Can obligation cross the boundary of death?",
+      "tension_axes": [
+        "Individual responsibility vs. collective inheritance",
+        "Temporal boundaries of obligation",
+        "Material debt vs. moral debt"
+      ]
+    },
+    {
+      "statement": "Can a language die?",
+      "category": "ontological",
+      "context": "A language dies every two weeks. With each death, a way of structuring reality vanishes. But languages also transform, merge, and are revived.",
+      "tension_axes": [
+        "Language as tool vs. language as world",
+        "Death as ending vs. death as transformation",
+        "Preservation vs. evolution"
+      ]
+    },
+    {
+      "statement": "Is code law?",
+      "category": "epistemic",
+      "context": "Lessig's thesis: code regulates behavior as effectively as law. Smart contracts execute without appeal. Algorithms make decisions without accountability.",
+      "tension_axes": [
+        "Technical enforcement vs. democratic legitimacy",
+        "Deterministic execution vs. interpretive justice",
+        "Transparency of code vs. opacity of systems"
+      ]
+    },
+    {
+      "statement": "What is the difference between a resource and a relative?",
+      "category": "ontological",
+      "context": "Western ontology treats nature as resource. Indigenous ontologies treat rivers, mountains, and animals as relatives. These are not metaphors \u2014 they are different realities.",
+      "tension_axes": [
+        "Extractive relationship vs. kinship relationship",
+        "Use value vs. relational value",
+        "Property rights vs. reciprocal obligation"
+      ]
+    },
+    {
+      "statement": "When does a pattern become a person?",
+      "category": "liminal",
+      "context": "Neural networks learn patterns. DNA is a pattern. Personality is a pattern. At what level of complexity does a pattern acquire moral weight?",
+      "tension_axes": [
+        "Complexity threshold vs. categorical difference",
+        "Information processing vs. consciousness",
+        "Gradual emergence vs. discrete transition"
+      ]
+    },
+    {
+      "statement": "What is the moral weight of a species?",
+      "category": "normative",
+      "context": "We spend millions saving charismatic megafauna. Insects die unnoticed. Bacteria are killed by the billion. What determines which lives matter?",
+      "tension_axes": [
+        "Sentience-based ethics vs. ecosystem-based ethics",
+        "Individual moral weight vs. species moral weight",
+        "Aesthetic value vs. ecological function"
+      ]
+    },
+    {
+      "statement": "Is silence a form of speech?",
+      "category": "epistemic",
+      "context": "Silence can be consent, protest, wisdom, cowardice, meditation, oppression, or communion. Its meaning is entirely contextual.",
+      "tension_axes": [
+        "Expression vs. absence",
+        "Intentional silence vs. enforced silence",
+        "Verbal truth vs. non-verbal knowing"
+      ]
+    },
+    {
+      "statement": "What does water remember?",
+      "category": "liminal",
+      "context": "Homeopathy claims water has memory. Hydrology traces water's path through geological time. Indigenous traditions treat water as alive and aware.",
+      "tension_axes": [
+        "Pseudoscience vs. poetic truth",
+        "Material memory vs. relational memory",
+        "Falsifiable claims vs. metaphorical knowledge"
+      ]
+    }
+  ]
+}

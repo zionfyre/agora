@@ -1,0 +1,204 @@
+{
+  "topics": [
+    {
+      "statement": "What does a river owe the sea?",
+      "category": "ontological",
+      "context": "Rivers carry sediment, nutrients, and freshwater to estuaries and oceans. In relational ontologies, this is obligation. In hydrology, it is physics. The framing determines whether a dam is infrastructure or betrayal.",
+      "tension_axes": [
+        "Place-based obligation vs. physical causation",
+        "Relational ontology vs. empirical description",
+        "Non-human moral standing"
+      ]
+    },
+    {
+      "statement": "Who can speak for a forest that has no words?",
+      "category": "epistemic",
+      "context": "Environmental advocacy requires representation. But who has standing to represent non-human entities? Scientists measure, lawyers argue, indigenous communities relate. Each claims a different kind of authority.",
+      "tension_axes": [
+        "Representational authority vs. direct relation",
+        "Scientific proxy vs. relational knowing",
+        "Legal standing vs. moral standing"
+      ]
+    },
+    {
+      "statement": "Is a wound healed when the scar disappears or when the person forgets?",
+      "category": "normative",
+      "context": "Medical science defines healing by tissue regeneration. Psychology defines it by functional recovery. Phenomenology asks whether healing requires forgetting or integration. The criteria determine the treatment.",
+      "tension_axes": [
+        "Biological healing vs. phenomenological healing",
+        "Forgetting as recovery vs. remembering as integration",
+        "Measurable outcome vs. felt completeness"
+      ]
+    },
+    {
+      "statement": "What does a child know that an expert does not?",
+      "category": "epistemic",
+      "context": "Children perceive before they categorize. They ask questions experts have stopped asking. Developmental psychology documents what is gained through expertise \u2014 but not what is lost.",
+      "tension_axes": [
+        "Pre-categorical perception vs. expert classification",
+        "Knowledge hierarchy vs. epistemic complementarity",
+        "Innocence as ignorance vs. innocence as access"
+      ]
+    },
+    {
+      "statement": "Can a number be sacred?",
+      "category": "ontological",
+      "context": "Pythagoras thought numbers were divine. Many traditions assign spiritual significance to specific numbers. Formal mathematics treats numbers as abstract objects without properties beyond their relations.",
+      "tension_axes": [
+        "Formal abstraction vs. relational meaning",
+        "Mathematical realism vs. cultural construction",
+        "Sacred as category error vs. sacred as ontological claim"
+      ]
+    },
+    {
+      "statement": "What is owed to those not yet born?",
+      "category": "normative",
+      "context": "Climate policy, genetic modification, national debt, nuclear waste \u2014 all impose consequences on people who cannot consent. Intergenerational obligation is assumed in every tradition but justified differently in each.",
+      "tension_axes": [
+        "Intergenerational obligation vs. present autonomy",
+        "Contractual ethics vs. relational ethics",
+        "Discounting the future vs. treating it as equal"
+      ]
+    },
+    {
+      "statement": "Is the land harmed when it is sold?",
+      "category": "ontological",
+      "context": "Property law treats land as alienable commodity. Indigenous legal traditions often treat it as inalienable relation. The Maori concept of whenua, the Aboriginal connection to Country \u2014 these are not metaphors but ontological claims.",
+      "tension_axes": [
+        "Property as commodity vs. land as relation",
+        "Legal alienability vs. relational inalienability",
+        "Economic value vs. ontological integrity"
+      ]
+    },
+    {
+      "statement": "Does music know something that physics cannot describe?",
+      "category": "epistemic",
+      "context": "Acoustics explains frequency, amplitude, and timbre. Music theory describes harmony and rhythm. But neither explains why a minor chord sounds sad or why a melody can make someone weep. The explanatory gap is real.",
+      "tension_axes": [
+        "Aesthetic knowledge vs. formal description",
+        "Felt truth vs. propositional truth",
+        "Irreducibility of experience vs. reductive explanation"
+      ]
+    },
+    {
+      "statement": "Is there a mathematics of grief?",
+      "category": "ontological",
+      "context": "K\u00fcbler-Ross proposed stages. Neuroscience maps grief in the brain. Actuarial tables price it. But grief resists quantification in a way that may be constitutive \u2014 the resistance IS the phenomenon.",
+      "tension_axes": [
+        "Formal modeling vs. experiential irreducibility",
+        "Quantification as insight vs. quantification as violence",
+        "Universal patterns vs. singular suffering"
+      ]
+    },
+    {
+      "statement": "What does it mean for a color to be wrong?",
+      "category": "normative",
+      "context": "Designers speak of wrong colors. Cultures associate colors with mourning, celebration, danger. Physics knows only wavelengths. The wrongness is real but not physical \u2014 it lives in the space between perception and meaning.",
+      "tension_axes": [
+        "Aesthetic truth vs. physical description",
+        "Cultural meaning vs. perceptual universals",
+        "Normative judgment in non-moral domains"
+      ]
+    },
+    {
+      "statement": "Can a building be unjust?",
+      "category": "normative",
+      "context": "Hostile architecture prevents sleeping. Panopticon designs enable surveillance. Segregated spaces enforce hierarchy. Architecture is not neutral \u2014 it encodes power relations in concrete and steel.",
+      "tension_axes": [
+        "Aesthetic judgment vs. political analysis",
+        "Design as neutral craft vs. design as ideology",
+        "Built environment as constraint vs. built environment as possibility"
+      ]
+    },
+    {
+      "statement": "When does forgiveness become complicity?",
+      "category": "normative",
+      "context": "Restorative justice seeks repair through forgiveness. But repeated forgiveness without accountability can enable ongoing harm. The line between mercy and enabling is context-dependent and culturally contested.",
+      "tension_axes": [
+        "Relational repair vs. legal accountability",
+        "Mercy as virtue vs. mercy as enablement",
+        "Individual healing vs. systemic justice"
+      ]
+    },
+    {
+      "statement": "Is infrastructure neutral?",
+      "category": "normative",
+      "context": "Robert Moses built overpasses too low for buses to keep certain populations from beaches. Internet backbone routing determines who gets bandwidth. Every infrastructure choice is a power choice disguised as engineering.",
+      "tension_axes": [
+        "Technical design vs. political intent",
+        "Neutral efficiency vs. embedded values",
+        "Infrastructure as public good vs. infrastructure as control"
+      ]
+    },
+    {
+      "statement": "What makes a tradition worth preserving?",
+      "category": "normative",
+      "context": "Some traditions encode deep wisdom tested over millennia. Others encode oppression normalized through repetition. The question of which to preserve requires criteria that no single framework can provide.",
+      "tension_axes": [
+        "Cultural continuity vs. moral progress",
+        "Collective wisdom vs. individual autonomy",
+        "Preservation as duty vs. preservation as nostalgia"
+      ]
+    },
+    {
+      "statement": "Does acceleration have a moral character?",
+      "category": "normative",
+      "context": "Faster communication, faster markets, faster development. Speed is treated as inherently valuable. But acceleration destroys what requires slowness: deliberation, care, ecological cycles, grief.",
+      "tension_axes": [
+        "Speed as progress vs. speed as violence",
+        "Systems thinking vs. immediate optimization",
+        "Temporal autonomy vs. imposed pace"
+      ]
+    },
+    {
+      "statement": "Is loneliness a social failure or a personal one?",
+      "category": "normative",
+      "context": "Loneliness is an epidemic in developed nations. Public health frames it as a health risk. Sociology frames it as structural. Psychology frames it as individual. The framing determines the response.",
+      "tension_axes": [
+        "Relational deficit vs. individual pathology",
+        "Social structure vs. personal responsibility",
+        "Communal obligation vs. individual autonomy"
+      ]
+    },
+    {
+      "statement": "How do cities learn from their mistakes?",
+      "category": "causal",
+      "context": "Urban planning failures \u2014 highway construction through neighborhoods, failed public housing, floodplain development \u2014 accumulate in institutional memory. Some cities adapt. Most repeat.",
+      "tension_axes": [
+        "Institutional memory vs. political cycles",
+        "Top-down planning vs. community knowledge",
+        "Infrastructure inertia vs. adaptive capacity"
+      ]
+    },
+    {
+      "statement": "What makes an apology effective?",
+      "category": "normative",
+      "context": "Corporate apologies, political apologies, interpersonal apologies \u2014 the conditions for effectiveness vary across cultures, power dynamics, and the nature of the harm.",
+      "tension_axes": [
+        "Performative speech act vs. genuine contrition",
+        "Cross-cultural variation vs. universal standards",
+        "Individual sincerity vs. institutional accountability"
+      ]
+    },
+    {
+      "statement": "How does a species recover from near-extinction?",
+      "category": "causal",
+      "context": "Bison, wolves, condors \u2014 recovery requires habitat, genetic diversity, human restraint, and time. The biological mechanisms are understood but the social and political conditions are harder to engineer.",
+      "tension_axes": [
+        "Biological recovery vs. ecological recovery",
+        "Human management vs. natural process",
+        "Species survival vs. ecosystem function"
+      ]
+    },
+    {
+      "statement": "What is the relationship between speed and understanding?",
+      "category": "epistemic",
+      "context": "Fast thinking is heuristic. Slow thinking is deliberative. Speed reading sacrifices comprehension. Quick decisions sacrifice nuance. But not all speed is shallow \u2014 expertise enables fast correct judgment.",
+      "tension_axes": [
+        "Deliberation vs. intuition",
+        "Depth vs. efficiency",
+        "Expert speed vs. novice caution"
+      ]
+    }
+  ]
+}

@@ -60,6 +60,12 @@ serve(async (req: Request) => {
       per_round: [],
     };
 
+    // Determine partner_status based on whether Relational Ontologist is active
+    const hasRelationalOntologist = ACTIVE_VOICES.some(
+      (v) => v.name === "relational_ontologist"
+    );
+    const partnerStatus = hasRelationalOntologist ? "PENDING" : "NONE";
+
     // Create deliberation record
     const { data, error } = await supabase
       .from("deliberations")
@@ -74,6 +80,7 @@ serve(async (req: Request) => {
         cost: emptyCost,
         voices_used: ACTIVE_VOICES.map((v) => v.name),
         models_used: [],
+        partner_status: partnerStatus,
       })
       .select("id")
       .single();
@@ -85,25 +92,47 @@ serve(async (req: Request) => {
     const deliberationId = data.id;
     console.log(`Created deliberation ${deliberationId}: "${body.statement}"`);
 
-    // Trigger Round 1 (fire-and-forget — don't block the response)
-    const functionsUrl = Deno.env.get("SUPABASE_FUNCTIONS_URL");
-    const serviceKey = Deno.env.get("SUPABASE_SERVICE_ROLE_KEY");
+    // Trigger Round 1 — queue or legacy fire-and-forget
+    const useQueue = Deno.env.get("USE_QUEUE") === "true";
 
-    if (functionsUrl && serviceKey) {
-      // Don't await — let the response return immediately
-      fetch(`${functionsUrl}/run-round`, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: `Bearer ${serviceKey}`,
+    if (useQueue) {
+      // Queue path: enqueue round 1 message for the round-worker
+      const { error: enqueueError } = await supabase.rpc("queue_send", {
+        p_queue_name: "deliberation_rounds",
+        p_msg: {
+          deliberation_id: deliberationId,
+          round_number: 1,
         },
-        body: JSON.stringify({ deliberation_id: deliberationId }),
-      }).catch((err) =>
-        console.error(`Failed to trigger Round 1: ${err.message}`)
-      );
-    } else {
-      // Local dev: run inline
-      advanceDeliberation(deliberationId);
+      });
+      if (enqueueError) {
+        console.error(`Failed to enqueue Round 1: ${enqueueError.message}`);
+        // Fall through to legacy trigger as backup
+      } else {
+        console.log(`Enqueued round 1 for ${deliberationId}`);
+      }
+    }
+
+    if (!useQueue) {
+      // Legacy path: fire-and-forget HTTP self-invocation
+      const functionsUrl = Deno.env.get("EDGE_FUNCTIONS_URL") ??
+        `${Deno.env.get("SUPABASE_URL")}/functions/v1`;
+      const serviceKey = Deno.env.get("SUPABASE_SERVICE_ROLE_KEY");
+
+      if (functionsUrl && serviceKey) {
+        fetch(`${functionsUrl}/run-round`, {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${serviceKey}`,
+          },
+          body: JSON.stringify({ deliberation_id: deliberationId }),
+        }).catch((err) =>
+          console.error(`Failed to trigger Round 1: ${err.message}`)
+        );
+      } else {
+        // Local dev: run inline
+        advanceDeliberation(deliberationId);
+      }
     }
 
     return new Response(
