@@ -8,8 +8,14 @@ export type VoiceName =
   | "formal_reasoner"
   | "trickster"
   | "aesthetic_reasoner"
-  // Phase 0 week 3+ additions:
+  // Tier 1 deferred:
   | "relational_ontologist"
+  // Tier 2 voices (PENDING_ACTIVATION):
+  | "east_asian_mind"
+  | "arab_mind"
+  | "south_asian_mind"
+  | "latin_american_mind"
+  // Future:
   | "phenomenologist"
   | "systems_dynamicist"
   | "power_analyst";
@@ -49,7 +55,8 @@ export type DeliberationStatus =
   | "round_5_neologism"
   | "round_6_convergence"
   | "completed"
-  | "failed";
+  | "failed"
+  | "cancelled";
 
 export const STATUS_FOR_ROUND: Record<RoundNumber, DeliberationStatus> = {
   1: "round_1_formation",
@@ -163,11 +170,19 @@ export interface ConvergenceSignature {
   significance: string;
 }
 
+export interface ROAuthenticity {
+  present: boolean;
+  assessment: "enacting" | "performing" | "absent";
+  evidence: string;
+  gap_remains_open: boolean;
+}
+
 export interface CartographerOutput {
   disagreements: DisagreementClassification[];
   convergence_signatures: ConvergenceSignature[];
   stealth_consensus: { description: string; voices: VoiceName[] }[];
   framework_limits: { description: string }[];
+  ro_authenticity?: ROAuthenticity;
 }
 
 // ── Residue & Neologisms ───────────────────────────────────────
@@ -176,6 +191,7 @@ export interface ResidueCatalog {
   irreconcilable_tensions: IrreconcilableTension[];
   open_questions: string[];
   framework_limits: { voice: VoiceName; limit_description: string }[];
+  ro_authenticity?: ROAuthenticity;
 }
 
 export interface IrreconcilableTension {

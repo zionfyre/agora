@@ -27,8 +27,14 @@ export const MODEL_VERSIONS: Record<ModelTier, string> = {
 export const VOICE_MODEL_OVERRIDES: Partial<Record<VoiceName, string>> = {
   formal_reasoner: "deepseek/deepseek-r1",
   trickster: "openai/gpt-4o-2024-11-20",
+  relational_ontologist: "moonshotai/kimi-k2.5",
   // Aesthetic Reasoner uses the default Sonnet — strong metaphorical reasoning
   // Falsificationist uses the default Sonnet — strong causal reasoning
+  // ── Tier 2 voice overrides ──
+  east_asian_mind: "upstage/solar-pro-3",
+  arab_mind: "mistralai/mistral-saba",
+  south_asian_mind: "google/gemini-2.5-pro", // Temporary: Sarvam-M not on OpenRouter. Swap when available.
+  latin_american_mind: "mistralai/mistral-medium-3.1", // Temporary: Sabiá-4 not on OpenRouter. Swap when available.
 };
 
 // Cost per 1M tokens (USD) — from OpenRouter pricing, updated manually
@@ -41,6 +47,12 @@ export const COST_PER_MILLION_TOKENS: Record<
   "anthropic/claude-haiku-4.5": { prompt: 1.0, completion: 5.0 },
   "deepseek/deepseek-r1": { prompt: 0.7, completion: 2.5 },
   "openai/gpt-4o-2024-11-20": { prompt: 2.5, completion: 10.0 },
+  "moonshotai/kimi-k2.5": { prompt: 0.45, completion: 2.2 },
+  // Tier 2 models
+  "upstage/solar-pro-3": { prompt: 0.15, completion: 0.6 },
+  "mistralai/mistral-saba": { prompt: 0.2, completion: 0.6 },
+  "google/gemini-2.5-pro": { prompt: 1.25, completion: 10.0 },
+  "mistralai/mistral-medium-3.1": { prompt: 0.4, completion: 2.0 },
 };
 
 /**
@@ -68,16 +80,25 @@ export function resolveModel(
 
 /**
  * Estimate cost in USD for a given model and token counts.
+ * Accounts for Anthropic prompt caching: cached reads at 10%, cache writes at 125%.
  */
 export function estimateCost(
   model: string,
   promptTokens: number,
-  completionTokens: number
+  completionTokens: number,
+  cachedTokens = 0,
+  cacheWriteTokens = 0
 ): number {
   const pricing = COST_PER_MILLION_TOKENS[model];
   if (!pricing) return 0;
+
+  // Cached tokens are already included in prompt_tokens count.
+  // Subtract them to get the non-cached prompt tokens.
+  const regularPromptTokens = promptTokens - cachedTokens - cacheWriteTokens;
   return (
-    (promptTokens / 1_000_000) * pricing.prompt +
+    (Math.max(0, regularPromptTokens) / 1_000_000) * pricing.prompt +
+    (cachedTokens / 1_000_000) * pricing.prompt * 0.1 +
+    (cacheWriteTokens / 1_000_000) * pricing.prompt * 1.25 +
     (completionTokens / 1_000_000) * pricing.completion
   );
 }
