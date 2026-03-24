@@ -297,17 +297,15 @@ function triggerNextRound(deliberationId: string): void {
     return;
   }
 
-  // Fire-and-forget with 2s delay to let DB settle
-  setTimeout(() => {
-    fetch(`${functionsUrl}/run-round`, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        Authorization: `Bearer ${serviceKey}`,
-      },
-      body: JSON.stringify({ deliberation_id: deliberationId }),
-    }).catch((err) =>
-      console.error(`Failed to trigger next round: ${err.message}`)
-    );
-  }, 2000);
+  // Fire-and-forget — no setTimeout, edge functions kill process after response
+  fetch(`${functionsUrl}/run-round`, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: `Bearer ${serviceKey}`,
+    },
+    body: JSON.stringify({ deliberation_id: deliberationId }),
+  }).catch((err) =>
+    console.error(`Failed to trigger next round: ${err.message}`)
+  );
 }
