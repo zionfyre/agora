@@ -35,7 +35,7 @@ export interface CorpusPassage {
 
 // ── Embedding generation (in-edge-function) ──────────────────────
 
-async function generateQueryEmbedding(text: string): Promise<number[]> {
+export async function generateQueryEmbedding(text: string): Promise<number[]> {
   const apiKey = Deno.env.get("OPENROUTER_API_KEY");
   if (!apiKey) throw new Error("Missing OPENROUTER_API_KEY for embedding");
 

@@ -20,6 +20,7 @@ import type {
 } from "./types.ts";
 import { STATUS_FOR_ROUND } from "./types.ts";
 import { detectAnomalies } from "./anomaly-rules.ts";
+import { generateQueryEmbedding } from "./corpus-retrieval.ts";
 
 const ROUND_HANDLERS: Record<
   RoundNumber,
@@ -219,7 +220,21 @@ export async function advanceDeliberation(
         `Cost: $${costTracker.buildRoundCost().estimated_cost_usd.toFixed(4)}`
     );
 
-    // 9. Trigger next round (unless caller handles it, e.g. queue worker)
+    // 9a. Fire-and-forget topic embedding on completion
+    if (nextRound === 6) {
+      generateQueryEmbedding(deliberation.topic)
+        .then((embedding) =>
+          supabase
+            .from("deliberations")
+            .update({ topic_embedding: embedding })
+            .eq("id", deliberationId)
+        )
+        .catch((err) =>
+          console.error(`topic embedding failed for ${deliberationId}:`, err)
+        );
+    }
+
+    // 9b. Trigger next round (unless caller handles it, e.g. queue worker)
     if (nextRound < 6 && shouldTriggerNext) {
       triggerNextRound(deliberationId);
     }
