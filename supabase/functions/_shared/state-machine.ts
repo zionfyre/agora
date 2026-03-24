@@ -1,6 +1,7 @@
 // The Agora Project — Round-based State Machine
 // Each round is a separate invocation. State persisted to DB between rounds.
-// On completion of a round, triggers the next round via self-invocation.
+// On completion of a round, triggers the next round via self-invocation
+// OR returns nextRound for queue-based orchestration.
 
 import { getSupabaseClient } from "./supabase.ts";
 import { CostTracker } from "./cost-tracker.ts";
@@ -18,6 +19,7 @@ import type {
   Round,
 } from "./types.ts";
 import { STATUS_FOR_ROUND } from "./types.ts";
+import { detectAnomalies } from "./anomaly-rules.ts";
 
 const ROUND_HANDLERS: Record<
   RoundNumber,
@@ -37,12 +39,22 @@ const ROUND_HANDLERS: Record<
 /**
  * Advance a deliberation to its next round.
  * Reads current state, runs the appropriate round handler,
- * persists results, and triggers the next round.
+ * and persists results atomically (current_round only advances after success).
+ *
+ * @param options.triggerNext - If false, caller handles next-round triggering
+ *   (used by queue worker). Defaults to true (legacy self-invocation).
  */
 export async function advanceDeliberation(
-  deliberationId: string
-): Promise<{ success: boolean; error?: string }> {
+  deliberationId: string,
+  options?: { triggerNext?: boolean }
+): Promise<{
+  success: boolean;
+  skipped?: boolean;
+  nextRound?: number;
+  error?: string;
+}> {
   const supabase = getSupabaseClient();
+  const shouldTriggerNext = options?.triggerNext ?? true;
 
   // 1. Read current state
   const { data: row, error: fetchError } = await supabase
@@ -57,6 +69,14 @@ export async function advanceDeliberation(
 
   const deliberation = row as DeliberationRow;
 
+  // 1b. Check for cancellation before running any round
+  if (deliberation.status === "cancelled") {
+    console.log(
+      `Deliberation ${deliberationId} cancelled — skipping advancement`
+    );
+    return { success: true, skipped: true };
+  }
+
   // 2. Determine next round
   const nextRound = (deliberation.current_round + 1) as RoundNumber;
 
@@ -69,19 +89,42 @@ export async function advanceDeliberation(
     return { success: true };
   }
 
+  // 3. Idempotency check — if round data already exists, skip execution.
+  // Handles: round ran + persisted successfully, but next-round trigger failed.
+  // Without this, a retry re-runs the handler, wastes API calls, and
+  // potentially overwrites good data with different results.
+  const roundAlreadyComplete = deliberation.graph.rounds?.some(
+    (r: Round) => r.round_number === nextRound
+  );
+  if (roundAlreadyComplete) {
+    console.log(
+      `Idempotency: round ${nextRound} already complete for ${deliberationId}, advancing`
+    );
+    // Advance current_round to match the graph state
+    await supabase
+      .from("deliberations")
+      .update({ current_round: nextRound })
+      .eq("id", deliberationId);
+
+    if (nextRound < 6 && shouldTriggerNext) {
+      triggerNextRound(deliberationId);
+    }
+    return {
+      success: true,
+      skipped: true,
+      nextRound: nextRound < 6 ? nextRound + 1 : undefined,
+    };
+  }
+
   const handler = ROUND_HANDLERS[nextRound];
   if (!handler) {
     return { success: false, error: `No handler for round ${nextRound}` };
   }
 
-  // 3. Update status to in-progress
-  const roundStatus: DeliberationStatus = STATUS_FOR_ROUND[nextRound];
-  await supabase
-    .from("deliberations")
-    .update({ status: roundStatus, current_round: nextRound })
-    .eq("id", deliberationId);
-
-  // 4. Run the round
+  // 4. Run the round handler.
+  // NO status/current_round write before execution — this is the atomic fix.
+  // If the handler fails or times out, DB state is unchanged and the round
+  // can be retried cleanly. This eliminates silent round-skipping.
   const costTracker = new CostTracker(nextRound);
 
   try {
@@ -93,8 +136,12 @@ export async function advanceDeliberation(
     // 6. Merge cost
     const updatedCost = costTracker.mergeInto(deliberation.cost);
 
-    // 7. Persist
+    // 7. Build atomic update payload.
+    // current_round advances HERE — not before the handler runs.
+    const roundStatus: DeliberationStatus = STATUS_FOR_ROUND[nextRound];
     const updatePayload: Record<string, unknown> = {
+      current_round: nextRound,
+      status: roundStatus,
       graph: updatedGraph,
       cost: updatedCost,
       models_used: [
@@ -107,33 +154,85 @@ export async function advanceDeliberation(
       ],
     };
 
-    // If this was round 6, mark completed
+    // Persist RAG augmentation flag from formation round
+    if (nextRound === 1 && (roundResult as any)._ragAugmented) {
+      updatePayload.rag_augmented = true;
+    }
+
+    // If this was round 6, mark completed and run anomaly detection
     if (nextRound === 6) {
       updatePayload.status = "completed";
       updatePayload.completed_at = new Date().toISOString();
+
+      // Run anomaly detection on the final graph
+      const anomalyFlags = detectAnomalies({
+        graph: updatedGraph,
+        voices_used: deliberation.voices_used,
+      });
+
+      // Check for scoring instability in quality_flags
+      const scoringInstability = updatedGraph.quality_flags?.find(
+        (f) => f.type === "scoring_instability"
+      );
+      if (scoringInstability) {
+        anomalyFlags.push({
+          anomaly_type: "scoring_instability" as any,
+          flag_reason: scoringInstability.message,
+        });
+      }
+
+      if (anomalyFlags.length > 0) {
+        updatePayload.requires_partner_review = true;
+        updatePayload.corpus_note = anomalyFlags
+          .map((f) => `[${f.anomaly_type}] ${f.flag_reason}`)
+          .join(" | ");
+        console.log(
+          `Anomalies detected for ${deliberationId}: ${anomalyFlags.length} flags`
+        );
+      }
     }
 
-    await supabase
+    // 8. ATOMIC WRITE — single UPDATE with optimistic locking.
+    // WHERE current_round = <expected> ensures no other process has
+    // advanced this deliberation since we read it. If another process
+    // already advanced, the update affects 0 rows — no data corruption.
+    const { data: updated, error: updateError } = await supabase
       .from("deliberations")
       .update(updatePayload)
-      .eq("id", deliberationId);
+      .eq("id", deliberationId)
+      .eq("current_round", deliberation.current_round)
+      .select("id");
+
+    if (updateError) {
+      throw new Error(`Atomic persistence failed: ${updateError.message}`);
+    }
+
+    if (!updated || updated.length === 0) {
+      console.warn(
+        `Optimistic lock: ${deliberationId} round ${nextRound} — another process advanced`
+      );
+      return { success: true, skipped: true };
+    }
 
     console.log(
       `Round ${nextRound} complete for ${deliberationId}. ` +
         `Cost: $${costTracker.buildRoundCost().estimated_cost_usd.toFixed(4)}`
     );
 
-    // 8. Trigger next round (fire-and-forget)
-    if (nextRound < 6) {
+    // 9. Trigger next round (unless caller handles it, e.g. queue worker)
+    if (nextRound < 6 && shouldTriggerNext) {
       triggerNextRound(deliberationId);
     }
 
-    return { success: true };
+    return {
+      success: true,
+      nextRound: nextRound < 6 ? nextRound + 1 : undefined,
+    };
   } catch (err) {
     const message = err instanceof Error ? err.message : String(err);
     console.error(`Round ${nextRound} failed for ${deliberationId}: ${message}`);
 
-    // Persist failure state (allow retry)
+    // Persist failure state — current_round is NOT advanced
     await supabase
       .from("deliberations")
       .update({
@@ -171,10 +270,11 @@ function mergeRoundResult(
 
 /**
  * Fire-and-forget invocation of the next round via edge function self-call.
- * Adds a small delay to avoid overwhelming the system.
+ * Legacy trigger — queue worker bypasses this via { triggerNext: false }.
  */
 function triggerNextRound(deliberationId: string): void {
-  const functionsUrl = Deno.env.get("SUPABASE_FUNCTIONS_URL");
+  const functionsUrl = Deno.env.get("EDGE_FUNCTIONS_URL") ??
+    `${Deno.env.get("SUPABASE_URL")}/functions/v1`;
   const serviceKey = Deno.env.get("SUPABASE_SERVICE_ROLE_KEY");
 
   if (!functionsUrl || !serviceKey) {
