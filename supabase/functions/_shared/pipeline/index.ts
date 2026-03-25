@@ -7,6 +7,46 @@ import { classifyEntry } from "./classifier.ts";
 import { formQuestion } from "./question-former.ts";
 import { dispatchWitnesses } from "./witness-dispatch.ts";
 import { generateCouncilReading } from "./council-reading.ts";
+import type { CostRecord, ModelCallCost } from "../types.ts";
+
+// Accumulates costs across the witness pipeline stages
+class WitnessCostTracker {
+  private calls: ModelCallCost[] = [];
+
+  add(cost: { model?: string; voice?: string; prompt_tokens: number; completion_tokens: number; estimated_cost_usd: number }) {
+    this.calls.push({
+      model: cost.model ?? "unknown",
+      voice: (cost.voice ?? "pipeline") as ModelCallCost["voice"],
+      prompt_tokens: cost.prompt_tokens,
+      completion_tokens: cost.completion_tokens,
+      estimated_cost_usd: cost.estimated_cost_usd,
+    });
+  }
+
+  addAll(costs: { model: string; voice: string; prompt_tokens: number; completion_tokens: number; estimated_cost_usd: number }[]) {
+    for (const c of costs) this.add(c);
+  }
+
+  build(): CostRecord {
+    const totalPrompt = this.calls.reduce((s, c) => s + c.prompt_tokens, 0);
+    const totalCompletion = this.calls.reduce((s, c) => s + c.completion_tokens, 0);
+    const totalCost = this.calls.reduce((s, c) => s + c.estimated_cost_usd, 0);
+    return {
+      total_tokens: totalPrompt + totalCompletion,
+      prompt_tokens: totalPrompt,
+      completion_tokens: totalCompletion,
+      estimated_cost_usd: totalCost,
+      per_round: [{
+        round: 1 as const,
+        tokens: totalPrompt + totalCompletion,
+        prompt_tokens: totalPrompt,
+        completion_tokens: totalCompletion,
+        estimated_cost_usd: totalCost,
+        model_calls: this.calls,
+      }],
+    };
+  }
+}
 
 export async function runWitnessPipeline(
   deliberationId: string
@@ -31,6 +71,7 @@ export async function runWitnessPipeline(
   }
 
   const entryText = row.topic;
+  const costs = new WitnessCostTracker();
 
   try {
     // ── Stage 1: Classify ────────────────────────────────────────
@@ -45,6 +86,7 @@ export async function runWitnessPipeline(
       console.log(`[${deliberationId.slice(0, 8)}] Stage 1: Classifying entry`);
       const classification = await classifyEntry(entryText);
       entryType = classification.result.entry_type;
+      costs.add({ model: "anthropic/claude-sonnet-4.5", voice: "pipeline", ...classification.cost });
 
       await supabase
         .from("deliberations")
@@ -63,6 +105,7 @@ export async function runWitnessPipeline(
       console.log(`[${deliberationId.slice(0, 8)}] Stage 2: Forming question`);
       const qf = await formQuestion(entryText, entryType);
       formedQuestion = qf.question;
+      costs.add({ model: "anthropic/claude-sonnet-4.5", voice: "pipeline", ...qf.cost });
 
       await supabase
         .from("deliberations")
@@ -98,6 +141,8 @@ export async function runWitnessPipeline(
       );
 
       partial = dispatch.partial;
+      costs.addAll(dispatch.costs);
+
       if (partial) {
         await supabase
           .from("deliberations")
@@ -140,22 +185,30 @@ export async function runWitnessPipeline(
         formedQuestion,
         testimonies
       );
+      costs.add({ model: "anthropic/claude-sonnet-4.5", voice: "pipeline", ...reading.cost });
 
+      // Persist cost + reading + completion atomically
+      const finalCost = costs.build();
       await supabase
         .from("deliberations")
         .update({
           council_reading: reading.reading,
+          cost: finalCost,
           status: "completed",
           completed_at: new Date().toISOString(),
         })
         .eq("id", deliberationId);
 
-      console.log(`[${deliberationId.slice(0, 8)}] Council reading complete`);
+      console.log(
+        `[${deliberationId.slice(0, 8)}] Council reading complete — $${finalCost.estimated_cost_usd.toFixed(4)} (${finalCost.total_tokens} tokens)`
+      );
     } else {
-      // Reading already exists — just mark completed
+      // Reading already exists — persist accumulated cost and mark completed
+      const finalCost = costs.build();
       await supabase
         .from("deliberations")
         .update({
+          cost: finalCost,
           status: "completed",
           completed_at: new Date().toISOString(),
         })
