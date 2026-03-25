@@ -1,6 +1,11 @@
-// The Agora Project — Anomaly Detection Rules
+// The Agora Project — Anomaly Detection Rules (deliberation-v1 only)
 // 5 rules that run post-completion to flag deliberations needing review.
 // Each rule returns null (no anomaly) or an AnomalyFlag.
+//
+// PAUSED: witness-v1 — these rules are designed for inter-voice deliberation
+// outputs (steelman scores, cartographer gap, neologism-tension inversion).
+// They do not apply to independent witness testimonies. Do not call from
+// the witness pipeline. Revisit after corpus review of witness-v1 data.
 
 import type { DeliberationGraph, VoiceName } from "./types.ts";
 

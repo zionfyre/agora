@@ -250,6 +250,36 @@ export interface ModelCallCost {
   estimated_cost_usd: number;
 }
 
+// ── Witness Council (witness-v1) ─────────────────────────────────
+
+export type ArchitectureVersion = "deliberation-v1" | "witness-v1";
+
+export type EntryType = "question" | "document" | "creative" | "claim" | "hybrid";
+
+export interface ClassifierOutput {
+  entry_type: EntryType;
+  confidence: "high" | "medium" | "low";
+  note: string | null;
+}
+
+export interface QuestionFormationOutput {
+  question: string;
+  passed_verbatim?: boolean;
+}
+
+export interface Testimony {
+  id?: string;
+  deliberation_id: string;
+  witness_id: string;
+  witness_name: string;
+  model: string;
+  testimony_text: string;
+  token_count: number;
+  thinking_enabled: boolean;
+  thinking_token_count: number | null;
+  created_at?: string;
+}
+
 // ── Database Row ───────────────────────────────────────────────
 
 export interface DeliberationRow {
@@ -275,4 +305,10 @@ export interface DeliberationRow {
   created_at: string;
   updated_at: string;
   completed_at: string | null;
+  // witness-v1 fields
+  entry_type: EntryType | null;
+  formed_question: string | null;
+  council_reading: string | null;
+  architecture_version: ArchitectureVersion;
+  partial_council: boolean;
 }

@@ -224,6 +224,165 @@ export async function complete(
   throw lastError ?? new Error("OpenRouter call failed after retries");
 }
 
+// ── Thinking-capable models ──────────────────────────────────────
+
+const THINKING_CAPABLE = new Set([
+  "anthropic/claude-sonnet-4-5",
+  "anthropic/claude-sonnet-4.5",
+  "anthropic/claude-opus-4.5",
+  "anthropic/claude-opus-4-5",
+  "deepseek/deepseek-r1",
+]);
+
+export function isThinkingCapable(model: string): boolean {
+  return THINKING_CAPABLE.has(model);
+}
+
+export interface ThinkingCompletionResult extends CompletionResult {
+  thinking_tokens: number | null;
+}
+
+/**
+ * Call OpenRouter with extended thinking enabled.
+ * For Anthropic models: uses the thinking parameter.
+ * For DeepSeek-R1: thinking is native, no special param needed.
+ * For unsupported models: falls back to standard complete().
+ */
+export async function completeWithThinking(
+  model: string,
+  systemPrompt: string,
+  userPrompt: string,
+  voice: VoiceName | "cartographer",
+  options?: {
+    temperature?: number;
+    max_tokens?: number;
+    thinking_budget?: number;
+  }
+): Promise<ThinkingCompletionResult> {
+  if (!isThinkingCapable(model)) {
+    const result = await complete(model, systemPrompt, userPrompt, voice, {
+      temperature: options?.temperature,
+      max_tokens: options?.max_tokens,
+    });
+    return { ...result, thinking_tokens: null };
+  }
+
+  const apiKey = Deno.env.get("OPENROUTER_API_KEY");
+  if (!apiKey) throw new Error("Missing OPENROUTER_API_KEY");
+
+  const messages = buildMessages(model, systemPrompt, userPrompt);
+  const budget = options?.thinking_budget ?? 10000;
+
+  let lastError: Error | null = null;
+
+  for (let attempt = 0; attempt < MAX_RETRIES; attempt++) {
+    try {
+      const body: Record<string, unknown> = {
+        model,
+        messages,
+        max_tokens: (options?.max_tokens ?? 4096) + budget,
+      };
+
+      // Anthropic models use the thinking parameter
+      if (isAnthropicModel(model)) {
+        body.thinking = { type: "enabled", budget_tokens: budget };
+        // Temperature must be 1 when thinking is enabled for Anthropic
+      } else {
+        body.temperature = options?.temperature ?? 0.7;
+      }
+
+      const response = await fetch(
+        "https://openrouter.ai/api/v1/chat/completions",
+        {
+          method: "POST",
+          headers: {
+            Authorization: `Bearer ${apiKey}`,
+            "Content-Type": "application/json",
+            "HTTP-Referer": "https://agora.gadaa.ai",
+            "X-Title": "The Agora Project",
+          },
+          body: JSON.stringify(body),
+          signal: AbortSignal.timeout(300_000), // 5 min for thinking
+        }
+      );
+
+      if (response.status === 429 || response.status >= 500) {
+        const delay = BASE_DELAY_MS * Math.pow(2, attempt);
+        console.warn(
+          `OpenRouter ${response.status}, retry ${attempt + 1}/${MAX_RETRIES} in ${delay}ms`
+        );
+        await new Promise((r) => setTimeout(r, delay));
+        continue;
+      }
+
+      if (!response.ok) {
+        const respBody = await response.text();
+        throw new Error(`OpenRouter ${response.status}: ${respBody}`);
+      }
+
+      const data = await response.json();
+
+      // Extract content — Anthropic thinking responses have content blocks
+      let content = "";
+      let thinkingTokens = 0;
+      const choices = data.choices ?? [];
+      const message = choices[0]?.message;
+
+      if (Array.isArray(message?.content)) {
+        // Content blocks format (Anthropic with thinking)
+        for (const block of message.content) {
+          if (block.type === "thinking") {
+            thinkingTokens += (block.thinking || block.text || "").length / 4; // rough estimate
+          } else if (block.type === "text") {
+            content += block.text;
+          }
+        }
+      } else {
+        content = message?.content ?? "";
+      }
+
+      const usage = data.usage ?? {
+        prompt_tokens: 0,
+        completion_tokens: 0,
+        total_tokens: 0,
+      };
+
+      const cachedTokens = usage.prompt_tokens_details?.cached_tokens ?? 0;
+      const cacheWriteTokens = usage.prompt_tokens_details?.cache_write_tokens ?? 0;
+
+      return {
+        content,
+        thinking_tokens: thinkingTokens > 0 ? Math.round(thinkingTokens) : null,
+        cost: {
+          model,
+          voice,
+          prompt_tokens: usage.prompt_tokens,
+          completion_tokens: usage.completion_tokens,
+          estimated_cost_usd: estimateCost(
+            model,
+            usage.prompt_tokens,
+            usage.completion_tokens,
+            cachedTokens,
+            cacheWriteTokens
+          ),
+        },
+        raw_usage: usage,
+      };
+    } catch (err) {
+      lastError = err instanceof Error ? err : new Error(String(err));
+      if (attempt < MAX_RETRIES - 1) {
+        const delay = BASE_DELAY_MS * Math.pow(2, attempt);
+        console.warn(
+          `OpenRouter thinking error: ${lastError.message}, retry ${attempt + 1}/${MAX_RETRIES} in ${delay}ms`
+        );
+        await new Promise((r) => setTimeout(r, delay));
+      }
+    }
+  }
+
+  throw lastError ?? new Error("OpenRouter thinking call failed after retries");
+}
+
 // ── JSON completion ───────────────────────────────────────────────
 
 /**

@@ -1,10 +1,10 @@
 // Edge Function: Start a new deliberation
-// Creates the deliberation record and triggers Round 1
+// witness-v1: classify → form question → parallel witness → council reading
+// deliberation-v1: 6-round pipeline (legacy, preserved for backward compat)
 
 import { serve } from "https://deno.land/std@0.208.0/http/server.ts";
 import { getSupabaseClient } from "../_shared/supabase.ts";
 import { ACTIVE_VOICES } from "../_shared/voices.ts";
-import { advanceDeliberation } from "../_shared/state-machine.ts";
 import type { Topic, DeliberationGraph, CostRecord } from "../_shared/types.ts";
 
 serve(async (req: Request) => {
@@ -27,19 +27,16 @@ serve(async (req: Request) => {
   try {
     const body: Topic = await req.json();
 
-    // Validate required fields
-    if (!body.statement || !body.category) {
+    if (!body.statement) {
       return new Response(
-        JSON.stringify({
-          error: "Missing required fields: statement, category",
-        }),
+        JSON.stringify({ error: "Missing required field: statement" }),
         { status: 400 }
       );
     }
 
     const supabase = getSupabaseClient();
 
-    // Initialize empty graph
+    // Empty structures for schema compat with deliberation-v1 columns
     const emptyGraph: DeliberationGraph = {
       rounds: [],
       convergence_map: [],
@@ -60,18 +57,12 @@ serve(async (req: Request) => {
       per_round: [],
     };
 
-    // Determine partner_status based on whether Relational Ontologist is active
-    const hasRelationalOntologist = ACTIVE_VOICES.some(
-      (v) => v.name === "relational_ontologist"
-    );
-    const partnerStatus = hasRelationalOntologist ? "PENDING" : "NONE";
-
-    // Create deliberation record
+    // Create deliberation record — witness-v1 architecture
     const { data, error } = await supabase
       .from("deliberations")
       .insert({
         topic: body.statement,
-        topic_category: body.category,
+        topic_category: body.category ?? "epistemic",
         topic_context: body.context ?? null,
         tension_axes: body.tension_axes ?? [],
         status: "pending",
@@ -80,7 +71,7 @@ serve(async (req: Request) => {
         cost: emptyCost,
         voices_used: ACTIVE_VOICES.map((v) => v.name),
         models_used: [],
-        partner_status: partnerStatus,
+        architecture_version: "witness-v1",
       })
       .select("id")
       .single();
@@ -90,56 +81,31 @@ serve(async (req: Request) => {
     }
 
     const deliberationId = data.id;
-    console.log(`Created deliberation ${deliberationId}: "${body.statement}"`);
+    console.log(
+      `Created witness-v1 deliberation ${deliberationId}: "${body.statement.slice(0, 80)}"`
+    );
 
-    // Trigger Round 1 — queue or legacy fire-and-forget
-    const useQueue = Deno.env.get("USE_QUEUE") === "true";
+    // Enqueue for the round-worker (reuses existing queue + cron infrastructure)
+    const { error: enqueueError } = await supabase.rpc("queue_send", {
+      p_queue_name: "deliberation_rounds",
+      p_msg: {
+        deliberation_id: deliberationId,
+        architecture: "witness-v1",
+      },
+    });
 
-    if (useQueue) {
-      // Queue path: enqueue round 1 message for the round-worker
-      const { error: enqueueError } = await supabase.rpc("queue_send", {
-        p_queue_name: "deliberation_rounds",
-        p_msg: {
-          deliberation_id: deliberationId,
-          round_number: 1,
-        },
-      });
-      if (enqueueError) {
-        console.error(`Failed to enqueue Round 1: ${enqueueError.message}`);
-        // Fall through to legacy trigger as backup
-      } else {
-        console.log(`Enqueued round 1 for ${deliberationId}`);
-      }
-    }
-
-    if (!useQueue) {
-      // Legacy path: fire-and-forget HTTP self-invocation
-      const functionsUrl = Deno.env.get("EDGE_FUNCTIONS_URL") ??
-        `${Deno.env.get("SUPABASE_URL")}/functions/v1`;
-      const serviceKey = Deno.env.get("SUPABASE_SERVICE_ROLE_KEY");
-
-      if (functionsUrl && serviceKey) {
-        fetch(`${functionsUrl}/run-round`, {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-            Authorization: `Bearer ${serviceKey}`,
-          },
-          body: JSON.stringify({ deliberation_id: deliberationId }),
-        }).catch((err) =>
-          console.error(`Failed to trigger Round 1: ${err.message}`)
-        );
-      } else {
-        // Local dev: run inline
-        advanceDeliberation(deliberationId);
-      }
+    if (enqueueError) {
+      console.error(`Failed to enqueue: ${enqueueError.message}`);
+      // Don't fail the request — the orphan sweep will catch it
+    } else {
+      console.log(`Enqueued witness pipeline for ${deliberationId}`);
     }
 
     return new Response(
       JSON.stringify({
         id: deliberationId,
         status: "pending",
-        message: "Deliberation created. Round 1 triggered.",
+        message: "Witness council dispatched.",
       }),
       {
         status: 201,
