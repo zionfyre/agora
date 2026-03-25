@@ -1,5 +1,6 @@
-// Witness Council — Stage 3: Witness Dispatch
+// Witness Council — Witness Dispatch
 // All witnesses called simultaneously. No cross-pollination.
+// No question formation. The entry is the entry.
 // Extended thinking enabled for models that support it.
 
 import { getSupabaseClient } from "../supabase.ts";
@@ -8,20 +9,10 @@ import { resolveModel } from "../models.ts";
 import { ACTIVE_VOICES } from "../voices.ts";
 import type { Testimony, VoiceName } from "../types.ts";
 
-const WITNESS_INSTRUCTION = `You have been presented with the following.
-
-Entry:
-{entry_text}
-
-Question:
-{formed_question}
+function buildWitnessPrompt(entryText: string): string {
+  return `${entryText}
 
 Speak to what you witness here. Speak entirely from within your own way of knowing. You are not evaluating other voices. You are not building toward consensus. You are witnessing — offering what you see, from where you stand, as fully and honestly as you are able.`;
-
-function buildWitnessPrompt(entryText: string, formedQuestion: string): string {
-  return WITNESS_INSTRUCTION
-    .replace("{entry_text}", entryText)
-    .replace("{formed_question}", formedQuestion);
 }
 
 interface WitnessResult {
@@ -43,13 +34,11 @@ interface DispatchResult {
 
 export async function dispatchWitnesses(
   deliberationId: string,
-  entryText: string,
-  formedQuestion: string
+  entryText: string
 ): Promise<DispatchResult> {
   const supabase = getSupabaseClient();
-  const userPrompt = buildWitnessPrompt(entryText, formedQuestion);
+  const userPrompt = buildWitnessPrompt(entryText);
 
-  // Dispatch all witnesses in parallel
   const results = await Promise.allSettled(
     ACTIVE_VOICES.map(async (voice): Promise<WitnessResult> => {
       const model = resolveModel(voice.name as VoiceName, "sonnet");
@@ -81,11 +70,8 @@ export async function dispatchWitnesses(
         thinking_token_count: result.thinking_tokens,
       };
 
-      // Persist testimony immediately — partial results survive if others fail
-      const { error } = await supabase
-        .from("testimonies")
-        .insert(testimony);
-
+      // Persist immediately — partial results survive if others fail
+      const { error } = await supabase.from("testimonies").insert(testimony);
       if (error) {
         console.error(`Failed to persist testimony for ${voice.name}: ${error.message}`);
       }
@@ -94,7 +80,6 @@ export async function dispatchWitnesses(
     })
   );
 
-  // Collect results
   const testimonies: Testimony[] = [];
   const costs: WitnessResult["cost"][] = [];
   let failureCount = 0;

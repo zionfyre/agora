@@ -1,10 +1,8 @@
 // Witness Council Pipeline Orchestrator
-// Entry → Classify → Form Question → Parallel Witness Dispatch → Council Reading
+// Entry → Parallel Witness Dispatch → Council Reading
 
 import { getSupabaseClient } from "../supabase.ts";
 import { generateQueryEmbedding } from "../corpus-retrieval.ts";
-import { classifyEntry } from "./classifier.ts";
-import { formQuestion } from "./question-former.ts";
 import { dispatchWitnesses } from "./witness-dispatch.ts";
 import { generateCouncilReading } from "./council-reading.ts";
 import type { CostRecord, ModelCallCost } from "../types.ts";
@@ -64,7 +62,6 @@ export async function runWitnessPipeline(
     return { success: false, error: `Fetch failed: ${fetchError?.message}` };
   }
 
-  // Check for cancellation
   if (row.status === "cancelled") {
     console.log(`Deliberation ${deliberationId} cancelled — skipping`);
     return { success: true };
@@ -74,50 +71,8 @@ export async function runWitnessPipeline(
   const costs = new WitnessCostTracker();
 
   try {
-    // ── Stage 1: Classify ────────────────────────────────────────
-    // Idempotency: skip if entry_type already set
-    let entryType = row.entry_type;
-    if (!entryType) {
-      await supabase
-        .from("deliberations")
-        .update({ status: "pending" }) // classifying
-        .eq("id", deliberationId);
-
-      console.log(`[${deliberationId.slice(0, 8)}] Stage 1: Classifying entry`);
-      const classification = await classifyEntry(entryText);
-      entryType = classification.result.entry_type;
-      costs.add({ model: "anthropic/claude-sonnet-4.5", voice: "pipeline", ...classification.cost });
-
-      await supabase
-        .from("deliberations")
-        .update({ entry_type: entryType })
-        .eq("id", deliberationId);
-
-      console.log(
-        `[${deliberationId.slice(0, 8)}] Classified as: ${entryType} (${classification.result.confidence})`
-      );
-    }
-
-    // ── Stage 2: Form Question ───────────────────────────────────
-    // Idempotency: skip if formed_question already set
-    let formedQuestion = row.formed_question;
-    if (!formedQuestion) {
-      console.log(`[${deliberationId.slice(0, 8)}] Stage 2: Forming question`);
-      const qf = await formQuestion(entryText, entryType);
-      formedQuestion = qf.question;
-      costs.add({ model: "anthropic/claude-sonnet-4.5", voice: "pipeline", ...qf.cost });
-
-      await supabase
-        .from("deliberations")
-        .update({ formed_question: formedQuestion })
-        .eq("id", deliberationId);
-
-      console.log(
-        `[${deliberationId.slice(0, 8)}] Question formed${qf.passedVerbatim ? " (verbatim)" : ""}`
-      );
-    }
-
-    // ── Stage 3: Witness Dispatch ────────────────────────────────
+    // ── Stage 1: Witness Dispatch ────────────────────────────────
+    // No classifier. No question formation. The entry is the entry.
     // Idempotency: skip if testimonies already exist
     const { count: existingTestimonies } = await supabase
       .from("testimonies")
@@ -127,18 +82,14 @@ export async function runWitnessPipeline(
     let partial = row.partial_council ?? false;
 
     if (!existingTestimonies || existingTestimonies === 0) {
-      console.log(`[${deliberationId.slice(0, 8)}] Stage 3: Dispatching witnesses`);
+      console.log(`[${deliberationId.slice(0, 8)}] Stage 1: Dispatching witnesses`);
 
       await supabase
         .from("deliberations")
         .update({ status: "round_1_formation" }) // reuse existing status for frontend compat
         .eq("id", deliberationId);
 
-      const dispatch = await dispatchWitnesses(
-        deliberationId,
-        entryText,
-        formedQuestion
-      );
+      const dispatch = await dispatchWitnesses(deliberationId, entryText);
 
       partial = dispatch.partial;
       costs.addAll(dispatch.costs);
@@ -150,7 +101,6 @@ export async function runWitnessPipeline(
           .eq("id", deliberationId);
       }
 
-      // Update models_used and voices_used
       const modelsUsed = [...new Set(dispatch.costs.map((c) => c.model))];
       const voicesUsed = dispatch.testimonies.map((t) => t.witness_id);
       await supabase
@@ -163,12 +113,11 @@ export async function runWitnessPipeline(
       );
     }
 
-    // ── Stage 4: Council Reading ─────────────────────────────────
+    // ── Stage 2: Council Reading ─────────────────────────────────
     // Idempotency: skip if council_reading already set
     if (!row.council_reading) {
-      console.log(`[${deliberationId.slice(0, 8)}] Stage 4: Generating council reading`);
+      console.log(`[${deliberationId.slice(0, 8)}] Stage 2: Generating council reading`);
 
-      // Fetch all testimonies for this deliberation
       const { data: testimonies, error: tError } = await supabase
         .from("testimonies")
         .select("*")
@@ -180,14 +129,9 @@ export async function runWitnessPipeline(
         );
       }
 
-      const reading = await generateCouncilReading(
-        entryText,
-        formedQuestion,
-        testimonies
-      );
+      const reading = await generateCouncilReading(entryText, testimonies);
       costs.add({ model: "anthropic/claude-sonnet-4.5", voice: "pipeline", ...reading.cost });
 
-      // Persist cost + reading + completion atomically
       const finalCost = costs.build();
       await supabase
         .from("deliberations")
@@ -203,7 +147,6 @@ export async function runWitnessPipeline(
         `[${deliberationId.slice(0, 8)}] Council reading complete — $${finalCost.estimated_cost_usd.toFixed(4)} (${finalCost.total_tokens} tokens)`
       );
     } else {
-      // Reading already exists — persist accumulated cost and mark completed
       const finalCost = costs.build();
       await supabase
         .from("deliberations")

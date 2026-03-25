@@ -1,4 +1,4 @@
-// Witness Council — Stage 4: Council Reading
+// Witness Council — Council Reading
 // Holds the shape of all testimonies without collapsing them.
 // Written under the influence of James Baldwin and Cole Arthur Riley.
 
@@ -28,7 +28,6 @@ Length: 300 to 500 words. No more.`;
 
 function buildUserPrompt(
   entryText: string,
-  formedQuestion: string,
   testimonies: Testimony[]
 ): string {
   const testimoniesBlock = testimonies
@@ -37,9 +36,6 @@ function buildUserPrompt(
 
   return `Entry presented to the witness council:
 ${entryText}
-
-Question the council encountered:
-${formedQuestion}
 
 Testimonies:
 
@@ -50,13 +46,12 @@ Write the council reading.`;
 
 export async function generateCouncilReading(
   entryText: string,
-  formedQuestion: string,
   testimonies: Testimony[]
 ): Promise<{ reading: string; cost: { prompt_tokens: number; completion_tokens: number; estimated_cost_usd: number } }> {
   const result = await complete(
     READING_MODEL,
     SYSTEM_PROMPT,
-    buildUserPrompt(entryText, formedQuestion, testimonies),
+    buildUserPrompt(entryText, testimonies),
     "cartographer", // voice slot for cost tracking — reader role
     {
       temperature: 0.8,
