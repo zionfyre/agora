@@ -6,7 +6,7 @@ import { complete } from "../openrouter.ts";
 import { MODEL_VERSIONS } from "../models.ts";
 import type { Testimony } from "../types.ts";
 
-const READING_MODEL = MODEL_VERSIONS.sonnet;
+const READING_MODEL = MODEL_VERSIONS.opus;
 
 const SYSTEM_PROMPT = `You write the council reading for a witness council — seven epistemically distinct witnesses, each of whom has encountered the same entry independently and offered their testimony.
 

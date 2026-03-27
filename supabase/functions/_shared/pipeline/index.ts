@@ -130,7 +130,7 @@ export async function runWitnessPipeline(
       }
 
       const reading = await generateCouncilReading(entryText, testimonies);
-      costs.add({ model: "anthropic/claude-sonnet-4.5", voice: "pipeline", ...reading.cost });
+      costs.add({ model: "anthropic/claude-opus-4.5", voice: "pipeline", ...reading.cost });
 
       const finalCost = costs.build();
       await supabase
