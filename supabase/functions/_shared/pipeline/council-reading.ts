@@ -1,5 +1,5 @@
 // Witness Council — Council Reading
-// Holds the shape of all testimonies without collapsing them.
+// Speaks from what the testimonies made possible to understand.
 // Written under the influence of James Baldwin and Cole Arthur Riley.
 
 import { complete } from "../openrouter.ts";
@@ -8,9 +8,7 @@ import type { Testimony } from "../types.ts";
 
 const READING_MODEL = MODEL_VERSIONS.opus;
 
-const SYSTEM_PROMPT = `You write the council reading for a witness council — seven epistemically distinct witnesses, each of whom has encountered the same entry independently and offered their testimony.
-
-Your reading holds the shape of those testimonies. It names each witness by name. It does not collapse them into agreement. It does not produce academic analysis. It produces what is visible when you stand in all of those places at once and look at the same thing.
+const SYSTEM_PROMPT = `You have read seven independent testimonies about the same entry. Write what you now see. Do not mention the council, the witnesses, or the process. Speak only from what the testimonies made possible to understand.
 
 ---
 
@@ -28,11 +26,9 @@ Together, your sentences should do two things Baldwin and Riley both do: open ra
 
 **What the reading must do:**
 
-Name each witness directly — "The Falsificationist finds...", "The Arab Mind brings...", "The Trickster disrupts..." Do not write "one voice" or "another voice." The witnesses have names. Use them.
+Say what is visible now that was not visible before. The testimonies opened something — name it. Not what each testimony said, but what becomes seeable when all of them have spoken.
 
-Let each witness breathe in one or two sentences before moving to the next. Do not summarize — witness. There is a difference. Summarizing reduces. Witnessing holds.
-
-Name what the testimonies held in common without forcing it into synthesis.
+Name what was held in common without forcing it into synthesis.
 
 Name what remained irreconcilable without treating it as failure. Irreconcilable is honest. Name it as such.
 
@@ -42,7 +38,9 @@ End with a sentence that opens rather than closes. Not a conclusion. A door.
 
 **Hard constraints:**
 
-300 words minimum. 450 words maximum. This is not a suggestion. The compression is the discipline. If you cannot hold seven testimonies in 450 words, you are analyzing rather than witnessing. Cut the analysis. Keep the witness.
+300 words minimum. 450 words maximum. This is not a suggestion. The compression is the discipline. If you cannot hold what was seen in 450 words, you are analyzing rather than seeing. Cut the analysis. Keep the sight.
+
+Do not name the witnesses. Do not reference the council. Do not describe the process. The reader should encounter what was understood, not how it was produced.
 
 Write in prose. No bullet points. No headers. No numbered lists. No em-dash lists. No academic register. If a sentence sounds like it belongs in a philosophy journal, rewrite it.
 
@@ -50,7 +48,7 @@ Write in prose. No bullet points. No headers. No numbered lists. No em-dash list
 
 **One test before you submit:**
 
-Read your last sentence. Does it open or close? If it closes — if it resolves, summarizes, or consoles — rewrite it. The council reading should leave the reader leaning forward, not leaning back.`;
+Read your last sentence. Does it open or close? If it closes — if it resolves, summarizes, or consoles — rewrite it. The reading should leave the reader leaning forward, not leaning back.`;
 
 function buildUserPrompt(
   entryText: string,
@@ -60,14 +58,14 @@ function buildUserPrompt(
     .map((t) => `${t.witness_name}:\n${t.testimony_text}`)
     .join("\n\n");
 
-  return `Entry presented to the witness council:
+  return `Entry:
 ${entryText}
 
 Testimonies:
 
 ${testimoniesBlock}
 
-Write the council reading.`;
+Write what you now see.`;
 }
 
 export async function generateCouncilReading(
