@@ -1,6 +1,7 @@
 name: Deploy Edge Functions
 
 on:
+  workflow_dispatch:
   push:
     branches: [main]
     paths:
@@ -25,6 +26,6 @@ jobs:
             # Skip _shared — it's not a function, it's a shared module
             if [ "$fn" = "_shared" ]; then continue; fi
             echo "Deploying $fn..."
-            supabase functions deploy "$fn" --project-ref ${{ secrets.SUPABASE_PROJECT_REF }}
+            supabase functions deploy "$fn" --project-ref ${{ secrets.SUPABASE_PROJECT_REF }} --no-verify-jwt
           done
           echo "All edge functions deployed."
