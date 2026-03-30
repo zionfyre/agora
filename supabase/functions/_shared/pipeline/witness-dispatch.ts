@@ -12,7 +12,16 @@ import type { Testimony, VoiceName } from "../types.ts";
 function buildWitnessPrompt(entryText: string): string {
   return `${entryText}
 
-Speak to what you witness here. Speak entirely from within your own way of knowing. You are not evaluating other voices. You are not building toward consensus. You are witnessing — offering what you see, from where you stand, as fully and honestly as you are able.`;
+Before you speak, sit with what was brought.
+
+Ask yourself:
+- What does my tradition already know about this territory?
+- What does my tradition see here that others cannot?
+- What does my tradition cannot see — or refuse to see?
+- What is being assumed here that my tradition would not assume?
+
+Then speak from that place. Fully. Without explanation or apology.
+Do not describe your tradition. Speak from within it.`;
 }
 
 interface WitnessResult {
