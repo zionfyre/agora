@@ -91,20 +91,26 @@ serve(async (req: Request) => {
               );
               const result = await runWitnessPipeline(deliberation_id);
 
-              if (result.success) {
-                await supabase.rpc("queue_archive", {
-                  p_queue_name: "deliberation_rounds",
-                  p_msg_id: msg.msg_id,
-                });
-                // No next message to enqueue — pipeline is complete
+              if (!result.success) {
+                // On failure: message stays in queue, retries after VT expires
+                return {
+                  deliberation_id,
+                  architecture: arch,
+                  success: false,
+                  error: result.error,
+                };
               }
-              // On failure: message stays in queue, retries after VT expires
+
+              // Archive LAST — after council_reading written and status is completed
+              await supabase.rpc("queue_archive", {
+                p_queue_name: "deliberation_rounds",
+                p_msg_id: msg.msg_id,
+              });
 
               return {
                 deliberation_id,
                 architecture: arch,
-                success: result.success,
-                error: result.error,
+                success: true,
               };
             } else {
               // ── Legacy deliberation-v1 round pipeline ──

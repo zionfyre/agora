@@ -9,6 +9,8 @@ import { resolveModel } from "../models.ts";
 import { ACTIVE_VOICES } from "../voices.ts";
 import type { Testimony, VoiceName } from "../types.ts";
 
+const WITNESS_TIMEOUT_MS = 30_000;
+
 function buildWitnessPrompt(entryText: string): string {
   return `${entryText}
 
@@ -35,10 +37,18 @@ interface WitnessResult {
   };
 }
 
+export interface WitnessTimeout {
+  witness_id: string;
+  model: string;
+  timed_out_at: string;
+  entry_length: number;
+}
+
 interface DispatchResult {
   testimonies: Testimony[];
   partial: boolean;
   costs: WitnessResult["cost"][];
+  timeouts: WitnessTimeout[];
 }
 
 export async function dispatchWitnesses(
@@ -57,16 +67,24 @@ export async function dispatchWitnesses(
         `Dispatching witness: ${voice.name} (${model}, thinking=${thinkingEnabled})`
       );
 
-      const result = await completeWithThinking(
-        model,
-        voice.systemPrompt,
-        userPrompt,
-        voice.name as VoiceName,
-        {
-          max_tokens: 4096,
-          thinking_budget: thinkingEnabled ? 10000 : undefined,
-        }
-      );
+      const result = await Promise.race([
+        completeWithThinking(
+          model,
+          voice.systemPrompt,
+          userPrompt,
+          voice.name as VoiceName,
+          {
+            max_tokens: 4096,
+            thinking_budget: thinkingEnabled ? 10000 : undefined,
+          }
+        ),
+        new Promise<never>((_, reject) =>
+          setTimeout(
+            () => reject(new Error("witness_timeout")),
+            WITNESS_TIMEOUT_MS
+          )
+        ),
+      ]);
 
       const testimony: Testimony = {
         deliberation_id: deliberationId,
@@ -91,24 +109,43 @@ export async function dispatchWitnesses(
 
   const testimonies: Testimony[] = [];
   const costs: WitnessResult["cost"][] = [];
+  const timeouts: WitnessTimeout[] = [];
   let failureCount = 0;
 
-  for (const result of results) {
+  for (let i = 0; i < results.length; i++) {
+    const result = results[i];
     if (result.status === "fulfilled") {
       testimonies.push(result.value.testimony);
       costs.push(result.value.cost);
     } else {
       failureCount++;
-      console.error(`Witness failed: ${result.reason}`);
+      const voice = ACTIVE_VOICES[i];
+      const model = resolveModel(voice.name as VoiceName, "sonnet");
+      const isTimeout = result.reason instanceof Error &&
+        result.reason.message === "witness_timeout";
+
+      if (isTimeout) {
+        console.warn(
+          `Witness timed out after ${WITNESS_TIMEOUT_MS}ms: ${voice.name} (${model})`
+        );
+        timeouts.push({
+          witness_id: voice.name,
+          model,
+          timed_out_at: new Date().toISOString(),
+          entry_length: entryText.length,
+        });
+      } else {
+        console.error(`Witness failed: ${voice.name} — ${result.reason}`);
+      }
     }
   }
 
   const partial = failureCount > 0;
   if (partial) {
     console.warn(
-      `Partial council: ${failureCount}/${ACTIVE_VOICES.length} witnesses failed`
+      `Partial council: ${failureCount}/${ACTIVE_VOICES.length} witnesses failed (${timeouts.length} timeouts)`
     );
   }
 
-  return { testimonies, partial, costs };
+  return { testimonies, partial, costs, timeouts };
 }

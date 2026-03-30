@@ -101,6 +101,13 @@ export async function runWitnessPipeline(
           .eq("id", deliberationId);
       }
 
+      if (dispatch.timeouts.length > 0) {
+        await supabase
+          .from("deliberations")
+          .update({ witness_timeout_log: dispatch.timeouts })
+          .eq("id", deliberationId);
+      }
+
       const modelsUsed = [...new Set(dispatch.costs.map((c) => c.model))];
       const voicesUsed = dispatch.testimonies.map((t) => t.witness_id);
       await supabase
